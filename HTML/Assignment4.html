@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4</title>
+    <style>
+        body {
+            margin: 5px;
+            padding: 0px;
+        }
+
+        .div {
+            border: 7px solid blue;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+        }
+
+        fieldset {
+            background-color: burlywood;
+            border: 2px solid black
+        }
+
+        legend {
+            color: rgb(57, 21, 92);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+        }
+
+        label {
+            background-color: chartreuse;
+            height:20px;
+        }
+
+        input {
+            background-color: aqua;
+            height:20px;
+
+            /*How to allign all input elements in one line acc to margin?*/
+        }
+        
+        .btn {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <h1>Reservation Request</h1>
+        <br>
+        <form>
+            <fieldset>
+                <legend>General Information</legend>
+                <div style=" display: flex;">
+                    <div>
+                        <label>Arrival date:</label> <br><br>
+                        <label>Nights:</label><br><br>
+                        <label>Adults:</label> <br><br>
+                        <label>Children:</label> <br><br>
+                    </div>
+                    <div style=" margin-left: 20px;">
+                        <input type="date" required><br><br>
+                        <input type="number" min="1" required><br><br>
+                        <input type="number" min="1" required style="width: 25px;"><br><br>
+                        <input type="number" min="0" required><br><br>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Preferences</legend>
+                <label>Room type: </label>
+                <input type="radio" name="room"> Standard
+                <input type="radio" name="room"> Buisness
+                <input type="radio" name="room"> Suite
+                <br><br>
+                <label>Bed type: </label>
+                <input type="radio" name="bed"> King
+                <input type="radio" name="bed"> Double
+                <br><br>
+                <input type="checkbox" name="smoking"> Smoking
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Contact Information</legend>
+                <label>Name: </label>
+                <input type="text" name="name" required><br><br>
+                <label>Email: </label>
+                <input type="email" required><br><br>
+                <label>Phone: </label>
+                <input type="tel" required>
+            </fieldset>
+            <br>
+            <input class="btn" type="submit" value="Submit Reservation">
+            <input class="btn" type="reset" value="Clear">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 9 Logo Form</title>
+    <style>
+        body{
+            margin:0px;
+            padding:5px;
+        }
+        .container{
+            height: auto;
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            padding:20px;
+        }
+        .form{
+            padding:20px;
+        }
+        h1{
+            font-weight: 600;
+        }
+        .logo-imgs{
+            height:70px;
+            width: 200px;
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .img{
+            height:30px;
+            width: 30px;
+        }
+        input{
+            height: 25px;
+            width:180px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="email">
+            <p>Email: info@milessabesta.com</p>
+        </div>
+        <div class="form">
+            <h1>Contact Miles</h1>
+            <form>
+                <input type="text" required placeholder="Name" name="name"><br><br>
+                <input type="tel" required placeholder="Phone" name="phone"><br><br>
+                <input type="email" required placeholder="Email" name="email"><br><br>
+                <textarea placeholder="Message" required rows="3" cols="23"></textarea><br><br>
+                <input type="submit" value="SEND MESSAGE" style="background-color: black; color: white;">
+            </form>
+        </div>
+        <div class="logo-imgs">
+            <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/1200px-Logo_of_Twitter.svg.png" alt="twitter">
+            <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiXN9xSEe8unzPBEQOeAKXd9Q55efGHGB9BA&s" alt="facebook">
+            <img class="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="instagram">
+            <img class="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRokEYt0yyh6uNDKL8uksVLlhZ35laKNQgZ9g&s" alt="linkedin">
+        </div>
+    </div>
+</body>
+</html>
