@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="./codeFreeform.css">
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <p>Please fill out this form with required information</p>
+    <form>
+        <label>Enter your name:</label><br>
+        <input type="text" placeholder="Enter name here" required>  <br><br>
+        <label>Enter your email: </label><br>
+        <input type="email" placeholder="abc@gmail.com" required>   <br><br>
+        <label>Create password: </label><br>
+        <input type="password" placeholder="Password@123" required>  <br><br>
+        <hr>
+        <label>Account type </label><br>
+        <input type="radio" name="account" required>Personal<br>
+        <input type="radio" name="account" required>Buisness    <br><br>
+        <hr>
+        <label>Upload a profile photo</label><br>
+        <input type="file" accept="image/*" required>   <br><br>
+        <label>Input your age (in years)</label><br>
+        <input type="number" min="18" max="100" value="18" required>   <br><br> 
+        <label>How did you hear about us? (select one)</label><br>
+        <select required>
+            <option  placeholder="Select one">Youtube</option>
+            <option>WhatsApp</option>
+            <option>Instagram</option>
+        </select>   <br><br>
+        <label>Provide a bio: </label><br>
+        <textarea rows="3" cols="80" placeholder="Write about yourself here"></textarea><br><br>
+        <input type="checkbox" required> I accept the <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-html-forms-by-building-a-registration-form/step-1">terms and conditions</a>
+        <br><br>
+        <input type="submit" value="Submit" background-color:>
+    </form>
+</body>
+</html>

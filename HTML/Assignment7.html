@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 7</title>
+    <style>
+        body {
+            background-color: rgb(0, 128, 98);
+        }
+
+        div {
+            margin-left: 400px;
+            margin-right: 400px;
+            height: 100%;
+        }
+
+        form {
+            background-color: white;
+            padding: 15px;
+        }
+
+        h1 {
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .input {
+            height: 25px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .button {
+            background-color: green;
+            height: 25px;
+            width: 200px;
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>GeeksforGeeks Survey Form</h1>
+        <form>
+            <label>Name</label><br>
+            <input type="text" class="input" placeholder="Enter your name" required><br><br>
+            <label>Email</label><br>
+            <input type="email" class="input" placeholder="Enter your email" required><br><br>
+            <label>Age</label><br>
+            <input type="number" class="input" placeholder="Enter your age" required><br><br>
+            <label>Which option best describes you?</label><br>
+            <select class="input">
+                <option>Student</option>
+                <option>Teacher</option>
+                <option>Working</option>
+            </select><br><br>
+            <label>Would you recommend GfG to your friends?</label><br>
+            <input type="radio" name="radio">Yes<br>
+            <input type="radio" name="radio">No<br>
+            <input type="radio" name="radio">Maybe<br><br>
+            <input type="submit" value="Submit" class="button">
+        </form>
+    </div>
+</body>
+
+</html>

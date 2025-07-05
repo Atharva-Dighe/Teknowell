@@ -1,0 +1,20 @@
+h1,p,form{
+    text-align: center;
+    color: white;
+}
+label{
+    text-align: left;
+}
+input,textarea{
+    background-color: rgb(12, 12, 49);
+    color: white;
+}
+#submit{
+    background-color: aquamarine;
+    text-align: center;
+    height: 40px;;
+    width: 200px;
+}
+body{
+    background-color: rgb(28, 28, 67);
+}
