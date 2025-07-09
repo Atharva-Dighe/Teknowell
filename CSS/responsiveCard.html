@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .nav{
+            background-color: black;
+            width: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo{
+            width:150px;
+            margin-left: 20px;
+            /*border: 1px solid black; /* solid, 3D's - double, dotted, dashed*/
+        }
+        .logo-img{
+            width:100%;
+            
+        }
+        .menu{
+            width: 65%;
+            display: flex;
+            flex-direction:row;
+            align-items: start;
+            justify-content:space-evenly;      /* between, equal, around */
+            flex-wrap: wrap;
+        }
+        .p{
+            font-size:x-large;
+            font-weight: bold;
+            font-family:Cambria, Cochin;
+        }
+        a{
+            text-decoration: none;
+            color:white;
+        }
+        .container{
+            background-color:red;
+            height:551px;
+            display:flex;
+            flex-direction: row;
+            justify-content:space-evenly;
+            align-items: center;
+        }
+        .card{
+            background-color: burlywood;
+            height:410px;
+            width:240px;
+            border-radius: 10px;
+        }
+        .card:hover{
+            box-shadow: 5px 5px 10px black;
+            
+        }
+        .img{
+            width: 220px;
+            border-radius: 10px;
+            margin:10px;
+            margin-bottom: 0px;
+
+        }
+        h2{
+            text-align:center ;
+            background-color: black;
+            color:wheat
+
+        }
+        .desc{
+            margin: 4px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <img class="logo-img" src="https://www.royalenfield.com/content/dam/royal-enfield/india/logos/logo.svg"
+            alt="RE logo">
+        </div>
+        <div class="menu">
+            <p class="p"><a href="">Home</a></p>
+            <p class="p"><a href="">Motorcycle</a></p>
+            <p class="p"><a href="">About</a></p>
+            <p class="p"><a href="">Contact</a></p>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="card"><a href="https://www.royalenfield.com/in/en/motorcycles/" style="color: black;">
+            <img src="https://www.royalenfield.com/content/dam/royal-enfield/motorcycles/hunter/motorcycle-listing.jpg" class="img" alt="Hunter">
+            <h2>Hunter 350</h2>
+            <p class="desc">The RE Hunter 350, a roadster-style motorcycle known for its neo-retro design, accessible seat height, and urban-friendly features.Designed easy to ride, with comfortable riding posture, nimble handling, making it well-suited for city commutes and everyday use. </p></a>
+        </div>
+
+        <div class="card">
+            <img src="https://www.royalenfield.com/content/dam/royal-enfield/motorcycles/scram-440/motorcycle-listing.jpg" class="img" alt="scram-440">
+            <h2>Scram 440</h2>
+            <p class="desc">The RE Scram 440, a scrambler-styled motorcycle launched in January 2025, & is based on the popular Himalayan platform. It features a larger, 443cc, air/oil-cooled engine producing 25.4bhp and 34Nm of torque, paired with a 6-speed gearbox.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://www.royalenfield.com/content/dam/royal-enfield/motorcycles/himalayan/new-himalayan-motorcycle-listing.jpg" class="img" alt="himalayan">
+            <h2>Himalayan 450</h2>
+            <p class="desc">The Royal Enfield Himalayan 450 is an adventure touring motorcycle, built to handle both on-road and off-road terrains, featuring a new 452cc liquid-cooled engine producing 40bhp and 42Nm of torque, paired with a 6-speed gearbox.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/landing/continental-gt-650-thumbnail.jpg" class="img" alt="continental-gt650">
+            <h2>Continental GT 650</h2>
+            <p class="desc">The Royal Enfield Continental GT 650 is a retro-styled cafe racer motorcycle built on the company's 650cc parallel-twin platform. It features a sporty riding position, clip-on handlebars, and rear-set footrests.</p>
+        </div>
+    </div>
+</body>
+</html>

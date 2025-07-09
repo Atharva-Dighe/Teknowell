@@ -1,0 +1,101 @@
+.first{
+    background-color:linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+    background-image: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 0px 0px 30px 30px;
+    border:2px solid black;
+}
+.btn{
+    background-color:black;
+    color:white;
+    font-family:fantasy;
+    height:50px;
+    border-radius: 10px;
+}
+.login-signup{
+    display: flex;
+    flex-direction: row;
+    color:white;
+    /* justify-content: space-between;
+    align-items: center; */
+}
+p{
+    margin-left:20px;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+.second{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(214,40,40,1) 0%, rgba(255,195,0,1) 90% ); 
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding:10px;
+    margin-left:230px;
+    margin-right:230px;
+    border-radius:20px;
+    margin-top:7px;
+    border:2px solid black;
+}
+.btn2{
+    height:40px;
+    background-color:initial;
+    color:black;
+    border-radius: 15px;
+}
+
+.img{
+    margin-top:20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.image{
+    height: 200px;
+    width:300px;
+    border:2px solid black;
+    border-radius:20px;
+}
+.third{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+    align-items:center;
+    margin-top:20px;
+}
+.btn3{
+    height: 40px;
+    border-radius: 15px;
+    padding-left:40px;
+    padding-right:40px;
+}
+.fourth{
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top:10px;
+    border:2px solid black;
+    border-radius: 30px 30px 0px 0px;
+}
+.btn4{
+    margin:5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-left:5px;
+    padding-right: 5px;
+    width:130px;
+}

@@ -1,0 +1,85 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.first{
+    background-color: black;
+    height:30px;
+}
+.second{
+    background-color: rgb(188, 138, 73);
+    /* height:70px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    padding-left: 140px;
+    padding-right: 200px;
+}
+.header{
+    height: 80%;
+    color:white;
+}
+h1{
+    color:white;
+    margin-top: 5px;
+    font-weight: 300;
+}
+.menu{
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: 60px;
+}
+p{
+    color: white;
+    margin-top: 2px;
+}
+.form{
+    height: 300px;
+    padding-left:160px;
+}
+input{
+    height:28px;
+    width: 240px;
+}
+button{
+    background-color: rgb(188, 138, 73);
+    height: 28px;
+    color: white;
+    border: 1.8px solid black;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.footer{
+    background-color:rgb(188, 138, 73);
+    display: flex;
+    flex-direction:row;
+    align-items: start;
+    justify-content: space-between;
+    padding-left: 160px;
+    padding-right: 160px;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+h4{
+    color: white;
+}
+.last{
+    background-color: black;
+    height:30px;
+}
+.about, .services, .links, .contact{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+}
