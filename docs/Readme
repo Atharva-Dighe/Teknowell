@@ -16,7 +16,7 @@ and some short description. The cards have hover effect of shadow to it's right 
 They also have been linked to the bike description to original RE website using anchor tag.
 
 Inside the Contact page, I have designed a form inside the contact us page collecting user information 
-like name, mobile no., email and querry which gets opened as the user clicks on the "Contact Us" button present on the page.
+like name, mobile no., email and query which gets opened as the user clicks on the "Contact Us" button present on the page.
 
 I have tried my best to maintain aesthetics and keep the website simple and user friendly.
 All the pages have become responsive by the use of div elements everywhere having "display:flex" "flex-wrap:wrap" 
