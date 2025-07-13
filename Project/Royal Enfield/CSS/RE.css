@@ -12,7 +12,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
+    position: fixed;
+    opacity: 85%;
+    /* margin-bottom:00px; */
 }
 
     .logo {
@@ -42,7 +44,7 @@
 }
 
     a:hover{
-        color:orange;
+        color:orangered;
 }
 
     a {
@@ -50,14 +52,16 @@
     color: white;
 }
 
-    .container {
-    background-color: red;
+    .container{
+    
     /* height: 551px; */
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    padding-top:75px;
 }
 
     .footer {
@@ -98,6 +102,28 @@
     font-weight: 500;
     gap:15px;
 }
+    .center{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    }
+
+    .right{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    gap:5px;
+    align-items: start;
+    }
+
+    .footerLogo{
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    height:30px;
+    margin-left:5px;
+    margin-right:5px;
+    }
 
                         /*----------------------------------------------------*/
 
@@ -114,12 +140,15 @@
 /*Motorcycle Page CSS*/
 
     .card {
-    background-color: burlywood;
-    height: 410px;
-    width: 240px;
+    background-color: rgb(252, 197, 94);
+    height: 450px;
+    width: 280px;
     border-radius: 10px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border:1.5px solid black;
+    margin-left:18px;
+    margin-right:18px;
 }
 
     :hover.card{
@@ -128,10 +157,11 @@
 }
 
     .cardImg {
-    width: 220px;
+    width: 260px;
     border-radius: 10px;
     margin: 10px;
     margin-bottom: 0px;
+    border:1px solid black;
 }
 
     h2 {
@@ -144,6 +174,12 @@
     margin: 4px;
 }
 
+    .motorImg{
+    width: 100%;
+    border:2px solid black;
+    /* padding-left:2px;
+    padding-right:2px; */
+}
                         /*----------------------------------------------------*/
 
 /*About Page CSS*/
@@ -157,7 +193,79 @@
 
 /*Contact Page CSS*/
 
+    .containerContact{
+    background-image:url(../Images/contactUsBg\ Page\ Img.avif);
+    width: 100%;
+    height: 555px;
+    padding-top:75px;
+}
     .contactBg {
-    height: 100%;
     width: 100%;
 }
+    .contactBtn{
+    position:absolute;
+    margin-top: 200px;
+    margin-left: 250px;
+    height:80px;
+    width: 150px;
+    color:white;
+    background-color: rgb(255, 98, 40);
+    border:3px solid black;
+    border-radius: 20px;
+    font-size: larger;
+    font-weight: 550;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+    .contactBtn:hover{
+        cursor: pointer;
+        color:black;
+        background-color: white;    
+    }
+
+                        /*----------------------------------------------------*/
+
+/*Form Page CSS*/
+
+    .formContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../Images/contactUsBg\ Page\ Img.avif);
+    padding-top:75px;   
+    }
+
+    .form{
+    background-color: black;
+    border:2px solid white;
+    border-radius: 10px;
+    opacity: 80%;
+    color: wheat;
+    width:300px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding:40px;
+    margin-top:15px;
+    padding-top:20px;
+    }
+
+    input{
+    height:26px;
+    width: 200px;
+    margin-top:2px;
+    }
+
+    textarea{
+    margin-top:5px ;
+    }
+
+    .submit{
+    height:35px;
+    width: 200px;
+    background-color: greenyellow;
+    }
