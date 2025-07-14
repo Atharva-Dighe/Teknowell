@@ -1,3 +1,6 @@
+# Royal-Enfield
+Project using pure HTML CSS developed during Java Full Stack Web Development Course at Teknowell Institute.
+
 This is my first project where I tried to build a copy of Royal Enfield Bikes website referring 
 thier original website using HTML and CSS only.
 Features of website are Fully Responsiveness, hover effects applied to various elements at different places.
@@ -25,3 +28,4 @@ property making them easy to access on any screen size.
 Please visit the website- https://atharva-dighe.github.io/Teknowell/index.html
 Your feedbacks are appreciated and most welcomed.
 Thank you.
+
