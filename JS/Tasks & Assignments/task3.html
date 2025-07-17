@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Validation</title>
+</head>
+<body>
+    
+<form>
+    <label>Enter User Name: </label>
+    <input type="text" id="name"><br><br>
+    <label>Enter Password: </label>
+    <input type="text" id="pw"><br><br>
+</form>
+<button onclick="Validate()">Validate</button>
+
+<script>
+
+    function Validate()
+    {
+        a=document.getElementById("name").value;
+        b=document.getElementById("pw").value;
+        console.log(a);
+        console.log(b);
+
+        a=a.trim();             //Removes Whitespaces(as whitespaces don't get visualised whether entered or not)
+        b=b.trim();
+
+        if(a=="atharva" && b=="dighe")
+        {
+            alert("Account Verified");
+        }
+        else
+        {
+            alert("Wrong Password");
+        }
+    }
+</script>
+</body>
+</html>
