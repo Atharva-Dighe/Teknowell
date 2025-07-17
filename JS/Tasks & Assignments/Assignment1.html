@@ -4,17 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Assignment 1</title>
+    <style>
+
+        .form{
+            margin-top:8%;
+            margin-left:40%;
+            display:flex;
+            flex-direction: row;
+            align-items: start;
+            justify-content: space-evenly;
+            height:150px;
+            width:200px;
+            background-color: burlywood;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        label{
+            font-size: x-large;
+            font-weight: 549;
+        }
+        input{
+            margin-top: 10px;
+            height: 25px;
+        }
+        button{
+            height: 35px;
+            background-color: greenyellow;
+            border: 1.5px solid black;
+            border-radius: 4px;
+            font-size: medium;
+        }
+    </style>
 </head>
 <body>
-    <form>
-        <label>Enter Age</label><br><br>
-        <input type="text" id="age">
-        <button onclick="validate()">Validate</button>
-    </form>
+    <div class="form">
+        <form>
+            <br>
+            <label>Enter Age</label><br>
+            <input type="text" id="age"><br><br>
+            <button onclick="validate()">Validate</button>
+        </form>
+    </div>
     <script>
         function validate()
         {
-            
+            a=parseInt(document.getElementById("age").value);
+
+            console.log(a);
+
+            if(a>=0 && a<=120)
+                alert(a+" years is a valid age.")
+            else
+                alert("Not a valid age. Please enter valid age (0-120)")
         }
     </script>
 </body>
