@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment 2</title>
+    <link rel="stylesheet" href="./Assignment2.css">
+</head>
+<body>
+<div class="container">
+    <form>
+        <div class="label">
+            <label>Enter number 1: </label>
+            <label>Enter number 2: </label>
+            <label>Result: </label>
+        </div>
+        <div class="input">
+            <input type="text" id="num1">
+            <input type="text" id="num2">
+            <input type="text" id="result" placeholder="Press any 1 button from below for result">
+        </div> 
+    </form>
+    <div class="operations">
+            <button id="add" onclick="Addition()">Addition</button>
+            <button id="sub" onclick="Subtraction()">Subtraction</button>
+            <button id="mul" onclick="Multiplication()">Multiplication</button>
+            <button id="div" onclick="Division()">Division</button>
+    </div>
+</div>
+<script>
+
+function Addition()
+{
+    a=parseInt(document.getElementById("num1").value);
+    b=parseInt(document.getElementById("num2").value);
+    console.log(a);
+    console.log(b);
+    addition=(a+b);
+    console.log(addition);
+    result.value=(addition);
+}
+function Subtraction()
+{
+    a=parseInt(document.getElementById("num1").value);
+    b=parseInt(document.getElementById("num2").value);
+    console.log(a);
+    console.log(b);
+    subtraction=(a-b);
+    console.log(subtraction);
+    result.value=(subtraction);
+}
+function Multiplication()
+{
+    a=parseInt(document.getElementById("num1").value);
+    b=parseInt(document.getElementById("num2").value);
+    console.log(a);
+    console.log(b);
+    multiplication=(a*b);
+    console.log(multiplication);
+    result.value=(multiplication);
+}
+function Division()
+{
+    a=parseInt(document.getElementById("num1").value);
+    b=parseInt(document.getElementById("num2").value);
+    console.log(a);
+    console.log(b);
+    division=(a/b);
+    console.log(division);
+    result.value=(division);
+}
+
+
+</script>
+    
+</body>
+</html>
