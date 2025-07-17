@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Javascript</title>
+</head>
+<body>
+    <script>
+        
+
+//Arrays
+        // arr=[1,2,3,"Atharva"];
+        // document.writeln(arr+"<br>")
+        // arr1=[1,2,3,4,5];
+        // document.writeln(arr1 +"<br>")
+        // arr2=['Atharva','Shruti','Sanket','Aditi'];
+        // document.writeln(arr2+"<br>")
+
+
+
+
+//Accessing arrays using for loop
+
+//Accepting 1-D array values from user & printing it
+
+        // n=parseInt(prompt("Enter size of array"))
+        // arr=new Array(n)
+        // for(i=0;i<n;i++)
+        // {
+        //     arr[i]=parseInt(prompt("Enter " +(i+1)+ "th value"))
+        // }
+        // document.writeln("Entered value inside array are : <br>")
+        // for(i=0;i<n;i++)
+        // {
+        //     document.writeln(arr[i]+"&nbsp")
+        // }
+
+
+
+
+//Accepting 2-D array values from user & printing it
+
+
+    //Accept values of rows & cols
+    n=parseInt(prompt("Enter value of row"))
+    m=parseInt(prompt("Enter value of coloumn"))
+    // x=parseInt(prompt("Enter value of coloumn"))
+
+    //Initialising 2-D array code
+    arr=new Array(n);
+    for(i=0;i<n;i++)
+    {
+        arr[i]=new Array(m);
+
+        // if(i==0)
+        // arr[i]=new Array(m);         //for 3 cols in first row & 2 cols in next two rows
+        // else
+        // arr[i]=new Array(x);
+
+    }
+// document.writeln(arr)        //for getting empty array size.
+    //Main Code for accepting values from user
+ for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            arr[i][j]=parseInt(prompt("Enter " +(i+1) + (j+1)+ "value in array"));
+        }
+    }
+
+    //Print array values
+    document.writeln("Values entered in array are: <br>");
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+    {
+        document.writeln(arr[i][j])
+    }
+    document.writeln("<br>")
+    }
+    // document.writeln(arr.length);
+
+
+</script>
+</body>
+</html>

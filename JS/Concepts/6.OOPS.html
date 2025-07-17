@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+//W-4 D-1 Class & 
+
+class Student()
+{        //Class named Student
+	id;                 //Defining Objects Blueprint
+	name;   
+	marks;
+
+
+	disp()              //method
+    {
+		document.writeln("I am Disp" );
+	}
+
+}
+
+	obj=new Student();		//new keyword create memory. We create Object of class
+	
+	obj.disp();
+	
+	document.writeln(obj.id);
+
+
+
+//Heirearchical Inheritance
+        // class A{
+        //     m1()
+        //     {
+        //         document.writeln("I am m1")
+        //     }
+        // }
+        // class B extends classA{
+        //     m2()
+        //     {
+        //         document.writeln("I am m2")
+        //     }
+        // }
+        // class C extends class A{
+        //     m3()
+        //     {
+        //         document.writeln("I am m3")
+        //     }
+        // }
+
+        // c= new C
+        // c.m2();
+
+
+//Parameterised Constructors eg:
+
+class A
+{
+    name;
+    age;
+
+    constructor(name,age)
+    {
+        this.name=name;
+        this.age=age;
+    }
+
+    disp()
+    {
+        document.writeln(this.name+""+this.age);
+    }
+
+    show()
+    {
+        document.writeln(this.name+""+this.age);
+    }
+
+}
+    name=prompt("Enter name")
+    age=prompt("Enter age")
+
+    a=new A(name,age);
+
+    a.disp();
+    a.show();
+
+    </script>
+    
+</body>
+</html>

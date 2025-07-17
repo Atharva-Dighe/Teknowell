@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+
+<!-- Mouse Events -->
+
+    <!-- Single Click -->
+    <!-- <button onclick="f1()">Click Me</button> --> 
+ 
+    <!-- Double Click -->
+    <!-- <button ondblclick="f1()">Click Me</button> -->
+
+    <!-- Right Click -->
+    <!-- <button oncontextmenu="f1()">Click Me</button> -->
+
+    <!-- Mouse Over -->
+    <!-- <button onmouseover="f1()">Click Me</button> -->
+
+    <!-- Mouse Out -->
+    <!-- <button onmouseout="f1()">Click Me</button> -->
+
+    <!-- Mouse Down -->
+    <!-- <button onmousedown="f1()">Click Me</button> -->
+
+    <!-- Mouse Up -->
+    <!-- <button onmouseup="f1()">Click Me</button> -->
+
+    <!-- Mouse Move -->
+    <!-- <button onmousemove="f1()">Click Me</button> -->
+
+
+<!-- Keyboard Events        Works when we click on button & then perform keyboard  -->
+
+    <!-- Key Down       When we press keyboard button-->
+    <!-- <button onkeydown="f1()">Click Me</button> -->
+
+    <!-- Key UP         When we leave keyboard button-->
+    <!-- <button onkeyup="f1()">Click Me</button> -->
+
+    <!-- Key Press       When we press keyboard button-->
+    <!-- <button onkeypress="f1()">Click Me</button> -->
+
+
+<!-- Windows Event -->
+    
+    <!-- Open       window.open() -->
+    <!-- <button onclick="windowsOpen()">Click Me</button> -->
+
+    <!-- Close       window.close() -->
+    <button onclick="windowsCloseNew()">Click Me</button>
+
+
+<script>
+
+
+        // function f1()
+        // {
+        //     alert("Action performed");
+        // }
+
+
+        // function windowsOpen()
+        // {
+        //     window.open("https://atharva-dighe.github.io/Royal-Enfield/");  //Opens in new tab. If nothing specified inside bracket, it opens blank page. 
+        // }
+
+        // function windowsClose()
+        // {
+        //     window.close(); //  Closes existing window.
+        // }
+
+        function windowsCloseNew()
+        {
+            a=window.open();
+            console.log(a);
+            a.close();
+        }
+
+    </script>
+</body>
+</html>
