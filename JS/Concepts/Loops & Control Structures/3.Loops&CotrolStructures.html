@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops & Conditions</title>
+</head>
+<body>
+    <script>
+//Theory -
+// A. Control Structure - That controls the flow of program
+//     1. if else  
+//     2. nested if else (ladder) - if elseif elseif
+//     3. Switch case -  "switch" keyword
+
+// B. Loops - Continous execution of program upto specified amount of times.
+
+//     1. while		Entry controlled loop	(infinite loop eg(logical error), 	
+//     2. do while		Exit controlled loop - Executes the code atleast once	
+//     3. for 
+
+   
+//Demo examples -
+
+// If-else conditions:
+
+        // var a
+        // if(a>10){
+        //     document.writeln("a is greater than 10");
+        // }
+        // else{
+        //     document.writeln("a is less than 10");
+        // }
+  
+        
+//If-else 2 condition:
+
+    // a=parseInt(prompt("Enter a"));
+    // b=parseInt(prompt("Enter b"));
+    // c=parseInt(prompt("Enter c"));
+
+    //     if(a==b && b==c )
+    //     {
+    //         document.writeln("All numbers are equal");
+    //     }
+        
+    //     else if(a>=b && a>=c)
+    //     {
+    //         document.writeln("a is greater than b and c");
+    //     }
+    //     else if(b>=a && b>=c)
+    //     {
+    //         document.writeln("b is greater than a and c");
+    //     }
+    //     else if(c>=a && c>=b)
+    //     {
+    //         document.writeln("c is greater than a and b");
+    //     }
+
+
+//Switch Case - Nested Switch Case
+
+    // choice=parseInt(prompt("Enter choice between 1 to 7"));
+    // switch(choice)
+    // {
+    //     case 1:
+    //         document.writeln("Monday");
+    //         ch=prompt("Enter between a-z");
+    //         switch(ch)
+    //         {
+    //             case "a":
+    //                 document.writeln("Vowel");
+    //                 break;
+    //             case "e":
+    //                 document.writeln("Vowel");
+    //                 break;
+    //             case "i":
+    //                 document.writeln("Vowel");
+    //                 break;
+    //             case "o":
+    //                 document.writeln("Vowel");
+    //                 break;
+    //             case "u":
+    //                 document.writeln("Vowel");
+    //                 break;
+    //             default:
+    //                 document.writeln("Consonant");
+    //                 break;
+    //         }
+    //         break;
+        
+    //     case 2:
+    //         document.writeln("Tuesday");
+    //         break;
+        
+    //     case 3:
+    //         document.writeln("Wednesday");
+    //         break;
+        
+    //     case 4:
+    //         document.writeln("Thursday");
+    //         break;
+        
+    //     case 5:
+    //         document.writeln("Friday");
+    //         break;
+        
+    //     case 6:
+    //         document.writeln("Saturday");
+    //         break;
+        
+    //     case 7:
+    //         document.writeln("Sunday");
+    //         break;
+        
+    //     default:
+    //         document.writeln("Invalid input")
+
+    // }
+
+
+
+//while loop  -  Entry level loop  -    Checks condition first.
+
+        // i=0;
+        // while(i<10)
+        // {
+        //     document.writeln(i);
+        //     i++;                    //if we don't write this condition, loop goes into infinite loop - dangerous
+        // }
+
+
+
+//do while loop  -  Exit level loop  -  Executes atleast once as condition gets checked afterwards.
+
+        // i=0;
+        // do{
+        //     document.writeln(i);
+        //     i++;                    //again Infinity loop if not mentioned.
+        // }
+        // while(i<10)
+
+
+//for loop
+
+        // for(i=0;i<10;i++)
+        // {
+        //     document.writeln(i);
+        // }
+
+
+//continue & break use -
+        // for(i=0;i<10;i++)
+        // {
+        //     if(i==7)
+        //     {
+        //         continue;       //skips 7 & prints 0 to 9
+        //     }
+        //     document.writeln(i);
+        // }
+
+        
+//break
+        // for(i=0;i<10;i++)
+        // {
+        //     if(i==7)
+        //     {
+        //         break;       //prints only upto 6 i.e 0 to 6
+        //     }
+        //     document.writeln(i);
+        // }
+
+    </script>
+</body>
+</html>
