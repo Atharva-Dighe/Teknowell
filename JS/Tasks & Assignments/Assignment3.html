@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment 3</title>
+    <link rel="stylesheet" href="./Assignment3.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Salary Slip Generator</h1>
+        <form>
+            <div class="labelInput">
+                <div class="label">
+                    <p>Employee ID: </p>
+                    <p>Employee Name: </p>
+                    <p>Monthly Salary: </p>
+                    <p>Total Work Days:</p>
+                    <p>Enter PF: </p>
+                    <p>Enter HRA: </p>
+                    <p>Enter TA: </p>
+                    <p>Enter Absent Days: &nbsp</p>
+                </div>
+                <div class="input">
+                    <input type="text" id="ID" placeholder="ID"><br>
+                    <input type="text" id="name" placeholder="Name"><br>
+                    <input type="text" id="mSalary" placeholder="Salary"><br>
+                    <input type="text" id="td" placeholder="Total working days"><br>
+                    <input type="text" id="pf" placeholder="PF"><br>
+                    <input type="text" id="hra" placeholder="HRA"><br>
+                    <input type="text" id="ta" placeholder="TA"><br>
+                    <input type="text" id="ab" placeholder="Absent days"><br>
+                </div>
+            </div>
+        </form>
+        
+        <div class="result">
+            <button onclick="calculateSalary()">Click for Final Salary of Employee</button><br>
+            <div id="show">
+                <p id="p">Final Salary of Employee</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        function calculateSalary()
+        {
+            id=document.getElementById("ID").value;
+            console.log(id);
+            name=document.getElementById("name").value;
+            console.log(name)
+            mSalary=parseInt(document.getElementById("mSalary").value);
+            console.log(mSalary);
+            td=parseInt(document.getElementById("td").value);
+            console.log(mSalary);
+            pf=parseInt(document.getElementById("pf").value);
+            console.log(pf);
+            hra=parseInt(document.getElementById("hra").value);
+            console.log(hra);
+            ta=parseInt(document.getElementById("ta").value);
+            console.log(ta);
+            ab=parseInt(document.getElementById("ab").value);
+            console.log(ab);
+            fSalary=parseInt(((mSalary/td)*(td-ab)) + hra + ta - pf);
+            // fSalary.style.fontStyle="italic";
+            console.log(fSalary);
+            if (fSalary >=0)
+                show.innerHTML=("Final Salary of Employee <br> ID: "+id+"  "+name+ "<br>is Rs " +fSalary+" /-");
+            else
+                alert("Enter Valid Values");
+        }
+
+
+
+    </script>
+</body>
+
+</html>
