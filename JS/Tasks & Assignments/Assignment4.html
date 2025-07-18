@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assgn-4</title>
+    <link rel="stylesheet" href="./Assignment4.css">
+</head>
+<body>
+
+    <div class="bgImage">
+        <div>
+            <div class="input">
+                <form>
+                    <label>Enter Username</label>
+                    <input type="text" id="name"><br><br>
+                    <label>Enter Password</label>
+                    <input type="text" id="pw"><br><br>
+                    <button onclick="validate()">Validate</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+
+        function validate()
+        {
+            name=document.getElementById("name").value;
+            pw=document.getElementById("pw").value;
+            name=name.trim();
+            pw=pw.trim();
+            console.log(name);
+            console.log(pw);
+
+            if(name=="Atharva" && pw=="1234")
+                window.open("./Ass4.html");
+            else
+                alert("Neg");
+        }
+
+
+    </script>
+</body>
+</html>

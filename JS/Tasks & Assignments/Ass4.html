@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Form Assign-4</title>
+</head>
+<body>
+    <form>
+        <label>Name:</label>
+        <input type="text" class="disp"><br><br>
+        <label>Email:</label>
+        <input type="email" class="disp"><br><br>
+        <label>Ph Number:</label>
+        <input type="text" class="disp"><br><br>
+        <label>Type:</label>
+        <input type="radio" name="type"class="disp">Student
+        <input type="radio" name="type"class="disp">Working
+        <br><br>
+        <button onclick="show()">Submit</button>
+    </form>
+    <div class="show">
+
+    </div>
+
+    <script>
+        function show()
+        {
+            a=document.getElementsByClassName("disp");
+            
+            a[0].classList.add("disp");
+            console.log(a[0]);
+        }
+    </script>
+</body>
+</html>
