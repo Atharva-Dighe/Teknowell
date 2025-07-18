@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JS Assignment-6</title>
+    <style>
+        #body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #r {
+            height: 35px;
+            width: 80px;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: large;
+            background-color: red;
+        }
+
+        #g {
+            height: 35px;
+            width: 80px;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: large;
+            background-color: greenyellow;
+        }
+
+        #b {
+            height: 35px;
+            width: 80px;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: large;
+            background-color: blue;
+        }
+        .btns{
+            background-color: burlywood;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 30%;
+            flex-wrap: wrap;
+            border:2px solid black;
+            border-radius:8px;
+            gap:10px;
+            padding:40px 20px;
+        }
+        p{
+            text-align: center;
+            font-size: xx-large;
+        }
+    </style>
 </head>
-<body>
-    
+
+<body id="body">
+    <p>When you click any button from below, background will change to that colour.</p>
+    <div class="btns">
+        <button id="r" onclick="display()">Red</button>
+        <button id="g" onclick="display()">Green</button>
+        <button id="b" onclick="display()">Blue</button>
+    </div>
 </body>
+
 </html>
