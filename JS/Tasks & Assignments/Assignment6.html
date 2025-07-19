@@ -63,10 +63,16 @@
 <body id="body">
     <p>When you click any button from below, background will change to that colour.</p>
     <div class="btns">
-        <button id="r" onclick="display()">Red</button>
-        <button id="g" onclick="display()">Green</button>
-        <button id="b" onclick="display()">Blue</button>
+        <button id="r" onclick="colorChange('red')">Red</button>
+        <button id="g" onclick="colorChange('greenyellow')">Green</button>
+        <button id="b" onclick="colorChange('blue')">Blue</button>
     </div>
+    <script>
+        function colorChange(color)
+        {
+            document.body.style.backgroundColor=color;
+        }
+    </script>
 </body>
 
 </html>
