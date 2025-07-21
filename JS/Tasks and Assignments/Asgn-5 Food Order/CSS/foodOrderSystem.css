@@ -97,7 +97,7 @@ input{
 
 
 .homeBgImg{
-    height: fit-content;
+    height:;
     width: 100%;
     border:3px solid black;
     gap:10px;
@@ -122,6 +122,7 @@ input{
     height:50%;
     width:100%;
     background-color: antiquewhite;
+    position: relative;
 }
 .second{
     height:50%;
@@ -134,6 +135,7 @@ input{
     background-color: white;
     padding:0% 10%;
     position:absolute;
+    margin-top:0px;
     border:15px solid orange;
     border-radius: 5px;
     display: flex;
