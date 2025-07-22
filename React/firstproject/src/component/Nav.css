@@ -10,6 +10,7 @@
 .logo{
     height: 70%;
     width: 5%;
+    min-width: 80px;
 }
 .logo-img{
     height: 100%;
