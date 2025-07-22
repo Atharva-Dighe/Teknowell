@@ -1,6 +1,6 @@
 import React from 'react'
 import './Nav.css'
-function Nav() {
+function Nav(props) {
   return (
     <div className='navbar'>
         <div className='logo'>
@@ -8,8 +8,8 @@ function Nav() {
         </div>
         <div className='menu'>
           <p><a href="">Home</a></p>
-          <p><a href="">About</a></p>
-          <p><a href="">Contact</a></p>
+          <p><a href="">Home</a></p>
+          <p><a href="">{props.contact}</a></p>
         </div>
     </div>
   )

@@ -11,6 +11,8 @@ function Quotes()
         index=Math.floor(Math.random()*arr.length);
         console.log(index);
         setData(arr[index]);
+
+        
         // for(let i=0;i<arr.length;i++)
         // {
         //     setData(arr[i]);
