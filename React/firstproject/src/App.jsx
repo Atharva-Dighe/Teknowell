@@ -1,14 +1,20 @@
 import React from 'react'
 import Nav from './component/Nav'
 import Home from './component/Home'
-import Quotes from './component/Quotes'
-import Count from './component/Count'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-function App() {
-  return (
+function App() 
+{
+  return(
     <div>
-          <Nav contact="Contact" / >    {/* //Accessing value using props. */}
-           
+      <BrowserRouter>
+      <Nav/>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+         
+        </Routes>
+      </BrowserRouter>
+
     </div>
   )
 }

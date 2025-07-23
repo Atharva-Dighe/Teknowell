@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Adding in list</title>
 </head>
+
 <body>
-    
-<form>
-    <label>Enter Movie Name:</label>
-    <input type="text" id="movie">
-    <br><br>
-</form>
-<button onclick="add()">Add to List</button>
-<div class="display">
-<ul type="disc">
-    <li>Hii</li>
-</ul>
 
-</div>
+    <form>
+        <label>Enter Movie Name:</label>
+        <input type="text" id="movie">
+        <br><br>
+    </form>
+    <button onclick="add()">Add to List</button>
+    <ul id="movieList"></ul>
+    <script>
+        function add() {
+            // Get value from input
+            a = document.getElementById("movie").value;
 
-<script>
-    function add()
-    {
-        a=document.getElementById("movie").value;
-        console.log(a);
-        
+            // Create a new <li> element
+            let li = document.createElement("li");
 
+            // Set the text of the <li> to the movie name   
+            li.textContent = a;
 
-    }
-</script>
+            // Append the <li> to the <ul>
+            document.getElementById("movieList").appendChild(li);
+
+            // Optional: Clear the input after adding
+            document.getElementById("movie").value = '';
+        }
+    </script>
 
 </body>
+
 </html>

@@ -22,7 +22,7 @@
                 <img src="./Images/searchIcon.png" class="searchIcon">
             </div>
             <div class="login">
-                <img  src="./Images/LoginImg.png" class="LoginImg">
+                <img onclick="login()" src="./Images/LoginImg.png" class="LoginImg">
                 <p onclick="login()">Login</p>
             </div>
             <div class="cart">
@@ -31,7 +31,15 @@
         </div>
     </div>
     <div class="homeBg">
-        <img src="./Images/HomeBackground.jpg" class="homeBgImg">
+        <img src="./Images/HomeBackground.jpg" class="homeBg">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form>
+                <input type="text" placeholder="Username" required />
+                <input type="password" placeholder="Password" required />
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
     <div class="footer">
         <div class="first"></div>
@@ -39,10 +47,16 @@
         <div class="third">
             <img src="./Images/footerDish.jpg" class="footerDish">
             <div class="side">
-                
+                <h1>Hello</h1>
             </div>
         </div>
     </div>
+    <script>
+        function login()
+        {
+            alert("Login");
+        }
+    </script>
 </body>
 
 </html>
