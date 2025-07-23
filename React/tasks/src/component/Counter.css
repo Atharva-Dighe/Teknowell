@@ -1,0 +1,29 @@
+.div{
+    background-color:blueviolet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top:200px;
+}
+.valueDiv{
+    background-color: cadetblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button{
+    height: 40px;
+    width: 40px;
+    font-size: larger;
+    margin:10px;
+}
+.value{
+    background-color: burlywood;
+    height: 40px;
+    width: 50px;
+    text-align: center;
+}
+.priceDiv{
+
+}
