@@ -6,7 +6,7 @@ function Counter() {
     const price=100;
     function decrement()
     {
-        setValue(value>1 ? value - 1 : 1);
+        setValue(value>0 ? value - 1 : 1);
     }
     function increment()
     {
