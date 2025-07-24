@@ -14,23 +14,27 @@
         <label>Ph Number:</label>
         <input type="text" class="disp"><br><br>
         <label>Type:</label>
-        <input type="radio" name="type"class="disp">Student
-        <input type="radio" name="type"class="disp">Working
+        <input type="radio" name="type"class="disp" value="Student">Student
+        <input type="radio" name="type"class="disp" value="Working">Working
         <br><br>
-        <button onclick="show()">Submit</button>
+        <input type="submit" onclick="show(event)"></input>
     </form>
-    <div class="show">
-
+    <div class="display">
+        <p id="disp"></p>
     </div>
-
     <script>
-        function show()
-        {
-            a=document.getElementsByClassName("disp");
-            
-            a[0].classList.add("disp");
-            console.log(a[0]);
+        function show(event)
+        {   
+            event.preventDefault();
+            let a=document.getElementsByClassName("disp");
+            name=a[0].value;
+            email=a[1].value;
+            num=a[2].value;
+            displ=a[3].value;
+            displ=a[4].value;
+            disp.innerHTML=("Name: "+name+" <br> Email: "+email+" <br> Number: "+num+" <br> Type: "+displ);
         }
+
     </script>
 </body>
 </html>
