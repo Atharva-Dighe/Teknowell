@@ -9,9 +9,9 @@ function Nav(props)
           <img src="https://www.teknowell.in/assets/img/Teknowell%20logo-new.webp" className='logo-img' alt="Logo" />
         </div>
         <div className='menu'>
-          <p><Link to="/">Home</Link></p>
-          <p><Link to="/about">About</Link></p>
-          <p><Link to="/contact">Contact</Link></p>
+          <Link to={"/"}><p>Home</p></Link>
+          <Link to={"/about"}><p>About</p></Link>
+          <Link to={"/contact"}><p>Contact</p></Link>
         </div>
     </div>
   )

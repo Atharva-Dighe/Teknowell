@@ -1,7 +1,9 @@
 import React from 'react'
-import Nav from './component/Nav'
-import Home from './component/Home'
+import Nav from '../../f_project/src/component/Nav'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from '../../f_project/src/component/Home'
+import About from './component/About'
+import Contact from './component/Contact'
 
 function App() 
 {
@@ -11,10 +13,10 @@ function App()
       <Nav/>
         <Routes>
           <Route path="/" element={<Home/>} />
-         
+          <Route path="/about" element={<About/>} />
+          <Route path="/contact" element={<Contact/>} />
         </Routes>
       </BrowserRouter>
-
     </div>
   )
 }

@@ -10,15 +10,15 @@
     <h1>Simple Calculator</h1>
     <div class="calculator">
         <div class="first">
-            <div class="second"></div>
+            <div id="second"></div>
         </div>
         <div class="main">
             <div class="one">
                 <button class="btn"><h2>AC</h2></button>
             </div>
             <div class="one">
-                <button class="btn"><h2>7</h2></button>
-                <button class="btn"><h2>8</h2></button>
+                <button class="btn" onclick="funct()"><h2 id="sev">7</h2></button>
+                <button class="btn" onclick="funct()"><h2 id="ei">8</button>
                 <button class="btn"><h2>9</h2></button>
                 <button class="btn"><h2>x</h2></button>
             </div>
@@ -42,5 +42,21 @@
             </div>
         </div>
     </div>
+    <script>
+        // function func()
+        // {
+        //     let output=parseInt(document.getElementById("sev").value);
+        //     console.log(output);
+        //     second.innerHTML=output;
+        // }
+        function funct()
+        {
+            let a = parseInt(document.getElementById("ei").innerHTML);
+            let res = 0;
+            res= (res + a);
+            second.innerHTML=res;
+            
+        }
+    </script>
 </body>
 </html>

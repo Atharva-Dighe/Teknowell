@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment-7 Bulb</title>
+    <link rel="stylesheet" href="./Assignment7.css">
+</head>
+<body>
+    <div class="bulbDiv">
+        <img id="bulb" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="Bulb">
+        <button id="btn" onclick="toggle()">ON</button>
+    </div>
+    <script>
+        function toggle()
+        {
+            let state = document.getElementById("bulb");
+            let link= state.getAttribute("src");
+            if(link=="https://www.w3schools.com/js/pic_bulboff.gif")
+        {
+                document.getElementById("bulb").src="https://www.w3schools.com/js/pic_bulbon.gif";
+                btn.innerText="OFF";
+                // bulb.setAttribute("src","./Asgn-5 Food Order/Images/bulbOn.jpeg");
+        }
+            else if(link=="https://www.w3schools.com/js/pic_bulbon.gif")
+        {
+                document.getElementById("bulb").src="https://www.w3schools.com/js/pic_bulboff.gif";
+                btn.innerHTML="ON";
+                // bulb.setAttribute("src","./Asgn-5 Food Order/Images/bulbOff.png");
+        }
+        }
+    </script>
+</body>
+</html>
