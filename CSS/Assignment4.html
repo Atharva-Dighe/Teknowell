@@ -14,44 +14,30 @@
         </div>
         <div class="main">  
              <div class="one">
-                <button class="btn" onclick="append(1)"><h2>1</h2></button>
-                <button class="btn" onclick="append(2)"><h2>2</h2></button>
-                <button class="btn" onclick="append(3)"><h2>3</h2></button>
-                <button class="btn" onclick="append('+')"><h2>+</h2></button>
+                <button class="btn"><h2>1</h2></button>
+                <button class="btn"><h2>2</h2></button>
+                <button class="btn"><h2>3</h2></button>
+                <button class="btn"><h2>+</h2></button>
             </div>
             <div class="one">
-                <button class="btn" onclick="append(4)"><h2>4</h2></button>
-                <button class="btn" onclick="append(5)"><h2>5</h2></button>
-                <button class="btn" onclick="append(6)"><h2>6</h2></button>
-                <button class="btn" onclick="append('-')"><h2>-</h2></button>
+                <button class="btn"><h2>4</h2></button>
+                <button class="btn"><h2>5</h2></button>
+                <button class="btn"><h2>6</h2></button>
+                <button class="btn"><h2>-</h2></button>
             </div>
             <div class="one">
-                <button class="btn" onclick="append(7)"><h2 id="sev">7</h2></button>
-                <button class="btn" onclick="append(8)"><h2 id="ei">8</button>
-                <button class="btn" onclick="append(9)"><h2>9</h2></button>
-                <button class="btn" onclick="append('*')"><h2>x</h2></button>
+                <button class="btn"><h2 id="sev">7</h2></button>
+                <button class="btn"><h2 id="ei">8</button>
+                <button class="btn"><h2>9</h2></button>
+                <button class="btn"><h2>x</h2></button>
             </div>
             <div class="one">
-                <button class="btn" onclick="clr()" id="clr"><h2>AC</h2></button>
-                <button class="btn" onclick="append(0)"><h2>0</h2></button>
-                <button class="btn" onclick="evalu()" id="eq"><h2>=</h2></button>                
-                <button class="btn" onclick="append('/')"><h2>/</h2></button>
+                <button class="btn" id="clr"><h2>AC</h2></button>
+                <button class="btn"><h2>0</h2></button>
+                <button class="btn" id="eq"><h2>=</h2></button>                
+                <button class="btn"><h2>/</h2></button>
             </div>
         </div>
     </div>
-    <script>
-        function clr()
-        {
-            second.innerHTML="";
-        }
-        function append(value)
-        {
-            second.innerHTML+=value;
-        }
-        function evalu()
-        {
-            second.innerHTML=eval(second.innerHTML);
-        }
-    </script>
 </body>
 </html>
