@@ -8,31 +8,145 @@
 </head>
 <body>
     <div class="navbar">
-        <img src="./Images/logo.png" alt="Logo" class="logo">
-        <div class="menu">
+        <img src="../Images/logo.png" alt="Logo" class="logo">
+        <div class="navMenu">
             <p><a href="../index.html">Home</a></p>
             <p><a href="./Restaurant.html">Restaurant</a></p>
             <p><a href="./Contact.html">Contact Us</a></p>
-            <div class="searchBar">
+            <div class="searchBar" onclick="search()">
                 <form>
                     <input type="text" id="search" placeholder="Search....">
                 </form>
-                <img src="./Images/searchIcon.png" class="searchIcon">
+                <img src="../Images/searchIcon.png" class="searchIcon">
             </div>
-            <div class="login">
-                <img src="./Images/LoginImg.png" class="LoginImg">
+            <div class="login" onclick="login()">
+                <img src="../Images/LoginImg.png" class="LoginImg">
                 <p>Login</p>
             </div>
-            <div class="cart">
-                <img src="./Images/cart.png" alt="ca" class="cartImg">
+            <div class="cart" onclick="cartt()">
+                <img src="../Images/cart.png" alt="ca" class="cartImg">
             </div>
         </div>
     </div>
-    <div class="homeBg">
-        <img src="./Images/HomeBackground.jpg" class="homeBgImg">
+    <div class="menu">
+       <div class="card">
+            <img src="../Images/pizzaMenu.webp" class="cardImg" alt="Pizza">
+            <h2>Pizza</h2>
+            <p class="desc">Enjoy the juicy pizza <br> Rs 100/-</p>
+            <hr>
+            <div class="Q">
+                <button onclick="remove(pizza)" class="Qbtn">-</button>
+                <p id="pizza">0</p>
+                <button onclick="add(pizza)" class="Qbtn">+</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../Images/burgerMenu.webp" class="cardImg" alt="Burger">
+            <h2>Burger</h2>
+            <p class="desc">Enjoy the juicy burger <br> Rs 60/-</p>
+            <hr>
+            <div class="Q">
+                <button onclick="remove(burger)" class="Qbtn">-</button>
+                <p id="burger">0</p>
+                <button onclick="add(burger)" class="Qbtn">+</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../Images/friesMenu.webp" class="cardImg" alt="Fries">
+            <h2>Fries</h2>
+            <p class="desc">Enjoy the tasty Fries <br> Rs 50/-</p>
+            <hr>
+            <div class="Q">
+                <button onclick="remove(Fries)" class="Qbtn">-</button>
+                <p id="Fries">0</p>
+                <button onclick="add(Fries)" class="Qbtn">+</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../Images/momosMenu.webp" class="cardImg" alt="Momos">
+            <h2>Momos</h2>
+            <p class="desc">Enjoy the tasty Momos <br> Rs 80/-</p>
+            <hr>
+            <div class="Q">
+                <button onclick="remove(Momos)" class="Qbtn">-</button>
+                <p id="Momos">0</p>
+                <button onclick="add(Momos)" class="Qbtn">+</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../Images/sandwichesMenu.avif" class="cardImg" alt="Sandwiches">
+            <h2>Sandwiches</h2>
+            <p class="desc">Enjoy the tasty Sandwiches <br> Rs 60/-</p>
+            <hr>
+            <div class="Q">
+                <button onclick="remove(Sandwiches)" class="Qbtn">-</button>
+                <p id="Sandwiches">0</p>
+                <button onclick="add(Sandwiches)" class="Qbtn">+</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../Images/pastaMenu.avif" class="cardImg" alt="Pasta">
+            <h2>Pasta</h2>
+            <p class="desc">Enjoy the tasty Pasta <br> Rs 80/-</p>
+            <hr>
+            <div class="Q">
+                <button onclick="remove(Pasta)" class="Qbtn">-</button>
+                <p id="Pasta">0</p>
+                <button onclick="add(Pasta)" class="Qbtn">+</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../Images/coffeeMenu.jpg" class="cardImg" alt="Coffee">
+            <h2>Coffee</h2>
+            <p class="desc">Enjoy the tasty Coffee <br> Rs 60/-</p>
+            <hr>
+            <div class="Q">
+                <button onclick="remove(Coffee)" class="Qbtn">-</button>
+                <p id="Coffee">0</p>
+                <button onclick="add(Coffee)" class="Qbtn">+</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../Images/desertMenu.avif" class="cardImg" alt="Desert">
+            <h2>Desert</h2>
+            <p class="desc">Enjoy the tasty Desert <br> Rs 100/-</p>
+            <hr>
+            <div class="Q">
+                <button onclick="remove(Desert)" class="Qbtn">-</button>
+                <p id="Desert">0</p>
+                <button onclick="add(Desert)" class="Qbtn">+</button>
+            </div>
+        </div>
     </div>
     <div class="footer">
 
     </div>
+
+    <script>
+        function add(arg)
+        {
+            // alert("Add");
+            arg.innerHTML=parseInt(arg.innerHTML)+1;
+        }
+        function remove(arg)
+        {
+            // alert("Remove");
+            if(parseInt(arg.innerHTML)>0)
+                arg.innerHTML=parseInt(arg.innerHTML)-1;  
+        }
+        function cartt()
+        {
+            window.open("../Pages/cart.html");
+            
+        }
+        function search()
+        {
+            alert("Search");
+        }
+        function login()
+        {
+            alert("Login");
+        }
+    </script>
 </body>
 </html>
