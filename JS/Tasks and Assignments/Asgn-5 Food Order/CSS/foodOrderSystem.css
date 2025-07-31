@@ -287,4 +287,5 @@ input{
     align-items: center;
     justify-content: space-evenly;
     font-size: larger;
+    cursor: pointer;
 }

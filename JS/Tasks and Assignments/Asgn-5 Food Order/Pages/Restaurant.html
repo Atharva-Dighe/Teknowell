@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Page</title>
     <link rel="stylesheet" href="../CSS/foodOrderSystem.css">
 </head>
+
 <body>
     <div class="navbar">
         <img src="../Images/logo.png" alt="Logo" class="logo">
         <div class="navMenu">
             <p><a href="../index.html">Home</a></p>
-            <p><a href="./Restaurant.html">Restaurant</a></p>
+            <p><a href="./Restaurant.html">Menu</a></p>
             <p><a href="./Contact.html">Contact Us</a></p>
             <div class="searchBar" onclick="search()">
                 <form>
@@ -29,124 +31,166 @@
         </div>
     </div>
     <div class="menu">
-       <div class="card">
+        <div class="card">
             <img src="../Images/pizzaMenu.webp" class="cardImg" alt="Pizza">
             <h2>Pizza</h2>
-            <p class="desc">Enjoy the juicy pizza <br> Rs 100/-</p>
+            <p class="desc" id="PizzaDesc">Enjoy the juicy pizza <br> Rs 100/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(pizza)" class="Qbtn">-</button>
-                <p id="pizza">0</p>
-                <button onclick="add(pizza)" class="Qbtn">+</button>
+                <button onclick="remove(Pizza,PizzaDesc)" class="Qbtn">-</button>
+                <p id="Pizza">0</p>
+                <button onclick="add(Pizza,PizzaDesc)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/burgerMenu.webp" class="cardImg" alt="Burger">
             <h2>Burger</h2>
-            <p class="desc">Enjoy the juicy burger <br> Rs 60/-</p>
+            <p class="desc" id="BurgerDesc">Enjoy the juicy burger <br> Rs 60/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(burger)" class="Qbtn">-</button>
-                <p id="burger">0</p>
-                <button onclick="add(burger)" class="Qbtn">+</button>
+                <button onclick="remove(Burger,BurgerDesc)" class="Qbtn">-</button>
+                <p id="Burger">0</p>
+                <button onclick="add(Burger,BurgerDesc)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/friesMenu.webp" class="cardImg" alt="Fries">
             <h2>Fries</h2>
-            <p class="desc">Enjoy the tasty Fries <br> Rs 50/-</p>
+            <p class="desc" id="FriesDesc">Enjoy the tasty Fries <br> Rs 50/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(Fries)" class="Qbtn">-</button>
+                <button onclick="remove(Fries,FriesDesc)" class="Qbtn">-</button>
                 <p id="Fries">0</p>
-                <button onclick="add(Fries)" class="Qbtn">+</button>
+                <button onclick="add(Fries,FriesDesc)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/momosMenu.webp" class="cardImg" alt="Momos">
             <h2>Momos</h2>
-            <p class="desc">Enjoy the tasty Momos <br> Rs 80/-</p>
+            <p class="desc" id="MomosDesc">Enjoy the tasty Momos <br> Rs 80/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(Momos)" class="Qbtn">-</button>
+                <button onclick="remove(Momos,MomosDesc)" class="Qbtn">-</button>
                 <p id="Momos">0</p>
-                <button onclick="add(Momos)" class="Qbtn">+</button>
+                <button onclick="add(Momos,MomosDesc)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/sandwichesMenu.avif" class="cardImg" alt="Sandwiches">
             <h2>Sandwiches</h2>
-            <p class="desc">Enjoy the tasty Sandwiches <br> Rs 60/-</p>
+            <p class="desc" id="SandwichesDesc">Enjoy the tasty Sandwiches <br> Rs 60/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(Sandwiches)" class="Qbtn">-</button>
+                <button onclick="remove(Sandwiches,SandwichesDesc)" class="Qbtn">-</button>
                 <p id="Sandwiches">0</p>
-                <button onclick="add(Sandwiches)" class="Qbtn">+</button>
+                <button onclick="add(Sandwiches,SandwichesDesc)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/pastaMenu.avif" class="cardImg" alt="Pasta">
             <h2>Pasta</h2>
-            <p class="desc">Enjoy the tasty Pasta <br> Rs 80/-</p>
+            <p class="desc" id="PastaDesc">Enjoy the tasty Pasta <br> Rs 80/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(Pasta)" class="Qbtn">-</button>
+                <button onclick="remove(Pasta,PastaDesc)" class="Qbtn">-</button>
                 <p id="Pasta">0</p>
-                <button onclick="add(Pasta)" class="Qbtn">+</button>
+                <button onclick="add(Pasta,PastaDesc)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/coffeeMenu.jpg" class="cardImg" alt="Coffee">
             <h2>Coffee</h2>
-            <p class="desc">Enjoy the tasty Coffee <br> Rs 60/-</p>
+            <p class="desc" id="CoffeeDesc">Enjoy the tasty Coffee <br> Rs 60/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(Coffee)" class="Qbtn">-</button>
+                <button onclick="remove(Coffee,CoffeeDesc)" class="Qbtn">-</button>
                 <p id="Coffee">0</p>
-                <button onclick="add(Coffee)" class="Qbtn">+</button>
+                <button onclick="add(Coffee,CoffeeDesc)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/desertMenu.avif" class="cardImg" alt="Desert">
             <h2>Desert</h2>
-            <p class="desc">Enjoy the tasty Desert <br> Rs 100/-</p>
+            <p class="desc" id="DesertDesc">Enjoy the tasty Desert <br> Rs 100/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(Desert)" class="Qbtn">-</button>
+                <button onclick="remove(Desert,DesertDesc)" class="Qbtn">-</button>
                 <p id="Desert">0</p>
-                <button onclick="add(Desert)" class="Qbtn">+</button>
+                <button onclick="add(Desert,DesertDesc)" class="Qbtn">+</button>
             </div>
         </div>
     </div>
+    <h2>Bill :</h2>
+    <p id="billDisplay">Bill gets displayed here </p>
     <div class="footer">
 
     </div>
 
     <script>
-        function add(arg)
-        {
+        let arr=[];
+        function add(arg1, arg2) {
             // alert("Add");
-            arg.innerHTML=parseInt(arg.innerHTML)+1;
+            arg1.innerHTML = parseInt(arg1.innerHTML) + 1;
+            let a = arg1.id;
+            let b = parseInt(arg1.textContent);
+            console.log("arg:", arg1);
+            console.log("ID:", a);
+            console.log("Value:", b);
+
+            function total(arg2) {
+                let c = arg2.textContent;
+                let d = c.match(/[0-9]+/);
+                let price = parseInt(d[0]);
+                console.log("Text Content:", c);
+                console.log("Price Extracted:", price);
+                arr.push(price);
+                console.log(arr);
+            } total(arg2);
+            let finalBill=arr.reduce((acc,curr)=>acc+curr,0);
+            console.log("Final Bill after calculating is",finalBill);
+             billDisplay.innerHTML=("Final Bill after calculation is "+finalBill);
         }
-        function remove(arg)
-        {
-            // alert("Remove");
-            if(parseInt(arg.innerHTML)>0)
-                arg.innerHTML=parseInt(arg.innerHTML)-1;  
+
+
+        function remove(arg1, arg2) {
+            if (parseInt(arg1.innerHTML) > 0) 
+            {
+                arg1.innerHTML = parseInt(arg1.innerHTML) - 1;
+            }
+
+            let a = arg1.id;
+            let b = parseInt(arg1.innerHTML);
+            console.log("Arg:", arg1);
+            console.log("ID:", a);
+            console.log("Value:", b);
+
+            function total(arg2) {
+                let c = arg2.textContent;
+                let d = c.match(/[0-9]+/);
+                let price = parseInt(d[0]);
+                console.log("Text Content:", c);
+                console.log("Price Extracted:", price);
+                arr.push((-price));
+                console.log(arr);
+            } total(arg2);
+            let finalBill=arr.reduce((acc,curr)=>acc+curr,0);
+            console.log("Final Bill after calculating is",finalBill);
+            billDisplay.innerHTML=("Final Bill after calculation is "+finalBill);
         }
-        function cartt()
-        {
+
+
+        function cartt() {
             window.open("../Pages/cart.html");
-            
+            cart.html.bill.innerHTML = "Hello";
+
         }
-        function search()
-        {
+        function search() {
             alert("Search");
         }
-        function login()
-        {
+        function login() {
             alert("Login");
         }
     </script>
 </body>
+
 </html>
