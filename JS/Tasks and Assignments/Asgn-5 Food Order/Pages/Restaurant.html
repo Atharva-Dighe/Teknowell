@@ -127,7 +127,7 @@
     </div>
 
     <script>
-        let arr=[];
+        let arr = [];
         function add(arg1, arg2) {
             // alert("Add");
             arg1.innerHTML = parseInt(arg1.innerHTML) + 1;
@@ -146,9 +146,9 @@
                 arr.push(price);
                 console.log(arr);
             } total(arg2);
-            let finalBill=arr.reduce((acc,curr)=>acc+curr,0);
-            console.log("Final Bill after calculating is",finalBill);
-             billDisplay.innerHTML=("Final Bill after calculation is "+finalBill);
+            let finalBill = arr.reduce((acc, curr) => acc + curr, 0);
+            console.log("Final Bill after calculating is", finalBill);
+            billDisplay.innerHTML = ("Final Bill after calculation is " + finalBill);
         }
 
 
@@ -156,26 +156,24 @@
             if (parseInt(arg1.innerHTML) > 0) 
             {
                 arg1.innerHTML = parseInt(arg1.innerHTML) - 1;
+                let a = arg1.id;
+                let b = parseInt(arg1.innerHTML);
+                console.log("Arg:", arg1);
+                console.log("ID:", a);
+                console.log("Value:", b);
+                function total(arg2) {
+                    let c = arg2.textContent;
+                    let d = c.match(/[0-9]+/);
+                    let price = parseInt(d[0]);
+                    console.log("Text Content:", c);
+                    console.log("Price Extracted:", price);
+                    arr.push((-price));
+                    console.log(arr);
+                } total(arg2);
+                let finalBill = arr.reduce((acc, curr) => acc + curr, 0);
+                console.log("Final Bill after calculating is", finalBill);
+                billDisplay.innerHTML = ("Final Bill after calculation is " + finalBill);
             }
-
-            let a = arg1.id;
-            let b = parseInt(arg1.innerHTML);
-            console.log("Arg:", arg1);
-            console.log("ID:", a);
-            console.log("Value:", b);
-
-            function total(arg2) {
-                let c = arg2.textContent;
-                let d = c.match(/[0-9]+/);
-                let price = parseInt(d[0]);
-                console.log("Text Content:", c);
-                console.log("Price Extracted:", price);
-                arr.push((-price));
-                console.log(arr);
-            } total(arg2);
-            let finalBill=arr.reduce((acc,curr)=>acc+curr,0);
-            console.log("Final Bill after calculating is",finalBill);
-            billDisplay.innerHTML=("Final Bill after calculation is "+finalBill);
         }
 
 
