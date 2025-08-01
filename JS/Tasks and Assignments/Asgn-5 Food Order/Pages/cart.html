@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
 </head>
+
 <body>
-    <p id="bill">
-        Hiii
-    </p>
+    <h2>Items in Your Cart</h2>
+    <ul id="itemList"></ul>
+    <h3 id="total"></h3>
+    <script>
+        window.onload = function () {
+            const items = JSON.parse(localStorage.getItem('cartItems'));
+            const total = localStorage.getItem('cartTotal');
+
+            document.getElementById('itemList').innerHTML = items.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('total').textContent = `Total Bill: ₹${total}`;
+        };
+    </script>
 </body>
+
 </html>

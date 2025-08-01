@@ -25,7 +25,7 @@
                 <img src="../Images/LoginImg.png" class="LoginImg">
                 <p>Login</p>
             </div>
-            <div class="cart" onclick="cartt()">
+            <div class="cart" onclick="cartt();addToCart()">
                 <img src="../Images/cart.png" alt="ca" class="cartImg">
             </div>
         </div>
@@ -110,7 +110,7 @@
         </div>
         <div class="card">
             <img src="../Images/desertMenu.avif" class="cardImg" alt="Desert">
-            <h2>Desert</h2>
+            <h2 id="arrName">Desert</h2>
             <p class="desc" id="DesertDesc">Enjoy the tasty Desert <br> Rs 100/-</p>
             <hr>
             <div class="Q">
@@ -127,8 +127,11 @@
     </div>
 
     <script>
+        e=arrName.innerHTML;
+        console.log("Arr name entity",e);
+        let qty=0;
         let arr = [];
-        function add(arg1, arg2) {
+        function add(arg1,arg2) {
             // alert("Add");
             arg1.innerHTML = parseInt(arg1.innerHTML) + 1;
             let a = arg1.id;
@@ -143,24 +146,24 @@
                 let price = parseInt(d[0]);
                 console.log("Text Content:", c);
                 console.log("Price Extracted:", price);
-                arr.push(price);
+                arr.push({Name: e ,Price:price});
                 console.log(arr);
             } total(arg2);
-            let finalBill = arr.reduce((acc, curr) => acc + curr, 0);
+            let finalBill = arr.reduce((acc, curr) => acc + (curr.Price), 0);
             console.log("Final Bill after calculating is", finalBill);
             billDisplay.innerHTML = ("Final Bill after calculation is " + finalBill);
         }
 
 
         function remove(arg1, arg2) {
-            if (parseInt(arg1.innerHTML) > 0) 
-            {
+            if (parseInt(arg1.innerHTML) > 0) {
                 arg1.innerHTML = parseInt(arg1.innerHTML) - 1;
                 let a = arg1.id;
                 let b = parseInt(arg1.innerHTML);
                 console.log("Arg:", arg1);
                 console.log("ID:", a);
                 console.log("Value:", b);
+
                 function total(arg2) {
                     let c = arg2.textContent;
                     let d = c.match(/[0-9]+/);
@@ -176,6 +179,17 @@
             }
         }
 
+        function addToCart() {
+            const items = ['Pizza', 'Burger'];
+            const total = 450;
+
+            // Save to localStorage
+            localStorage.setItem('cartItems', JSON.stringify(items));
+            localStorage.setItem('cartTotal', total);
+
+            // Redirect to cart page
+            window.location.href = 'cart.html';
+        }
 
         function cartt() {
             window.open("../Pages/cart.html");
