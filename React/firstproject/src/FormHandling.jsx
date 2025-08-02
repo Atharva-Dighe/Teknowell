@@ -11,6 +11,7 @@ function FormHandling()
         alert("Form Submitted Successfully");
         setFormData
     }
+    
   return(
     <div>
         <form>

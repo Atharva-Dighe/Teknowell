@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './Home.css';
-import { Link } from "react-router-dom";
 function Home() 
 {
     const [data, setData] = useState("Hello");
@@ -11,10 +10,11 @@ function Home()
     return (
 
         <div>
+            <h1>Welcome to Home Page</h1>
             <h1 className="h1">{data}</h1>
             <button onClick={f1}>Change</button>
-            <p><Link to ="/">Home</Link></p>
-            <p><Link to ="/count">Count</Link></p>
+            {/* <p><Link to ="/">Home</Link></p>
+            <p><Link to ="/count">Count</Link></p> */}
         </div>
 
     )

@@ -33,90 +33,90 @@
     <div class="menu">
         <div class="card">
             <img src="../Images/pizzaMenu.webp" class="cardImg" alt="Pizza">
-            <h2>Pizza</h2>
+            <h2 id="h1Pizza">Pizza</h2>
             <p class="desc" id="PizzaDesc">Enjoy the juicy pizza <br> Rs 100/-</p>
             <hr>
             <div class="Q">
                 <button onclick="remove(Pizza,PizzaDesc)" class="Qbtn">-</button>
                 <p id="Pizza">0</p>
-                <button onclick="add(Pizza,PizzaDesc)" class="Qbtn">+</button>
+                <button onclick="add(Pizza,PizzaDesc,h1Pizza)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/burgerMenu.webp" class="cardImg" alt="Burger">
-            <h2>Burger</h2>
+            <h2 id="h1Burger">Burger</h2>
             <p class="desc" id="BurgerDesc">Enjoy the juicy burger <br> Rs 60/-</p>
             <hr>
             <div class="Q">
                 <button onclick="remove(Burger,BurgerDesc)" class="Qbtn">-</button>
                 <p id="Burger">0</p>
-                <button onclick="add(Burger,BurgerDesc)" class="Qbtn">+</button>
+                <button onclick="add(Burger,BurgerDesc,h1Burger)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/friesMenu.webp" class="cardImg" alt="Fries">
-            <h2>Fries</h2>
+            <h2 id="h1Fries">Fries</h2>
             <p class="desc" id="FriesDesc">Enjoy the tasty Fries <br> Rs 50/-</p>
             <hr>
             <div class="Q">
                 <button onclick="remove(Fries,FriesDesc)" class="Qbtn">-</button>
                 <p id="Fries">0</p>
-                <button onclick="add(Fries,FriesDesc)" class="Qbtn">+</button>
+                <button onclick="add(Fries,FriesDesc,h1Fries)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/momosMenu.webp" class="cardImg" alt="Momos">
-            <h2>Momos</h2>
+            <h2 id="h1Momos">Momos</h2>
             <p class="desc" id="MomosDesc">Enjoy the tasty Momos <br> Rs 80/-</p>
             <hr>
             <div class="Q">
                 <button onclick="remove(Momos,MomosDesc)" class="Qbtn">-</button>
                 <p id="Momos">0</p>
-                <button onclick="add(Momos,MomosDesc)" class="Qbtn">+</button>
+                <button onclick="add(Momos,MomosDesc,h1Momos)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/sandwichesMenu.avif" class="cardImg" alt="Sandwiches">
-            <h2>Sandwiches</h2>
+            <h2 id="h1Sandwiches">Sandwiches</h2>
             <p class="desc" id="SandwichesDesc">Enjoy the tasty Sandwiches <br> Rs 60/-</p>
             <hr>
             <div class="Q">
                 <button onclick="remove(Sandwiches,SandwichesDesc)" class="Qbtn">-</button>
                 <p id="Sandwiches">0</p>
-                <button onclick="add(Sandwiches,SandwichesDesc)" class="Qbtn">+</button>
+                <button onclick="add(Sandwiches,SandwichesDesc,h1Sandwiches)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/pastaMenu.avif" class="cardImg" alt="Pasta">
-            <h2>Pasta</h2>
+            <h2 id="h1Pasta">Pasta</h2>
             <p class="desc" id="PastaDesc">Enjoy the tasty Pasta <br> Rs 80/-</p>
             <hr>
             <div class="Q">
                 <button onclick="remove(Pasta,PastaDesc)" class="Qbtn">-</button>
                 <p id="Pasta">0</p>
-                <button onclick="add(Pasta,PastaDesc)" class="Qbtn">+</button>
+                <button onclick="add(Pasta,PastaDesc,h1Pasta)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/coffeeMenu.jpg" class="cardImg" alt="Coffee">
-            <h2>Coffee</h2>
+            <h2 id="h1Coffee">Coffee</h2>
             <p class="desc" id="CoffeeDesc">Enjoy the tasty Coffee <br> Rs 60/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(Coffee,CoffeeDesc)" class="Qbtn">-</button>
+                <button onclick="remove(Coffee,CoffeeDesc,h1Coffee)" class="Qbtn">-</button>
                 <p id="Coffee">0</p>
-                <button onclick="add(Coffee,CoffeeDesc)" class="Qbtn">+</button>
+                <button onclick="add(Coffee,CoffeeDesc,h1Coffee)" class="Qbtn">+</button>
             </div>
         </div>
         <div class="card">
             <img src="../Images/desertMenu.avif" class="cardImg" alt="Desert">
-            <h2 id="arrName">Desert</h2>
+            <h2 id="h1Desert">Desert</h2>
             <p class="desc" id="DesertDesc">Enjoy the tasty Desert <br> Rs 100/-</p>
             <hr>
             <div class="Q">
-                <button onclick="remove(Desert,DesertDesc)" class="Qbtn">-</button>
+                <button onclick="remove(Desert,DesertDesc,h1Desert)" class="Qbtn">-</button>
                 <p id="Desert">0</p>
-                <button onclick="add(Desert,DesertDesc)" class="Qbtn">+</button>
+                <button onclick="add(Desert,DesertDesc,h1Desert)" class="Qbtn">+</button>
             </div>
         </div>
     </div>
@@ -126,12 +126,17 @@
 
     </div>
 
-    <script>
-        e=arrName.innerHTML;
-        console.log("Arr name entity",e);
-        let qty=0;
+
+
+
+
+<script>
+        let qty = 0;
+        let prcXqty = 0;
         let arr = [];
-        function add(arg1,arg2) {
+
+
+function add(arg1, arg2, arg3) {
             // alert("Add");
             arg1.innerHTML = parseInt(arg1.innerHTML) + 1;
             let a = arg1.id;
@@ -140,44 +145,95 @@
             console.log("ID:", a);
             console.log("Value:", b);
 
-            function total(arg2) {
+        function total(arg2, arg3) {
+            console.log("Total function started")
+                e = arg3.innerHTML;
+                console.log("Name=", e);
                 let c = arg2.textContent;
                 let d = c.match(/[0-9]+/);
                 let price = parseInt(d[0]);
                 console.log("Text Content:", c);
                 console.log("Price Extracted:", price);
-                arr.push({Name: e ,Price:price});
+
+                let item = arr.find(item => item.Name === e);
+            if (item) {
+                    console.log("If Condition (when "+ e +" isfound)");
+                    console.log("QTY=",b)
+                    console.log("Price=",price)
+                    prcXqty = (price * b)
+                    item.Quantity = b   
+                    item.TotalPrice = (price * b);
+                    console.log("TotalPrice="+(price)+"*"+(b))
+                    let finalBill = arr.reduce((acc, curr) => acc + (curr.TotalPrice), 0);
+                    console.log("Final Bill after calculating is", finalBill);
+                    billDisplay.innerHTML = ("Final Bill after calculation is " + finalBill);
+                }
+            else {
+                    console.log("Else Condition ("+ e+" not found)");
+                    prcXqty = (price * b)
+                    console.log("prcXqty="+(price)+"*"+(b))
+                    arr.push({ Name: e, Price: price, Quantity: b, TotalPrice: prcXqty });
+                    let finalBill = arr.reduce((acc, curr) => acc + (curr.TotalPrice), 0);
+                    console.log("Final Bill after calculating is", finalBill);
+                    billDisplay.innerHTML = ("Final Bill after calculation is " + finalBill);
+                }
+                // console.log("Quantity=", qty);
+                // console.log("Prce*Qty=", prcXqty)
                 console.log(arr);
-            } total(arg2);
-            let finalBill = arr.reduce((acc, curr) => acc + (curr.Price), 0);
-            console.log("Final Bill after calculating is", finalBill);
-            billDisplay.innerHTML = ("Final Bill after calculation is " + finalBill);
+            } total(arg2, arg3);
+            // let finalBill = arr.reduce((acc, curr) => acc + (curr.TotalPrice), 0);
+            // console.log("Final Bill after calculating is", finalBill);
+            // billDisplay.innerHTML = ("Final Bill after calculation is " + finalBill);
+            console.log("-------------------------------------------")
         }
 
 
-        function remove(arg1, arg2) {
+function remove(arg1, arg2, arg3) {
             if (parseInt(arg1.innerHTML) > 0) {
                 arg1.innerHTML = parseInt(arg1.innerHTML) - 1;
                 let a = arg1.id;
                 let b = parseInt(arg1.innerHTML);
-                console.log("Arg:", arg1);
+                console.log("Arg1:", arg1);
                 console.log("ID:", a);
                 console.log("Value:", b);
 
-                function total(arg2) {
+            function total(arg2, arg3) {
+                    e = arg3.innerHTML;
                     let c = arg2.textContent;
                     let d = c.match(/[0-9]+/);
                     let price = parseInt(d[0]);
                     console.log("Text Content:", c);
                     console.log("Price Extracted:", price);
-                    arr.push((-price));
+
+                    let item = arr.find(item => item.Name === e);
+                    if (item) {
+                        // console.log("If Condition");
+                        // console.log("QTY=",b)
+                        // console.log("Price=",price)
+                        prcXqty = (price * b)
+                        item.Quantity = b
+                        item.TotalPrice = (price * b);
+                        // console.log("TotalPrice="+(price)+"*"+(b))
+                    }
+                    console.log("Quantity=", b);
+                    console.log("Prce*Qty=", prcXqty)
                     console.log(arr);
-                } total(arg2);
-                let finalBill = arr.reduce((acc, curr) => acc + curr, 0);
+                } total(arg2,arg3);
+                let finalBill = arr.reduce((acc, curr) => acc + (curr.TotalPrice), 0);
                 console.log("Final Bill after calculating is", finalBill);
                 billDisplay.innerHTML = ("Final Bill after calculation is " + finalBill);
             }
         }
+
+        let result=arr.filter(food=>food.Quantity==0);
+        console.log(result);
+
+
+
+
+
+
+
 
         function addToCart() {
             const items = ['Pizza', 'Burger'];
