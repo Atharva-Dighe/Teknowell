@@ -10,24 +10,28 @@
 
 <body>
     <div class="ipDiv">
-        <h1>WITHDRAW PAGE</h1>
+        <h1 style="color:bisque;background-color:red;">WITHDRAW PAGE</h1>
         <form>
             <label>Enter Amount to Withdraw: </label>
             <input type="number" id="withdrawAmt" placeholder="Withdraw Amt" value="200"><br><br>
         </form>
         <button onclick="withdrawFunction()">WITHDRAW</button>
     </div>
-    <h3 id="dislayBalance"></h3>
+    <h3 id="dispFinalBalance"></h3>
     <script>
         let Bal = localStorage.getItem('balance');    //Getting data from another page using Local Storage getItem()
         console.log("Balance retrieved from Main.html page: ", Bal);
-
         function withdrawFunction() 
         {
-            let withdrawAmount = document.getElementById("withdrawAmt").value;
-            console.log("Withdraw Amount Entered: ", withdrawAmount);
-
-            
+            let WithdrawAmount = document.getElementById("withdrawAmt").value;
+            console.log("Withdraw Amount Entered: ", WithdrawAmount);
+            dispFinalBalance.innerHTML=`Balance Amount before Withdrawing - Rs ${Bal}/-`;
+            console.log(`Amount before withdrawing is Rs ${Bal}/-`);
+            Bal= ((Bal)-(WithdrawAmount));
+            if(Bal>=0)
+                dispFinalBalance.innerHTML+=`<hr> Rs ${WithdrawAmount}/- Withdrawed <hr> Final Balance Amount after <br>Withdrawing Rs ${WithdrawAmount}/- is <br> Rs ${Bal}/-`;
+            else
+                dispFinalBalance.innerHTML+=`<hr> Insufficeint Balance! <br> You don't have Rs ${WithdrawAmount}/- in your account to Withdraw.`;
         }
 
 

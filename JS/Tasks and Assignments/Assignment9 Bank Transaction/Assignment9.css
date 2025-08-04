@@ -30,3 +30,11 @@ button{
     display: flex;
     justify-content: center;
 }
+#dispFinalBalance{
+    text-align: center;
+    font-size: x-large;
+    /* background-color: aqua; */
+    margin:20px;
+    padding:5px;
+    border:2px solid black;
+}
