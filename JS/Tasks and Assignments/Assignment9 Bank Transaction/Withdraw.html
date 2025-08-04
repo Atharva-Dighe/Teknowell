@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <h1>WITHDRAW PAGE</h1>
     <div class="ipDiv">    
         <form>
@@ -18,25 +19,30 @@
         <button onclick="withdrawFunction()">WITHDRAW</button>
     </div>
     <h3 id="dispBalance"></h3>
+
     <script>
-        let Bal = localStorage.getItem('balance');    //Getting data from another page using Local Storage getItem()
+        let Bal = parseInt(localStorage.getItem('balance'));    //Getting data from another page using Local Storage getItem()
         console.log("Balance retrieved from Main.html page: ", Bal);
         function withdrawFunction() 
         {
             let WithdrawAmount = document.getElementById("withdrawAmt").value;
             console.log("Withdraw Amount Entered: ", WithdrawAmount);
-            dispBalance.innerHTML=`Balance Amount before Withdrawing - Rs ${Bal}/-`;
+            dispBalance.innerHTML=`Balance Amount before Withdrawing is <br> Rs ${Bal}/-`;
             console.log(`Amount before withdrawing is Rs ${Bal}/-`);
-            Bal= ((Bal)-(WithdrawAmount));
-            if(Bal>=0)
+            if(Bal>WithdrawAmount)
+            {
+                Bal= (parseInt(Bal)-parseInt(WithdrawAmount));
+                console.log(`Final Balance after withdrawing is: ${Bal}`);
                 dispBalance.innerHTML+=`<hr> Rs ${WithdrawAmount}/- Withdrawed <hr> Final Balance Amount after <br>Withdrawing Rs ${WithdrawAmount}/- is <br> Rs ${Bal}/-`;
+            }
             else
-                dispBalance.innerHTML+=`<hr> Insufficeint Balance! <br> You don't have Rs ${WithdrawAmount}/- in your account to Withdraw.`;
+            {
+                dispBalance.innerHTML=`Insufficeint Balance!<br> Your Account Balance is Rs ${Bal}/- <br>& hence you can't Withdraw Rs ${WithdrawAmount}/- from your account.`;
+                alert("Insufficeint Balance!")
+            }
         }
-
-
-
     </script>
+
 </body>
 
 </html>

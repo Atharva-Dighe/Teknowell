@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS A-9 DEPOSIT Page</title>
+    <link rel="stylesheet" href="./Assignment9.css">
 </head>
+
 <body>
-    DEPOSIT
+
+    <h1>DEPOSIT PAGE</h1>
+    <div class="ipDiv">
+        <form>
+            <label>Enter Amount to Deposit: </label>
+            <input type="number" id="depositAmt" placeholder="Deposit Amt" value="500" min="1"><br><br>
+        </form>
+        <button onclick="depositFunction()">DEPOSIT</button>
+    </div>
+    <h3 id="dispBalance"></h3>
+
+    <script>
+        let Bal = localStorage.getItem('balance');    //Getting data from another page using Local Storage getItem()
+        console.log("Balance retrieved from Main.html page: ", Bal);
+        function depositFunction() {
+            let DepositAmount = document.getElementById("depositAmt").value;
+            console.log("Deposit Amount Entered: ", DepositAmount);
+            if (DepositAmount <= 0)
+                alert(`Enter Valid Deposit Amount (Greater than 1)`);
+            else {
+                dispBalance.innerHTML = `Balance Amount before Depositing is <br>Rs ${Bal}/-`;
+                console.log(`Amount before Depositing is Rs ${Bal}/-`);
+                Bal = (parseInt(Bal) + parseInt(DepositAmount));
+                dispBalance.innerHTML += `<hr> Rs ${DepositAmount}/- Deposited <hr> Final Balance Amount after <br>Depositing Rs ${DepositAmount}/- is <br> Rs ${Bal}/-`;
+            }
+        }
+    </script>
+
 </body>
+
 </html>
