@@ -110,12 +110,12 @@
         </div>
         <div class="card">
             <img src="../Images/desertMenu.avif" class="cardImg" alt="Desert">
-            <h2 id="h1Desert">Desert</h2>
-            <p class="desc" id="DesertDesc">Enjoy the tasty Desert <br> Rs 100/-</p>
+    <!--arg3-->        <h2 id="h1Desert">Desert</h2>
+    <!--arg2-->        <p class="desc" id="DesertDesc">Enjoy the tasty Desert <br> Rs 100/-</p>
             <hr>
             <div class="Q">
                 <button onclick="remove(Desert,DesertDesc,h1Desert)" class="Qbtn">-</button>
-                <p id="Desert">0</p>
+    <!--arg1-->            <p id="Desert">0</p>
                 <button onclick="add(Desert,DesertDesc,h1Desert)" class="Qbtn">+</button>
             </div>
         </div>
@@ -125,10 +125,6 @@
     <div class="footer">
 
     </div>
-
-
-
-
 
 <script>
         let qty = 0;
@@ -159,8 +155,8 @@ function add(arg1, arg2, arg3) {
             if (item) {
                     console.log("If Condition (when "+ e +" isfound)");
                     console.log("QTY=",b)
-                    console.log("Price=",price)
-                    prcXqty = (price * b)
+                    console.log("Price=",price) 
+                    // prcXqty = (price * b)
                     item.Quantity = b   
                     item.TotalPrice = (price * b);
                     console.log("TotalPrice="+(price)+"*"+(b))
