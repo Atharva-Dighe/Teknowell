@@ -1,8 +1,20 @@
+h1{
+    color:bisque;
+    background-color:red;
+    text-align: center;
+    border: 2px solid black;
+}
 .ipDiv{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 2px solid violet;
+    border-radius: 10px;
+    margin:0px 350px;
+    margin-bottom: 20px;
+    padding:20px 0px;
+    font-size: large;
 }
 label{
     font-size: larger;
@@ -11,6 +23,7 @@ input{
     height: 25px;
     width: 120px;
     border:2px solid black;
+    border-radius: 5px;
     font-size: medium;
 }
 button{
@@ -18,23 +31,19 @@ button{
     margin-left: 20px;
     height: 35px;
     border: 2px solid black;
+    border-radius: 20px;
     font-size: large;
 }
 #dispBalance{
     text-align: center;
     font-size: x-large;
-    /* background-color: aqua; */
-    margin:0px;
+    font-weight: 500;
+    margin:20px 400px;
+    padding:5px;
+    border:1px solid black;
+    border-radius: 10px;
 }
 .twobtns{
     display: flex;
     justify-content: center;
-}
-#dispFinalBalance{
-    text-align: center;
-    font-size: x-large;
-    /* background-color: aqua; */
-    margin:20px;
-    padding:5px;
-    border:2px solid black;
 }

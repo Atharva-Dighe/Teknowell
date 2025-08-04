@@ -9,17 +9,17 @@
 </head>
 
 <body>
+    <h1>Bank Transaction Reciept</h1>
     <div class="ipDiv">
-        <h1>Bank Transaction Reciept</h1>
         <form>
             <label>Enter Customer ID: </label>
             <input type="text" placeholder="Customer ID" id="Cid"><br><br>
             <label>Enter Customer Name: </label>
             <input type="text" placeholder="Customer Name" id="Cname"><br><br>
         </form>
-        <button onclick="PrintBalance()" id="checkBalBtn" style="background-color: greenyellow;">Check Balance</button><br><br>
+        <button onclick="PrintBalance()" id="checkBalBtn" style="background-color: greenyellow;">Check Balance</button>
     </div>
-    <h3 id="dispBalance"></h3><br><br>
+    <h3 id="dispBalance"></h3>
     <div class="twobtns">
         <button id="withdrawBtn" onclick="withdrawOpen()">WITHDRAW</button>
         <button id="depositBtn" onclick="depositOpen()">DEPOSIT</button>
