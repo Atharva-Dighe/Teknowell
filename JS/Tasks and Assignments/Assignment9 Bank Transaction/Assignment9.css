@@ -1,0 +1,36 @@
+.ipDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.twobtns{
+    display: flex;
+    justify-content: center;
+}
+button{
+    background-color: aqua;
+    margin-left: 20px;
+    height: 35px;
+    border: 2px solid black;
+    font-size: large;
+}
+input{
+    height: 25px;
+    border:2px solid black;
+    font-size: medium;
+}
+#bal{
+    height: 25px;
+    background-color: greenyellow;
+    font-size: large;
+}
+label{
+    font-size: larger;
+}
+h3{
+    text-align: center;
+    font-size: x-large;
+    /* background-color: aqua; */
+    margin:0px;
+}
