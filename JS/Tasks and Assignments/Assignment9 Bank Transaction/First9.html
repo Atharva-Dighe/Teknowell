@@ -17,25 +17,30 @@
             <label>Enter Customer Name: </label>
             <input type="text" placeholder="Customer Name" id="Cname"><br><br>
         </form>
-        <button onclick="f1()" id="bal">Check Balance</button><br><br>
+        <button onclick="PrintBalance()" id="checkBalBtn">Check Balance</button><br><br>
     </div>
-    <h3 id="h3"></h3><br><br>
+    <h3 id="dispBalance"></h3><br><br>
     <div class="twobtns">
-        <button>WITHDRAW</button>
-        <button>DEPOSIT</button>
+        <button id="withdrawBtn">WITHDRAW</button>
+        <button id="depositBtn">DEPOSIT</button>
     </div>
+
     <script>
-        function f1() {
-            // alert("F1 Working");
-            let a = document.getElementById("Cid").value;
-            let b = document.getElementById("Cname").value;
-            console.log(a);
-            console.log(b);
-            // h3.innerHTML="Balance Amount of Account <br> <em>" + a +" "+ b + "</em> is 20K";
-            h3.innerHTML = `Balance Amount of Account <br> <em> ${a} ${b} </em> is 20K`;
-            console.log(h3.innerText);
+
+        function PrintBalance()
+        {
+            // alert("F1 Working"); //Check onclick function is working or not.
+            let CId = document.getElementById("Cid").value;
+            let CName = document.getElementById("Cname").value;
+            console.log("Cust ID: ", CId);
+            console.log("Cust Name: ", CName);
+            // h3.innerText="Balance Amount of Account <br> <em>" + a +" "+ b + "</em> is 20K";  //doesn't recognise <br> <em> Treats them as normal text.
+            // h3.innerHTML="Balance Amount of Account <br> <em>" + a +" "+ b + "</em> is 20K"; //Hence we use this innerHTML. It recognises <br> <em> like other tags.
+            dispBalance.innerHTML = `Balance Amount of Account <br> <em> ${CId} ${CName} </em> is 20K`;    //Use of Backtick simplifies value refering as compared to double/single quotes.
+            console.log(dispBalance.innerText);
         }
     </script>
+
 </body>
 
 </html>
