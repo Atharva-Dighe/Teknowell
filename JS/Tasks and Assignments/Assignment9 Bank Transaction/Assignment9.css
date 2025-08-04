@@ -9,12 +9,15 @@ label{
 }
 input{
     height: 25px;
+    width: 120px;
     border:2px solid black;
     font-size: medium;
 }
-#checkBalBtn{
-    height: 25px;
-    background-color: greenyellow;
+button{
+    background-color: aqua;
+    margin-left: 20px;
+    height: 35px;
+    border: 2px solid black;
     font-size: large;
 }
 #dispBalance{
@@ -26,11 +29,4 @@ input{
 .twobtns{
     display: flex;
     justify-content: center;
-}
-button{
-    background-color: aqua;
-    margin-left: 20px;
-    height: 35px;
-    border: 2px solid black;
-    font-size: large;
 }
