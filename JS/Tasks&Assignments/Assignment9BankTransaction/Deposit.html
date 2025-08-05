@@ -31,7 +31,7 @@
             else {
                 dispBalance.innerHTML = `Balance Amount before Depositing is <br>Rs ${Bal}/-`;
                 console.log(`Amount before Depositing is Rs ${Bal}/-`);
-                Bal = (parseInt(Bal) + parseInt(DepositAmount));
+                Bal = (Bal) + (DepositAmount);
                 dispBalance.innerHTML += `<hr> Rs ${DepositAmount}/- Deposited <hr> Final Balance Amount after <br>Depositing Rs ${DepositAmount}/- is <br> Rs ${Bal}/-`;
             }
         }

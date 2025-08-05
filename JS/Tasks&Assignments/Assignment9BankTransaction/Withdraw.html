@@ -31,12 +31,12 @@
             console.log(`Amount before withdrawing is Rs ${Bal}/-`);
             if(Bal>WithdrawAmount && WithdrawAmount>0)
             {
-                Bal= (parseInt(Bal)-parseInt(WithdrawAmount));
+                Bal= (Bal)-(WithdrawAmount);
                 console.log(`Final Balance after withdrawing is: ${Bal}`);
                 dispBalance.innerHTML+=`<hr> Rs ${WithdrawAmount}/- Withdrawed <hr> Final Balance Amount after <br>Withdrawing Rs ${WithdrawAmount}/- is <br> Rs ${Bal}/-`;
             }
             else if(Bal>WithdrawAmount && WithdrawAmount<=0)
-                alert(`Enter Valid Deposit Amount (Greater than 1)`);
+                alert(`Enter Valid Withdraw Amount (Greater than 1)`);
             else 
             {
                 dispBalance.innerHTML=`Insufficeint Balance!<br> Your Account Balance is Rs ${Bal}/- <br>& hence you can't Withdraw Rs ${WithdrawAmount}/- from your account.`;
