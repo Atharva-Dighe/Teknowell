@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-9 Bank Website</title>
+    <link rel="stylesheet" href="./Assignment9.css">
+</head>
+
+<body>
+    <div class="landPg">
+        <div class="landingPgBtns">
+            <button class="btn" onclick="existingOpen()">Login Existing <br>Account</button>
+            <button class="btn" style="transform: translate(5px, 0px); ">Add New<br> Account</button>
+        </div>
+    </div>
+    <h1>Existing User's Data Table</h1>
+    <div class="existingInfoTable">
+        <table cellspacing="0">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>   
+                <th>Account Balance</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Atharva</td>
+                <td>50000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Rohan</td>
+                <td>30000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Soham</td>
+                <td>20000</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function existingOpen()
+        {
+            window.open("http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Main.html");
+        }
+    </script>
+
+</body>
+
+</html>

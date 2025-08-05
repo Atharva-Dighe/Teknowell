@@ -1,3 +1,45 @@
+.landPg{
+    margin: 0px;
+    height: 100vh;
+    background-image:url(./LandingPageImage.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.landingPgBtns{
+    /* background-color: aqua; */
+    width: 32%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transform: translate(10px, 40px); 
+}
+.btn{
+    background-color: black;
+    color: whitesmoke;
+    height: 100%;
+    padding: 2%;
+    border: 3px solid black;
+}
+.existingInfoTable{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+table{
+    border:2px solid black;
+    height: 200px;
+    width: 400px;
+    text-align: center;
+    font-size: x-large;
+}
+th,td{
+    border: 1px solid black;
+}
 h1{
     color:bisque;
     background-color:red;
@@ -33,6 +75,7 @@ button{
     border: 2px solid black;
     border-radius: 20px;
     font-size: large;
+    cursor: pointer;
 }
 #dispBalance{
     text-align: center;
