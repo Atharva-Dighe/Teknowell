@@ -9,16 +9,16 @@
 </head>
 
 <body>
-    
+
     <h1>Bank Transaction Reciept</h1>
     <div class="ipDiv">
         <form>
             <label>Enter Customer ID: </label>
-            <input type="text" placeholder="Customer ID" id="Cid"><br><br>
+            <input type="text" placeholder="Customer ID" id="Ci"><br><br>
             <label>Enter Customer Name: </label>
-            <input type="text" placeholder="Customer Name" id="Cname"><br><br>
+            <input type="text" placeholder="Customer Name" id="Cn"><br><br>
         </form>
-        <button onclick="PrintBalance()" id="checkBalBtn" style="background-color: greenyellow;">Check Balance</button>
+        <button onclick="PrintBalance()" id="checkBalBtn" style="background-color:greenyellow;">Check Balance</button>
     </div>
     <h3 id="dispBalance"></h3>
     <div class="twobtns">
@@ -27,30 +27,54 @@
     </div>
 
     <script>
+    let existTable = [];
 
-        function PrintBalance() {
-            // alert("F1 Working"); //Check onclick function is working or not.
-            let CId = document.getElementById("Cid").value;
-            let CName = document.getElementById("Cname").value;
-            let Bal = 10000;
-            console.log("Cust ID: ", CId);
-            console.log("Cust Name: ", CName);
-            console.log("Balance: ", Bal);
-            // h3.innerText="Balance Amount of Account <br> <em>" + a +" "+ b + "</em> is 20K";  //doesn't recognise <br> <em> Treats them as normal text.
-            // h3.innerHTML="Balance Amount of Account <br> <em>" + a +" "+ b + "</em> is 20K"; //Hence we use this innerHTML. It recognises <br> <em> like other tags.
-            dispBalance.innerHTML = `Balance Amount of Account <br> <em> ${CId} ${CName} </em> is ${Bal}`;    //Use of Backtick simplifies value refering as compared to double/single quotes.
-            console.log(dispBalance.innerText);
+    window.onload = function () 
+    {
+        const stored = localStorage.getItem("bankData");
+        if (stored) 
+        {
+            existTable = JSON.parse(stored);
+            console.log("Received table data:", existTable);
+        } 
+        else 
+        {
+            console.log("No data received from localStorage.");
+        }
+    };
 
-            localStorage.setItem('balance', Bal);
-            // window.location.href = "http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Withdraw.html";
+    function PrintBalance() 
+    {
+        const CId = document.getElementById("Ci").value.trim();
+        const CName = document.getElementById("Cn").value.trim();
+
+        const match = existTable.find(row => row.id === CId && row.name === CName);
+
+        if (match) 
+        {
+            console.log("Validation Successful!");
+            dispBalance.innerHTML = `Balance Amount of Account <br> <em>${CId} ${CName}</em> is ${match.balance}`;
+            localStorage.setItem('balance', match.balance);
+        } 
+        else 
+        {
+            console.log("Validation Failed.");
+            dispBalance.innerHTML = `No match found for entered ID and Name.`;
         }
-        function withdrawOpen() {
-            window.open("http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Withdraw.html")
-        }
-        function depositOpen() {
-            window.open("http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Deposit.html");
-        }
-    </script>
+    }
+
+    function withdrawOpen() 
+    {
+        window.open("http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Withdraw.html")
+    }
+
+    function depositOpen() 
+    {
+        window.open("http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Deposit.html");
+    }
+
+</script>
+
 
 </body>
 

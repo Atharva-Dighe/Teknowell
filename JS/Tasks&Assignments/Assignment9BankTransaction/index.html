@@ -17,10 +17,10 @@
     </div>
     <h1>Existing User's Data Table</h1>
     <div class="existingInfoTable">
-        <table cellspacing="0">
+        <table id="existTable" cellspacing="0">
             <tr>
                 <th>ID</th>
-                <th>Name</th>   
+                <th>Name</th>
                 <th>Account Balance</th>
             </tr>
             <tr>
@@ -41,12 +41,24 @@
         </table>
     </div>
 
-    <script>
-        function existingOpen()
+<script>
+    function existingOpen() {
+        const table = document.getElementById("existTable");
+        const extractedData = [];
+
+        for (let i = 1; i < table.rows.length; i++) 
         {
-            window.open("http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Main.html");
+            const id = table.rows[i].cells[0].innerText;
+            const name = table.rows[i].cells[1].innerText;
+            const balance = table.rows[i].cells[2].innerText;
+            extractedData.push({ id, name, balance });
         }
-    </script>
+
+        localStorage.setItem("bankData", JSON.stringify(extractedData));
+
+        window.open("http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Main.html");
+    }
+</script>
 
 </body>
 
