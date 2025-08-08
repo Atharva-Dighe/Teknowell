@@ -9,17 +9,36 @@
 
 <body>
     <h2>Items in Your Cart</h2>
-    <ul id="itemList"></ul>
-    <h3 id="total"></h3>
-    <script>
-        window.onload = function () {
-            const items = JSON.parse(localStorage.getItem('cartItems'));
-            const total = localStorage.getItem('cartTotal');
+    <ol id="billList"></ol>
+    <h1 id="total"></h1>
 
-            document.getElementById('itemList').innerHTML = items.map(item => `<li>${item}</li>`).join('');
-            document.getElementById('total').textContent = `Total Bill: ₹${total}`;
-        };
+    <script>
+
+        const cartArray = JSON.parse(localStorage.getItem('arr'));
+        console.log("Array retrived from Restaurant Page is : ", cartArray);
+
+        const billList = document.getElementById('billList');
+        const totalCost = document.getElementById('total');
+
+        if (cartArray && cartArray.length > 0) 
+        {
+            let totalPrice = 0;
+            const listItems = cartArray.map(item => 
+            {
+                totalPrice += item.TotalPrice;
+                return `<li>${item.Name} - ₹${item.Price} x ${item.Quantity} = ₹${item.TotalPrice}</li>`;
+            });
+            billList.innerHTML = listItems.join('');
+            total.innerText = `Total Amount: ₹${totalPrice}`;
+        }
+        else 
+        {
+            billList.innerHTML = "<li>Your cart is empty.</li>";
+            totalAmount.innerText = "";
+        }
+
     </script>
+
 </body>
 
 </html>
