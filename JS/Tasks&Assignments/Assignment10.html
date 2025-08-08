@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-10 No. Check</title>
+    <link rel="stylesheet" href="./Assignment10.css">
+</head>
+
+<body>
+    <div class="UI">
+        <h1>Checking Number with -</h1>
+        <ul>
+            <li>Even/Odd</li>
+            <li>Prime</li>
+            <li>Perfect</li>
+            <li>Positive/Negative</li>
+            <li>Factorial</li>
+            <li>Armstrong</li>
+        </ul>
+        <form>
+            <label>Enter Number: </label>
+            <input type="number" id="ip">
+            <br><br>
+        </form>
+        <button style="background-color: greenyellow; cursor: pointer;" onclick="check()">Check</button>
+        <p id="displayResult"></p>
+    </div>
+
+    <script>
+        function check() {
+            number = document.getElementById("ip").value;
+            // alert(number);
+            if (number) {
+                if (number > 0)
+                    displayResult.innerHTML += `<br> ${number} is Positive`;
+                else if (number < 0)
+                    displayResult.innerHTML += `<br> ${number} is Negative`;
+            }
+            if (number) {
+                if (number % 2 == 0)
+                    displayResult.innerHTML += `<br> ${number} is Even`;
+                else
+                    displayResult.innerHTML += `<br>${number} is Odd`;
+            }
+            if (number) {
+                if (number > 0) 
+                {
+                    let fact=1;
+                    for (let i = number; i > 0; i--) 
+                    {
+                        fact=fact*i;
+                    }
+                    displayResult.innerHTML += `<br> Factorial of ${number} is ${fact}`;
+                }
+                else if (number == 0) {
+                    displayResult.innerHTML += `<br> Factorial of 0 is 0`;
+                }
+                else if (number < 0) {
+                    displayResult.innerHTML += `<br> Factorial of Negative Number doesn't exists`;
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
