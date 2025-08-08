@@ -12,9 +12,29 @@
     <div class="landPg">
         <div class="landingPgBtns">
             <button class="btn" onclick="existingOpen()">Login Existing <br>Account</button>
-            <button class="btn" style="transform: translate(5px, 0px); ">Add New<br> Account</button>
+            <button class="btn" onclick="openForm()" style="transform: translate(5px, 0px); ">Add New<br>
+                Account</button>
         </div>
     </div>
+
+    <div id="formPopup" class="form-popup">
+        <form id="dataForm" class="form-container" onsubmit="submitForm(event)">
+            <h2 style="text-align: center;">Enter Details</h2>
+
+            <label>Customer ID</label>
+            <input type="number" id="formId" required>
+            <br><br>
+            <label>Customer Name</label>
+            <input type="text" id="formName" required>
+            <br><br>
+            <label>Initial Balance</label>
+            <input type="number" id="formBalance" required>
+            <br>
+            <button type="submit">Submit</button>
+            <button type="button" class="cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
     <h1>Existing User's Data Table</h1>
     <div class="existingInfoTable">
         <table id="existTable" cellspacing="0">
@@ -41,24 +61,72 @@
         </table>
     </div>
 
-<script>
-    function existingOpen() {
-        const table = document.getElementById("existTable");
-        const extractedData = [];
+    <script>
+        function existingOpen() {
+            const table = document.getElementById("existTable");
+            const extractedData = [];
 
-        for (let i = 1; i < table.rows.length; i++) 
-        {
-            const id = table.rows[i].cells[0].innerText;
-            const name = table.rows[i].cells[1].innerText;
-            const balance = table.rows[i].cells[2].innerText;
-            extractedData.push({ id, name, balance });
+            for (let i = 1; i < table.rows.length; i++) {
+                const id = table.rows[i].cells[0].innerText;
+                const name = table.rows[i].cells[1].innerText;
+                const balance = table.rows[i].cells[2].innerText;
+                extractedData.push({ id, name, balance });
+            }
+
+            localStorage.setItem("bankData", JSON.stringify(extractedData));
+
+            window.open("http://127.0.0.1:5500/Main.html");
         }
 
-        localStorage.setItem("bankData", JSON.stringify(extractedData));
 
-        window.open("http://127.0.0.1:5500/Tasks&Assignments/Assignment9BankTransaction/Main.html");
-    }
-</script>
+        // Show the form
+        function openForm() {
+            document.getElementById("formPopup").style.display = "block";
+        }
+
+        // Hide the form
+        function closeForm() {
+            document.getElementById("formPopup").style.display = "none";
+        }
+
+        // Handle form submission
+        function submitForm(event) 
+        {
+            event.preventDefault(); // prevent actual form submission
+
+            // Get input values
+            const newId = document.getElementById("formId").value.trim();
+            const newName = document.getElementById("formName").value.trim();
+            const newBalance = document.getElementById("formBalance").value.trim();
+
+            // Add a new row to the table
+            const table = document.getElementById("existTable");
+            const rows = table.getElementsByTagName("tr");
+
+            for (let i = 1; i < rows.length; i++) 
+            {
+                const existingId = rows[i].cells[0].textContent;
+                if (existingId === newId) 
+                {
+                    alert("ID already exists. Please enter a unique ID.");
+                    return; // Stop execution
+                }
+            }
+
+            const newRow = table.insertRow();
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            const cell3 = newRow.insertCell(2);
+            cell1.textContent = newId;
+            cell2.textContent = newName;
+            cell3.textContent = newBalance;
+
+            // Reset and close form
+            document.getElementById("dataForm").reset();
+            closeForm();
+        }
+
+    </script>
 
 </body>
 

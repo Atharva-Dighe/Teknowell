@@ -21,17 +21,19 @@
     <h3 id="dispBalance"></h3>
 
     <script>
-        let Bal = localStorage.getItem('balance');    //Getting data from another page using Local Storage getItem()
+        let Bal =parseInt(localStorage.getItem('balance'));    //Getting data from another page using Local Storage getItem()
         console.log("Balance retrieved from Main.html page: ", Bal);
         function depositFunction() {
-            let DepositAmount = document.getElementById("depositAmt").value;
+            let DepositAmount = parseInt(document.getElementById("depositAmt").value);
             console.log("Deposit Amount Entered: ", DepositAmount);
             if (DepositAmount <= 0)
                 alert(`Enter Valid Deposit Amount (Greater than 1)`);
             else {
                 dispBalance.innerHTML = `Balance Amount before Depositing is <br>Rs ${Bal}/-`;
                 console.log(`Amount before Depositing is Rs ${Bal}/-`);
+                console.log(typeof(DepositAmount));
                 Bal = (Bal) + (DepositAmount);
+                
                 dispBalance.innerHTML += `<hr> Rs ${DepositAmount}/- Deposited <hr> Final Balance Amount after <br>Depositing Rs ${DepositAmount}/- is <br> Rs ${Bal}/-`;
             }
         }

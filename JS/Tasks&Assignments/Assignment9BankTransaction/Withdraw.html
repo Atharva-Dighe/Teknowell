@@ -25,13 +25,14 @@
         console.log("Balance retrieved from Main.html page: ", Bal);
         function withdrawFunction() 
         {
-            let WithdrawAmount = document.getElementById("withdrawAmt").value;
+            let WithdrawAmount = parseInt(document.getElementById("withdrawAmt").value);
             console.log("Withdraw Amount Entered: ", WithdrawAmount);
             dispBalance.innerHTML=`Balance Amount before Withdrawing is <br> Rs ${Bal}/-`;
             console.log(`Amount before withdrawing is Rs ${Bal}/-`);
             if(Bal>WithdrawAmount && WithdrawAmount>0)
             {
                 Bal= (Bal)-(WithdrawAmount);
+                console.log(typeof(WithdrawAmount));
                 console.log(`Final Balance after withdrawing is: ${Bal}`);
                 dispBalance.innerHTML+=`<hr> Rs ${WithdrawAmount}/- Withdrawed <hr> Final Balance Amount after <br>Withdrawing Rs ${WithdrawAmount}/- is <br> Rs ${Bal}/-`;
             }

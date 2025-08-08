@@ -1,0 +1,33 @@
+A. DDL - Data Defination Language
+Works on Table
+Followed by "table" keyword
+eg - Create, Rename, Drop, Truncate, Alter (added home ph coloumn)
+
+ 
+Can't UNDO these commands.
+
+B. DML - Data Manipulation Language
+Works on Data
+Insert, Update, Delete
+
+Can UNDO these commands.
+
+Insert - 
+insert into 
+
+3 ways to insert
+I. Normal single entry insertion - insert into student values(1,'atharva');
+ii. Multiple entries at once - insert into student values(2,'shruti'),(3,'sanket');
+iii. Only insert specific coloumn- insert into student (id) values(7); 
+
+Update -
+update student set id=3 where name='atharva'
+
+Delete -
+
+I. delete from student //Deletes whole database //op- Empty set
+ii. delete from student where id=3 //using "where" clause //id=3 row gets deleted
+
+
+
+system cls - Used to clear screen.
