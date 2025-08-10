@@ -21,7 +21,7 @@
         </ul>
         <form>
             <label>Enter Number: </label>
-            <input type="number" id="ip">
+            <input type="number" id="ip" value="10">
             <br><br>
         </form>
         <button style="background-color: greenyellow; cursor: pointer;" onclick="check()">Check</button>
@@ -34,61 +34,13 @@
             number = document.getElementById("ip").value;
             // alert(number);
 
-//Positive-Negative 
-            if (number) {
-                if (number > 0)
-                    displayResult.innerHTML = `<br> ${number} is Positive`;
-                else if (number < 0)
-                    displayResult.innerHTML = `<br> ${number} is Negative`;
-            }
-
 //Odd-Even
-            if (number) {
-                if (number % 2 == 0)
-                    displayResult.innerHTML += `<br> ${number} is Even`;
-                else
-                    displayResult.innerHTML += `<br>${number} is Odd`;
-            }
-
-//Factorial
-            if (number) {
-                if (number > 0) 
-                {
-                    let fact=1;
-                    for (let i = number; i > 0; i--) 
-                    {
-                        fact=fact*i;
-                    }
-                    displayResult.innerHTML += `<br> Factorial of ${number} is ${fact}`;
-                }
-                else if (number == 0) {
-                    displayResult.innerHTML += `<br> Factorial of 0 is 0`;
-                }
-                else if (number < 0) {
-                    displayResult.innerHTML += `<br> Factorial of Negative Number doesn't exists`;
-                }
-            }
-
-//Armstrong
-
-            let sum = digit = 0;
-            if(number)
+            if (number) 
             {
-                numStr = (number.toString());
-                // console.log("No converted to String: ",numStr);
-                n = numStr.length;
-                // console.log("Length of string is : ",n);
-                for(let i=0;i<n;i++)
-                {   
-                    let digit=parseInt(numStr[i]);
-                    sum+=Math.pow(digit,n);
-                    
-                }
-                // console.log("Sum of all digits in string is: ",sum);
-                if(sum==number)
-                    displayResult.innerHTML += `<br> ${number} is an Armstrong number`;
+                if (number % 2 == 0)
+                    displayResult.innerHTML = `<br> ${number} is Even`;
                 else
-                    displayResult.innerHTML += `<br> ${number} is not an Armstrong number`;
+                    displayResult.innerHTML = `<br>${number} is Odd`;
             }
 
 //Prime
@@ -116,9 +68,9 @@
                             }
                         }
                         if(isPrime)
-                            displayResult.innerHTML += `<br> ${number} is a  Prime number`;
+                            displayResult.innerHTML += `<br> ${number} is  Prime `;
                         else
-                            displayResult.innerHTML += `<br> ${number} is not a Prime number`;
+                            displayResult.innerHTML += `<br> ${number} is not Prime `
                     }
                 }
             }
@@ -138,6 +90,61 @@
                 else
                     displayResult.innerHTML += `<br> ${number} is not a  Perfect number`;
             }
+                        
+//Positive-Negative 
+            if (number) 
+            {
+                if (number > 0)
+                    displayResult.innerHTML += `<br> ${number} is Positive`;
+                else if (number < 0)
+                    displayResult.innerHTML += `<br> ${number} is Negative`;
+                else
+                    displayResult.innerHTML += `<br> ${number} is Neither Positive, nor Negative`;
+            }
+
+
+//Factorial
+            if (number) 
+            {
+                if (number > 0) 
+                {
+                    let fact=1;
+                    for (let i = number; i > 0; i--) 
+                    {
+                        fact=fact*i;
+                    }
+                    displayResult.innerHTML += `<br> Factorial of ${number} is ${fact}`;
+                }
+                else if (number == 0) {
+                    displayResult.innerHTML += `<br> Factorial of 0 is 0`;
+                }
+                else if (number < 0) {
+                    displayResult.innerHTML += `<br> Factorial of Negative Number doesn't exists`;
+                }
+            }
+
+//Armstrong
+
+            if(number)
+            {
+                let sum = digit = 0;
+                numStr = (number.toString());
+                // console.log("No converted to String: ",numStr);
+                n = numStr.length;
+                // console.log("Length of string is : ",n);
+                for(let i=0;i<n;i++)
+                {   
+                    let digit=parseInt(numStr[i]);
+                    sum+=Math.pow(digit,n);
+                    
+                }
+                // console.log("Sum of all digits in string is: ",sum);
+                if(sum==number)
+                    displayResult.innerHTML += `<br> ${number} is Armstrong`;
+                else
+                    displayResult.innerHTML += `<br> ${number} is not Armstrong`;
+            }
+
         }
     </script>
 
