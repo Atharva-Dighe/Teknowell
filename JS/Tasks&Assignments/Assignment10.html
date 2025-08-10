@@ -37,9 +37,9 @@
 //Positive-Negative 
             if (number) {
                 if (number > 0)
-                    displayResult.innerHTML += `<br> ${number} is Positive`;
+                    displayResult.innerHTML = `<br> ${number} is Positive`;
                 else if (number < 0)
-                    displayResult.innerHTML += `<br> ${number} is Negative`;
+                    displayResult.innerHTML = `<br> ${number} is Negative`;
             }
 
 //Odd-Even
@@ -91,7 +91,37 @@
                     displayResult.innerHTML += `<br> ${number} is not an Armstrong number`;
             }
 
-
+//Prime
+            
+            if(number)
+            {
+                if(number<2)
+                    displayResult.innerHTML += `<br> ${number} is not a Prime number`;
+                else if(number==2)
+                    displayResult.innerHTML += `<br> ${number} is a Prime number`;
+                else if(number>2)
+                {   
+                    let sqRoot = Math.sqrt(number);
+                    if(number%2==0)
+                       displayResult.innerHTML += `<br> ${number} is not a Prime number`;
+                    else if(number)
+                    {
+                        let isPrime=true;
+                        for(let i=3;i<=sqRoot;i+=2)
+                        {
+                            if(number%i==0)
+                            {
+                                isPrime=false;
+                                break;
+                            }
+                        }
+                        if(isPrime)
+                            displayResult.innerHTML += `<br> ${number} is a  Prime number`;
+                        else
+                            displayResult.innerHTML += `<br> ${number} is not a Prime number`;
+                    }
+                }
+            }
 
         }
     </script>
