@@ -1,0 +1,23 @@
+body{
+   display:flex ;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;  
+   border: 2px solid black; 
+}
+form{
+    background-color: rgb(90, 177, 177);
+    border: 2px solid black;
+    padding:0px 150px 20px 150px;
+    font-size: x-large;
+}
+button{
+    height: 40px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius:10px;
+    background-color: greenyellow;
+    margin:10px;
+    font-size: larger;
+}

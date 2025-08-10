@@ -19,3 +19,8 @@ input,button{
     border:2px solid black;
     font-size: larger;
 }
+.box2,ul,p{
+    border:2px dotted black;
+    padding:10px 50px;
+}
+
