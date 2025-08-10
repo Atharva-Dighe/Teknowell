@@ -123,6 +123,21 @@
                 }
             }
 
+//Perfect
+
+            if(number)
+            {
+                let sum = 0;
+                for(let i=1;i<number;i++)
+                {   
+                    if(number%i==0)
+                        sum+=i;
+                }
+                if(sum==number)
+                    displayResult.innerHTML += `<br> ${number} is a  Perfect number`;
+                else
+                    displayResult.innerHTML += `<br> ${number} is not a  Perfect number`;
+            }
         }
     </script>
 
