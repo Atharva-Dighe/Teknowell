@@ -29,21 +29,28 @@
     </div>
 
     <script>
-        function check() {
+        function check() 
+        {
             number = document.getElementById("ip").value;
             // alert(number);
+
+//Positive-Negative 
             if (number) {
                 if (number > 0)
                     displayResult.innerHTML += `<br> ${number} is Positive`;
                 else if (number < 0)
                     displayResult.innerHTML += `<br> ${number} is Negative`;
             }
+
+//Odd-Even
             if (number) {
                 if (number % 2 == 0)
                     displayResult.innerHTML += `<br> ${number} is Even`;
                 else
                     displayResult.innerHTML += `<br>${number} is Odd`;
             }
+
+//Factorial
             if (number) {
                 if (number > 0) 
                 {
@@ -61,6 +68,31 @@
                     displayResult.innerHTML += `<br> Factorial of Negative Number doesn't exists`;
                 }
             }
+
+//Armstrong
+
+            let sum = digit = 0;
+            if(number)
+            {
+                numStr = (number.toString());
+                // console.log("No converted to String: ",numStr);
+                n = numStr.length;
+                // console.log("Length of string is : ",n);
+                for(let i=0;i<n;i++)
+                {   
+                    let digit=parseInt(numStr[i]);
+                    sum+=Math.pow(digit,n);
+                    
+                }
+                // console.log("Sum of all digits in string is: ",sum);
+                if(sum==number)
+                    displayResult.innerHTML += `<br> ${number} is an Armstrong number`;
+                else
+                    displayResult.innerHTML += `<br> ${number} is not an Armstrong number`;
+            }
+
+
+
         }
     </script>
 

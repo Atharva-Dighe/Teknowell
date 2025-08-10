@@ -16,8 +16,8 @@ Insert -
 insert into 
 
 3 ways to insert
-I. Normal single entry insertion - insert into student values(1,'atharva');
-ii. Multiple entries at once - insert into student values(2,'shruti'),(3,'sanket');
+I. Normal single Row entry insertion - insert into student values(1,'atharva');
+ii. Multiple Row entries at once - insert into student values(2,'shruti'),(3,'sanket');
 iii. Only insert specific coloumn- insert into student (id) values(7); 
 
 Update -
@@ -31,3 +31,27 @@ ii. delete from student where id=3 //using "where" clause //id=3 row gets delete
 
 
 system cls - Used to clear screen.
+
+
+
+ERRORS -
+Coloumn count doesn't match.
+
+
+select id from student;
+select name,id from student;
+select * from 
+
+
+
+To Add huge data from CSV file at once - 
+
+mysql> load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/DemoCsvFile.csv'
+    -> into table studentCSVDemo
+    -> fields terminated by ','
+    -> enclosed by '"'
+    -> lines terminated by '\n'
+    -> ignore 1 rows
+    -> (id,name,age);
+Query OK, 100 rows affected (0.02 sec)
+Records: 100  Deleted: 0  Skipped: 0  Warnings: 0
