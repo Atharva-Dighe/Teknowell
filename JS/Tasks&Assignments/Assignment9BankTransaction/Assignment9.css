@@ -30,19 +30,21 @@
     align-items: center;
     justify-content: center;
 }
+
 table{
     border:2px solid black;
     height: 200px;
     width: 400px;
     text-align: center;
     font-size: x-large;
+    background-color: azure;
+    margin-bottom: 40px;
 }
 th,td{
     border: 1px solid black;
 }
 h1{
-    color:bisque;
-    background-color:red;
+    background-color:azure;
     text-align: center;
     border: 2px solid black;
 }
@@ -51,13 +53,15 @@ h1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px solid violet;
+    border: 2px solid black;
     border-radius: 10px;
     margin:0px 350px;
     margin-bottom: 20px;
     padding:20px 0px;
     font-size: large;
+    background-color: azure;
 }
+
 label{
     font-size: larger;
 }
@@ -69,7 +73,8 @@ input{
     font-size: medium;
 }
 button{
-    background-color: aqua;
+    background-color:darkblue;
+    color: azure;
     margin-left: 20px;
     height: 35px;
     border: 2px solid black;
@@ -85,6 +90,7 @@ button{
     padding:5px;
     border:1px solid black;
     border-radius: 10px;
+    background-color: azure;
 }
 .twobtns{
     display: flex;
@@ -120,4 +126,10 @@ button{
 .cancel {
   background-color: red;
   color: white;
+}
+
+body{
+    background-color: coral;
+    margin: 0px;
+    padding: 0px;
 }

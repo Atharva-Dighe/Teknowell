@@ -45,7 +45,7 @@ select * from
 
 
 To Add huge data from CSV file at once - 
-
+'
 mysql> load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/DemoCsvFile.csv'
     -> into table studentCSVDemo
     -> fields terminated by ','

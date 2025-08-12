@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="./Assignment9.css">
 </head>
 
-<body>
-
+<body id="main">
     <h1>Bank Transaction Reciept</h1>
     <div class="ipDiv">
         <form>
@@ -18,7 +17,7 @@
             <label>Enter Customer Name: </label>
             <input type="text" placeholder="Customer Name" id="Cn"><br><br>
         </form>
-        <button onclick="PrintBalance()" id="checkBalBtn" style="background-color:greenyellow;">Check Balance</button>
+        <button onclick="PrintBalance()" id="checkBalBtn" style="background-color:green;">Check Balance</button>
     </div>
     <h3 id="dispBalance"></h3>
     <div class="twobtns">
@@ -65,12 +64,12 @@
 
     function withdrawOpen() 
     {
-        window.open("http://127.0.0.1:5501/Withdraw.html")
+        window.open(`Withdraw.html`,"_blank")
     }
 
     function depositOpen() 
     {
-        window.open("http://127.0.0.1:5501/Deposit.html");
+        window.open(`Deposit.html`,"_blank");
     }
 
 </script>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./Assignment9.css">
 </head>
 
-<body>
+<body id="withdraw">
 
     <h1>WITHDRAW PAGE</h1>
     <div class="ipDiv">    
@@ -29,7 +29,7 @@
             console.log("Withdraw Amount Entered: ", WithdrawAmount);
             dispBalance.innerHTML=`Balance Amount before Withdrawing is <br> Rs ${Bal}/-`;
             console.log(`Amount before withdrawing is Rs ${Bal}/-`);
-            if(Bal>WithdrawAmount && WithdrawAmount>0)
+            if(Bal>=WithdrawAmount && WithdrawAmount>0)
             {
                 Bal= (Bal)-(WithdrawAmount);
                 console.log(typeof(WithdrawAmount));

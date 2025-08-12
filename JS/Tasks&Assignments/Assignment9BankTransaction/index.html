@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./Assignment9.css">
 </head>
 
-<body>
+<body id="index">
     <div class="landPg">
         <div class="landingPgBtns">
             <button class="btn" onclick="existingOpen()">Login Existing <br>Account</button>
@@ -75,7 +75,7 @@
 
             localStorage.setItem("bankData", JSON.stringify(extractedData));
 
-            window.open("http://127.0.0.1:5501/Main.html");
+            window.open(`Main.html`,"_blank");
         }
 
 

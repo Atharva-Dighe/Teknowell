@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS-11 MCQ's</title>
     <link rel="stylesheet" href="./Assignment11.css">
 </head>
+
 <body>
     <h1>Quiz Form - Maths Basics</h1>
     <form id="quizForm">
@@ -34,19 +36,19 @@
         <label><input type="radio" name="q4" value="4">4</label>
         <hr>
         <p>5. What is 10+10 ?</p>
-        <label><input type="radio" name="q5" value="1">10</label>
+        <label><input type="radio" name="q5" value="10">10</label>
         <label><input type="radio" name="q5" value="2">20</label>
         <label><input type="radio" name="q5" value="3">30</label>
         <label><input type="radio" name="q5" value="4">40</label>
         <hr>
         <p>6. What is 10-10 ?</p>
-        <label><input type="radio" name="q6" value="1">0</label>
+        <label><input type="radio" name="q6" value="0">0</label>
         <label><input type="radio" name="q6" value="2">20</label>
         <label><input type="radio" name="q6" value="3">30</label>
         <label><input type="radio" name="q6" value="4">40</label>
         <hr>
         <p>7. What is 10*10 ?</p>
-        <label><input type="radio" name="q7" value="1">100</label>
+        <label><input type="radio" name="q7" value="100">100</label>
         <label><input type="radio" name="q7" value="2">20</label>
         <label><input type="radio" name="q7" value="3">30</label>
         <label><input type="radio" name="q7" value="4">40</label>
@@ -70,15 +72,29 @@
         <label><input type="radio" name="q10" value="4">40</label>
     </form>
     <button onclick="calc()">Submit</button>
-
+    <p id="result"></p>
     <script>
-        function calc()
+        function calc() 
         {
-            // alert("Clicked");
-            console.log("Clicked")
+            console.log("Clicked");
+            let score=0;
+            const answers = {
+                q1: 4, q2: 4, q3: 1, q4: 0, q5: 2, q6: 0, q7: 100, q8: 1, q9: 3, q10: 4
+            };
+            for(let key in answers)
+            {
+                const form=document.getElementById("quizForm");
+                const selected=form.elements[key].value;
+                if(selected==answers[key])
+                    score++;
+                console.log(score);
+            }
+            
+            document.getElementById("result").innerText = `You scored ${score} / 10`;
         }
     </script>
 
 
 </body>
+
 </html>

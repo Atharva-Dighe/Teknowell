@@ -1,0 +1,101 @@
+Company Name,Headquarters / Presence,Founded Year,Vacancies (Java Full Stack),Starting Package (₹LPA),Tech Stack,Employee Count,Job Apply Link
+Infosys Pvt Ltd 1,Hinjawadi & Kharadi,1981,15,3.7-9.7,"Java, Spring Boot, Microservices, Hibernate, Angular",317000,https://careers.example.com/infosys-pvt-ltd-1-jobs
+Wipro Pvt Ltd 2,Hinjawadi,1945,11,2.9-6.6,"Java, Spring Boot, Angular, JavaScript",234010,https://careers.example.com/wipro-pvt-ltd-2-jobs
+Cognizant Pvt Ltd 3,Kharadi & Hinjawadi,1994,14,4.7-12.6,"Java, Spring, Angular, React",351520,https://careers.example.com/cognizant-pvt-ltd-3-jobs
+Capgemini Pvt Ltd 4,Kharadi,1967,11,3.3-9.0,"Java, Angular, jQuery, Spring",340030,https://careers.example.com/capgemini-pvt-ltd-4-jobs
+UBS Pvt Ltd 5,Kharadi,1862,9,15.0-23.7,"Java, Angular, Spring Boot",74040,https://careers.example.com/ubs-pvt-ltd-5-jobs
+Persistent Systems Pvt Ltd 6,SB Road,1990,7,4.2-10.6,"Java, Spring Boot, Python, React",22050,https://careers.example.com/persistent-systems-pvt-ltd-6-jobs
+Tech Mahindra Pvt Ltd 7,Yerwada & Hinjawadi,1986,10,3.5-9.2,"Java, Spring Boot, Microservices",149060,https://careers.example.com/tech-mahindra-pvt-ltd-7-jobs
+Cybage Pvt Ltd 8,Kalyani Nagar,1995,6,3.1-7.3,"Java, Spring, Hibernate, Angular",7570,https://careers.example.com/cybage-pvt-ltd-8-jobs
+Zensar Technologies Pvt Ltd 9,Pune HQ,1922,9,3.4-8.0,"Java, Angular, React, Spring Boot",10580,https://careers.example.com/zensar-technologies-pvt-ltd-9-jobs
+Quick Heal Technologies Pvt Ltd 10,Magarpatta,1993,7,3.0-6.6,"Java, Python, Cybersecurity Tools",1590,https://careers.example.com/quick-heal-technologies-pvt-ltd-10-jobs
+Infosys Pvt Ltd 11,Hinjawadi & Kharadi,1981,15,3.8-9.9,"Java, Spring Boot, Microservices, Hibernate, Angular",317100,https://careers.example.com/infosys-pvt-ltd-11-jobs
+Wipro Pvt Ltd 12,Hinjawadi,1945,11,3.0-6.8,"Java, Spring Boot, Angular, JavaScript",234110,https://careers.example.com/wipro-pvt-ltd-12-jobs
+Cognizant Pvt Ltd 13,Kharadi & Hinjawadi,1994,14,4.5-12.4,"Java, Spring, Angular, React",351620,https://careers.example.com/cognizant-pvt-ltd-13-jobs
+Capgemini Pvt Ltd 14,Kharadi,1967,11,3.4-8.8,"Java, Angular, jQuery, Spring",340130,https://careers.example.com/capgemini-pvt-ltd-14-jobs
+UBS Pvt Ltd 15,Kharadi,1862,9,15.1-23.9,"Java, Angular, Spring Boot",74140,https://careers.example.com/ubs-pvt-ltd-15-jobs
+Persistent Systems Pvt Ltd 16,SB Road,1990,7,4.0-10.8,"Java, Spring Boot, Python, React",22150,https://careers.example.com/persistent-systems-pvt-ltd-16-jobs
+Tech Mahindra Pvt Ltd 17,Yerwada & Hinjawadi,1986,10,3.6-9.0,"Java, Spring Boot, Microservices",149160,https://careers.example.com/tech-mahindra-pvt-ltd-17-jobs
+Cybage Pvt Ltd 18,Kalyani Nagar,1995,6,3.2-7.1,"Java, Spring, Hibernate, Angular",7670,https://careers.example.com/cybage-pvt-ltd-18-jobs
+Zensar Technologies Pvt Ltd 19,Pune HQ,1922,9,3.2-8.2,"Java, Angular, React, Spring Boot",10680,https://careers.example.com/zensar-technologies-pvt-ltd-19-jobs
+Quick Heal Technologies Pvt Ltd 20,Magarpatta,1993,7,3.1-6.8,"Java, Python, Cybersecurity Tools",1690,https://careers.example.com/quick-heal-technologies-pvt-ltd-20-jobs
+Infosys Pvt Ltd 21,Hinjawadi & Kharadi,1981,15,3.9-9.7,"Java, Spring Boot, Microservices, Hibernate, Angular",317200,https://careers.example.com/infosys-pvt-ltd-21-jobs
+Wipro Pvt Ltd 22,Hinjawadi,1945,11,2.8-6.6,"Java, Spring Boot, Angular, JavaScript",234210,https://careers.example.com/wipro-pvt-ltd-22-jobs
+Cognizant Pvt Ltd 23,Kharadi & Hinjawadi,1994,14,4.6-12.6,"Java, Spring, Angular, React",351720,https://careers.example.com/cognizant-pvt-ltd-23-jobs
+Capgemini Pvt Ltd 24,Kharadi,1967,11,3.5-9.0,"Java, Angular, jQuery, Spring",340230,https://careers.example.com/capgemini-pvt-ltd-24-jobs
+UBS Pvt Ltd 25,Kharadi,1862,9,14.9-23.7,"Java, Angular, Spring Boot",74240,https://careers.example.com/ubs-pvt-ltd-25-jobs
+Persistent Systems Pvt Ltd 26,SB Road,1990,7,4.1-10.6,"Java, Spring Boot, Python, React",22250,https://careers.example.com/persistent-systems-pvt-ltd-26-jobs
+Tech Mahindra Pvt Ltd 27,Yerwada & Hinjawadi,1986,10,3.7-9.2,"Java, Spring Boot, Microservices",149260,https://careers.example.com/tech-mahindra-pvt-ltd-27-jobs
+Cybage Pvt Ltd 28,Kalyani Nagar,1995,6,3.0-7.3,"Java, Spring, Hibernate, Angular",7770,https://careers.example.com/cybage-pvt-ltd-28-jobs
+Zensar Technologies Pvt Ltd 29,Pune HQ,1922,9,3.3-8.0,"Java, Angular, React, Spring Boot",10780,https://careers.example.com/zensar-technologies-pvt-ltd-29-jobs
+Quick Heal Technologies Pvt Ltd 30,Magarpatta,1993,7,3.2-6.6,"Java, Python, Cybersecurity Tools",1790,https://careers.example.com/quick-heal-technologies-pvt-ltd-30-jobs
+Infosys Pvt Ltd 31,Hinjawadi & Kharadi,1981,15,3.7-9.9,"Java, Spring Boot, Microservices, Hibernate, Angular",317300,https://careers.example.com/infosys-pvt-ltd-31-jobs
+Wipro Pvt Ltd 32,Hinjawadi,1945,11,2.9-6.8,"Java, Spring Boot, Angular, JavaScript",234310,https://careers.example.com/wipro-pvt-ltd-32-jobs
+Cognizant Pvt Ltd 33,Kharadi & Hinjawadi,1994,14,4.7-12.4,"Java, Spring, Angular, React",351820,https://careers.example.com/cognizant-pvt-ltd-33-jobs
+Capgemini Pvt Ltd 34,Kharadi,1967,11,3.3-8.8,"Java, Angular, jQuery, Spring",340330,https://careers.example.com/capgemini-pvt-ltd-34-jobs
+UBS Pvt Ltd 35,Kharadi,1862,9,15.0-23.9,"Java, Angular, Spring Boot",74340,https://careers.example.com/ubs-pvt-ltd-35-jobs
+Persistent Systems Pvt Ltd 36,SB Road,1990,7,4.2-10.8,"Java, Spring Boot, Python, React",22350,https://careers.example.com/persistent-systems-pvt-ltd-36-jobs
+Tech Mahindra Pvt Ltd 37,Yerwada & Hinjawadi,1986,10,3.5-9.0,"Java, Spring Boot, Microservices",149360,https://careers.example.com/tech-mahindra-pvt-ltd-37-jobs
+Cybage Pvt Ltd 38,Kalyani Nagar,1995,6,3.1-7.1,"Java, Spring, Hibernate, Angular",7870,https://careers.example.com/cybage-pvt-ltd-38-jobs
+Zensar Technologies Pvt Ltd 39,Pune HQ,1922,9,3.4-8.2,"Java, Angular, React, Spring Boot",10880,https://careers.example.com/zensar-technologies-pvt-ltd-39-jobs
+Quick Heal Technologies Pvt Ltd 40,Magarpatta,1993,7,3.0-6.8,"Java, Python, Cybersecurity Tools",1890,https://careers.example.com/quick-heal-technologies-pvt-ltd-40-jobs
+Infosys Pvt Ltd 41,Hinjawadi & Kharadi,1981,15,3.8-9.7,"Java, Spring Boot, Microservices, Hibernate, Angular",317400,https://careers.example.com/infosys-pvt-ltd-41-jobs
+Wipro Pvt Ltd 42,Hinjawadi,1945,11,3.0-6.6,"Java, Spring Boot, Angular, JavaScript",234410,https://careers.example.com/wipro-pvt-ltd-42-jobs
+Cognizant Pvt Ltd 43,Kharadi & Hinjawadi,1994,14,4.5-12.6,"Java, Spring, Angular, React",351920,https://careers.example.com/cognizant-pvt-ltd-43-jobs
+Capgemini Pvt Ltd 44,Kharadi,1967,11,3.4-9.0,"Java, Angular, jQuery, Spring",340430,https://careers.example.com/capgemini-pvt-ltd-44-jobs
+UBS Pvt Ltd 45,Kharadi,1862,9,15.1-23.7,"Java, Angular, Spring Boot",74440,https://careers.example.com/ubs-pvt-ltd-45-jobs
+Persistent Systems Pvt Ltd 46,SB Road,1990,7,4.0-10.6,"Java, Spring Boot, Python, React",22450,https://careers.example.com/persistent-systems-pvt-ltd-46-jobs
+Tech Mahindra Pvt Ltd 47,Yerwada & Hinjawadi,1986,10,3.6-9.2,"Java, Spring Boot, Microservices",149460,https://careers.example.com/tech-mahindra-pvt-ltd-47-jobs
+Cybage Pvt Ltd 48,Kalyani Nagar,1995,6,3.2-7.3,"Java, Spring, Hibernate, Angular",7970,https://careers.example.com/cybage-pvt-ltd-48-jobs
+Zensar Technologies Pvt Ltd 49,Pune HQ,1922,9,3.2-8.0,"Java, Angular, React, Spring Boot",10980,https://careers.example.com/zensar-technologies-pvt-ltd-49-jobs
+Quick Heal Technologies Pvt Ltd 50,Magarpatta,1993,7,3.1-6.6,"Java, Python, Cybersecurity Tools",1990,https://careers.example.com/quick-heal-technologies-pvt-ltd-50-jobs
+Infosys Pvt Ltd 51,Hinjawadi & Kharadi,1981,15,3.9-9.9,"Java, Spring Boot, Microservices, Hibernate, Angular",317500,https://careers.example.com/infosys-pvt-ltd-51-jobs
+Wipro Pvt Ltd 52,Hinjawadi,1945,11,2.8-6.8,"Java, Spring Boot, Angular, JavaScript",234510,https://careers.example.com/wipro-pvt-ltd-52-jobs
+Cognizant Pvt Ltd 53,Kharadi & Hinjawadi,1994,14,4.6-12.4,"Java, Spring, Angular, React",352020,https://careers.example.com/cognizant-pvt-ltd-53-jobs
+Capgemini Pvt Ltd 54,Kharadi,1967,11,3.5-8.8,"Java, Angular, jQuery, Spring",340530,https://careers.example.com/capgemini-pvt-ltd-54-jobs
+UBS Pvt Ltd 55,Kharadi,1862,9,14.9-23.9,"Java, Angular, Spring Boot",74540,https://careers.example.com/ubs-pvt-ltd-55-jobs
+Persistent Systems Pvt Ltd 56,SB Road,1990,7,4.1-10.8,"Java, Spring Boot, Python, React",22550,https://careers.example.com/persistent-systems-pvt-ltd-56-jobs
+Tech Mahindra Pvt Ltd 57,Yerwada & Hinjawadi,1986,10,3.7-9.0,"Java, Spring Boot, Microservices",149560,https://careers.example.com/tech-mahindra-pvt-ltd-57-jobs
+Cybage Pvt Ltd 58,Kalyani Nagar,1995,6,3.0-7.1,"Java, Spring, Hibernate, Angular",8070,https://careers.example.com/cybage-pvt-ltd-58-jobs
+Zensar Technologies Pvt Ltd 59,Pune HQ,1922,9,3.3-8.2,"Java, Angular, React, Spring Boot",11080,https://careers.example.com/zensar-technologies-pvt-ltd-59-jobs
+Quick Heal Technologies Pvt Ltd 60,Magarpatta,1993,7,3.2-6.8,"Java, Python, Cybersecurity Tools",2090,https://careers.example.com/quick-heal-technologies-pvt-ltd-60-jobs
+Infosys Pvt Ltd 61,Hinjawadi & Kharadi,1981,15,3.7-9.7,"Java, Spring Boot, Microservices, Hibernate, Angular",317600,https://careers.example.com/infosys-pvt-ltd-61-jobs
+Wipro Pvt Ltd 62,Hinjawadi,1945,11,2.9-6.6,"Java, Spring Boot, Angular, JavaScript",234610,https://careers.example.com/wipro-pvt-ltd-62-jobs
+Cognizant Pvt Ltd 63,Kharadi & Hinjawadi,1994,14,4.7-12.6,"Java, Spring, Angular, React",352120,https://careers.example.com/cognizant-pvt-ltd-63-jobs
+Capgemini Pvt Ltd 64,Kharadi,1967,11,3.3-9.0,"Java, Angular, jQuery, Spring",340630,https://careers.example.com/capgemini-pvt-ltd-64-jobs
+UBS Pvt Ltd 65,Kharadi,1862,9,15.0-23.7,"Java, Angular, Spring Boot",74640,https://careers.example.com/ubs-pvt-ltd-65-jobs
+Persistent Systems Pvt Ltd 66,SB Road,1990,7,4.2-10.6,"Java, Spring Boot, Python, React",22650,https://careers.example.com/persistent-systems-pvt-ltd-66-jobs
+Tech Mahindra Pvt Ltd 67,Yerwada & Hinjawadi,1986,10,3.5-9.2,"Java, Spring Boot, Microservices",149660,https://careers.example.com/tech-mahindra-pvt-ltd-67-jobs
+Cybage Pvt Ltd 68,Kalyani Nagar,1995,6,3.1-7.3,"Java, Spring, Hibernate, Angular",8170,https://careers.example.com/cybage-pvt-ltd-68-jobs
+Zensar Technologies Pvt Ltd 69,Pune HQ,1922,9,3.4-8.0,"Java, Angular, React, Spring Boot",11180,https://careers.example.com/zensar-technologies-pvt-ltd-69-jobs
+Quick Heal Technologies Pvt Ltd 70,Magarpatta,1993,7,3.0-6.6,"Java, Python, Cybersecurity Tools",2190,https://careers.example.com/quick-heal-technologies-pvt-ltd-70-jobs
+Infosys Pvt Ltd 71,Hinjawadi & Kharadi,1981,15,3.8-9.9,"Java, Spring Boot, Microservices, Hibernate, Angular",317700,https://careers.example.com/infosys-pvt-ltd-71-jobs
+Wipro Pvt Ltd 72,Hinjawadi,1945,11,3.0-6.8,"Java, Spring Boot, Angular, JavaScript",234710,https://careers.example.com/wipro-pvt-ltd-72-jobs
+Cognizant Pvt Ltd 73,Kharadi & Hinjawadi,1994,14,4.5-12.4,"Java, Spring, Angular, React",352220,https://careers.example.com/cognizant-pvt-ltd-73-jobs
+Capgemini Pvt Ltd 74,Kharadi,1967,11,3.4-8.8,"Java, Angular, jQuery, Spring",340730,https://careers.example.com/capgemini-pvt-ltd-74-jobs
+UBS Pvt Ltd 75,Kharadi,1862,9,15.1-23.9,"Java, Angular, Spring Boot",74740,https://careers.example.com/ubs-pvt-ltd-75-jobs
+Persistent Systems Pvt Ltd 76,SB Road,1990,7,4.0-10.8,"Java, Spring Boot, Python, React",22750,https://careers.example.com/persistent-systems-pvt-ltd-76-jobs
+Tech Mahindra Pvt Ltd 77,Yerwada & Hinjawadi,1986,10,3.6-9.0,"Java, Spring Boot, Microservices",149760,https://careers.example.com/tech-mahindra-pvt-ltd-77-jobs
+Cybage Pvt Ltd 78,Kalyani Nagar,1995,6,3.2-7.1,"Java, Spring, Hibernate, Angular",8270,https://careers.example.com/cybage-pvt-ltd-78-jobs
+Zensar Technologies Pvt Ltd 79,Pune HQ,1922,9,3.2-8.2,"Java, Angular, React, Spring Boot",11280,https://careers.example.com/zensar-technologies-pvt-ltd-79-jobs
+Quick Heal Technologies Pvt Ltd 80,Magarpatta,1993,7,3.1-6.8,"Java, Python, Cybersecurity Tools",2290,https://careers.example.com/quick-heal-technologies-pvt-ltd-80-jobs
+Infosys Pvt Ltd 81,Hinjawadi & Kharadi,1981,15,3.9-9.7,"Java, Spring Boot, Microservices, Hibernate, Angular",317800,https://careers.example.com/infosys-pvt-ltd-81-jobs
+Wipro Pvt Ltd 82,Hinjawadi,1945,11,2.8-6.6,"Java, Spring Boot, Angular, JavaScript",234810,https://careers.example.com/wipro-pvt-ltd-82-jobs
+Cognizant Pvt Ltd 83,Kharadi & Hinjawadi,1994,14,4.6-12.6,"Java, Spring, Angular, React",352320,https://careers.example.com/cognizant-pvt-ltd-83-jobs
+Capgemini Pvt Ltd 84,Kharadi,1967,11,3.5-9.0,"Java, Angular, jQuery, Spring",340830,https://careers.example.com/capgemini-pvt-ltd-84-jobs
+UBS Pvt Ltd 85,Kharadi,1862,9,14.9-23.7,"Java, Angular, Spring Boot",74840,https://careers.example.com/ubs-pvt-ltd-85-jobs
+Persistent Systems Pvt Ltd 86,SB Road,1990,7,4.1-10.6,"Java, Spring Boot, Python, React",22850,https://careers.example.com/persistent-systems-pvt-ltd-86-jobs
+Tech Mahindra Pvt Ltd 87,Yerwada & Hinjawadi,1986,10,3.7-9.2,"Java, Spring Boot, Microservices",149860,https://careers.example.com/tech-mahindra-pvt-ltd-87-jobs
+Cybage Pvt Ltd 88,Kalyani Nagar,1995,6,3.0-7.3,"Java, Spring, Hibernate, Angular",8370,https://careers.example.com/cybage-pvt-ltd-88-jobs
+Zensar Technologies Pvt Ltd 89,Pune HQ,1922,9,3.3-8.0,"Java, Angular, React, Spring Boot",11380,https://careers.example.com/zensar-technologies-pvt-ltd-89-jobs
+Quick Heal Technologies Pvt Ltd 90,Magarpatta,1993,7,3.2-6.6,"Java, Python, Cybersecurity Tools",2390,https://careers.example.com/quick-heal-technologies-pvt-ltd-90-jobs
+Infosys Pvt Ltd 91,Hinjawadi & Kharadi,1981,15,3.7-9.9,"Java, Spring Boot, Microservices, Hibernate, Angular",317900,https://careers.example.com/infosys-pvt-ltd-91-jobs
+Wipro Pvt Ltd 92,Hinjawadi,1945,11,2.9-6.8,"Java, Spring Boot, Angular, JavaScript",234910,https://careers.example.com/wipro-pvt-ltd-92-jobs
+Cognizant Pvt Ltd 93,Kharadi & Hinjawadi,1994,14,4.7-12.4,"Java, Spring, Angular, React",352420,https://careers.example.com/cognizant-pvt-ltd-93-jobs
+Capgemini Pvt Ltd 94,Kharadi,1967,11,3.3-8.8,"Java, Angular, jQuery, Spring",340930,https://careers.example.com/capgemini-pvt-ltd-94-jobs
+UBS Pvt Ltd 95,Kharadi,1862,9,15.0-23.9,"Java, Angular, Spring Boot",74940,https://careers.example.com/ubs-pvt-ltd-95-jobs
+Persistent Systems Pvt Ltd 96,SB Road,1990,7,4.2-10.8,"Java, Spring Boot, Python, React",22950,https://careers.example.com/persistent-systems-pvt-ltd-96-jobs
+Tech Mahindra Pvt Ltd 97,Yerwada & Hinjawadi,1986,10,3.5-9.0,"Java, Spring Boot, Microservices",149960,https://careers.example.com/tech-mahindra-pvt-ltd-97-jobs
+Cybage Pvt Ltd 98,Kalyani Nagar,1995,6,3.1-7.1,"Java, Spring, Hibernate, Angular",8470,https://careers.example.com/cybage-pvt-ltd-98-jobs
+Zensar Technologies Pvt Ltd 99,Pune HQ,1922,9,3.4-8.2,"Java, Angular, React, Spring Boot",11480,https://careers.example.com/zensar-technologies-pvt-ltd-99-jobs
+Quick Heal Technologies Pvt Ltd 100,Magarpatta,1993,7,3.0-6.8,"Java, Python, Cybersecurity Tools",2490,https://careers.example.com/quick-heal-technologies-pvt-ltd-100-jobs
