@@ -1,6 +1,6 @@
 .body{
     margin: 0px;
-    boeder:10px;
+    border:10px;
 }
 
 
@@ -288,4 +288,17 @@ input{
     justify-content: space-evenly;
     font-size: larger;
     cursor: pointer;
+}
+
+/*-------------------Cart Page--------------------------*/
+
+#cartPg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:2px solid black;
+    padding-bottom: 20px;
+}
+#billList{
+    font-size: larger;
 }

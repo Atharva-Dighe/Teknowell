@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <link rel="stylesheet" href="../CSS/foodOrderSystem.css">
 </head>
 
-<body>
-    <h2>Items in Your Cart</h2>
+<body id="cartPg">
+    <h1>Items in Your Cart</h1>
     <ol id="billList"></ol>
-    <h1 id="total"></h1>
+    <h2 id="total"></h2>
 
     <script>
-
+        
         const cartArray = JSON.parse(localStorage.getItem('arr'));
         console.log("Array retrived from Restaurant Page is : ", cartArray);
 
