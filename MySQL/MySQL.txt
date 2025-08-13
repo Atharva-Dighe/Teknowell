@@ -18,7 +18,7 @@ insert into
 3 ways to insert
 I. Normal single Row entry insertion - insert into student values(1,'atharva');
 ii. Multiple Row entries at once - insert into student values(2,'shruti'),(3,'sanket');
-iii. Only insert specific coloumn- insert into student (id) values(7); 
+iii. Only insert specific coloumn- insert into student (id) values(7);  
 
 Update -
 update student set id=3 where name='atharva'

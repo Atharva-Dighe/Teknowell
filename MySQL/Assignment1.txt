@@ -1,0 +1,303 @@
+mysql> use teknowell;
+Database changed
+
+mysql> show tables;
++---------------------+
+| Tables_in_teknowell |
++---------------------+
+| puneitcompanies     |
+| student             |
+| studentcsvdemo      |
+| subjects            |
++---------------------+
+4 rows in set (0.05 sec)
+
+mysql> create table employee (eid int primary key auto_increment, ename varchar(30), salary int, city varchar(20));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> select * table employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table employee' at line 1
+mysql> select * from employee;;
+Empty set (0.00 sec)
+
+ERROR:
+No query specified
+
+mysql> select * from employee;
+Empty set (0.00 sec)
+
+mysql> insert into employee values('Atharva',20000,'Pune');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employee values(1,'Atharva',20000,'Pune');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++-----+---------+--------+------+
+| eid | ename   | salary | city |
++-----+---------+--------+------+
+|   1 | Atharva |  20000 | Pune |
++-----+---------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into employee values(2,'Aditi',25000,'Pune'),(3,'Sanket',30000,'Banglore'),(4,'Prashant',35000,'Nagpur'),(5,'Shruti',40000,'Satara');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++-----+----------+--------+----------+
+| eid | ename    | salary | city     |
++-----+----------+--------+----------+
+|   1 | Atharva  |  20000 | Pune     |
+|   2 | Aditi    |  25000 | Pune     |
+|   3 | Sanket   |  30000 | Banglore |
+|   4 | Prashant |  35000 | Nagpur   |
+|   5 | Shruti   |  40000 | Satara   |
++-----+----------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> update employee set city='Nashik' where id=1;
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> update employee set city='Nashik' where id='1';
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> update table employee set city='Nashik' where id='1';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table employee set city='Nashik' where id='1'' at line 1
+mysql> update employee set city='Nashik' where id='1';
+ERROR 1054 (42S22): Unknown column 'id' in 'where clause'
+mysql> update employee set city='Nashik' where eid='1';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++-----+----------+--------+----------+
+| eid | ename    | salary | city     |
++-----+----------+--------+----------+
+|   1 | Atharva  |  20000 | Nashik   |
+|   2 | Aditi    |  25000 | Pune     |
+|   3 | Sanket   |  30000 | Banglore |
+|   4 | Prashant |  35000 | Nagpur   |
+|   5 | Shruti   |  40000 | Satara   |
++-----+----------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee where eid=1;
++-----+---------+--------+--------+
+| eid | ename   | salary | city   |
++-----+---------+--------+--------+
+|   1 | Atharva |  20000 | Nashik |
++-----+---------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee where name='Aditi';
+ERROR 1054 (42S22): Unknown column 'name' in 'where clause'
+mysql> select * from employee where ename='Aditi';
++-----+-------+--------+------+
+| eid | ename | salary | city |
++-----+-------+--------+------+
+|   2 | Aditi |  25000 | Pune |
++-----+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> alter table employee rename column eid to id;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee rename column ename to name;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+----------+--------+----------+
+| id | name     | salary | city     |
++----+----------+--------+----------+
+|  1 | Atharva  |  20000 | Nashik   |
+|  2 | Aditi    |  25000 | Pune     |
+|  3 | Sanket   |  30000 | Banglore |
+|  4 | Prashant |  35000 | Nagpur   |
+|  5 | Shruti   |  40000 | Satara   |
++----+----------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee where name='Aditi';
++----+-------+--------+------+
+| id | name  | salary | city |
++----+-------+--------+------+
+|  2 | Aditi |  25000 | Pune |
++----+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> insert into employee (name,salary,city) values('Shweta',60000,'Agra'),('Chaitanya',55000,'Chinchwad'),('Vishwajeet',50000,'Satara');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+------------+--------+-----------+
+| id | name       | salary | city      |
++----+------------+--------+-----------+
+|  1 | Atharva    |  20000 | Nashik    |
+|  2 | Aditi      |  25000 | Pune      |
+|  3 | Sanket     |  30000 | Banglore  |
+|  4 | Prashant   |  35000 | Nagpur    |
+|  5 | Shruti     |  40000 | Satara    |
+|  6 | Shweta     |  60000 | Agra      |
+|  7 | Chaitanya  |  55000 | Chinchwad |
+|  8 | Vishwajeet |  50000 | Satara    |
++----+------------+--------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> alter table employee drop auto_increment;
+ERROR 1091 (42000): Can't DROP 'auto_increment'; check that column/key exists
+mysql> alter table employee drop auto_increment(id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id)' at line 1
+mysql> alter table employee drop primary key;
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> alter table employee modify id int;
+Query OK, 8 rows affected (0.09 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   | PRI | NULL    |       |
+| name   | varchar(30) | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
+| city   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> alter table employee drop primary key;
+Query OK, 8 rows affected (0.10 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   |     | NULL    |       |
+| name   | varchar(30) | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
+| city   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee;
++----+------------+--------+-----------+
+| id | name       | salary | city      |
++----+------------+--------+-----------+
+|  1 | Atharva    |  20000 | Nashik    |
+|  2 | Aditi      |  25000 | Pune      |
+|  3 | Sanket     |  30000 | Banglore  |
+|  4 | Prashant   |  35000 | Nagpur    |
+|  5 | Shruti     |  40000 | Satara    |
+|  6 | Shweta     |  60000 | Agra      |
+|  7 | Chaitanya  |  55000 | Chinchwad |
+|  8 | Vishwajeet |  50000 | Satara    |
++----+------------+--------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> alter table employee add primary key(id);
+Query OK, 0 rows affected (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++----+------------+--------+-----------+
+| id | name       | salary | city      |
++----+------------+--------+-----------+
+|  1 | Atharva    |  20000 | Nashik    |
+|  2 | Aditi      |  25000 | Pune      |
+|  3 | Sanket     |  30000 | Banglore  |
+|  4 | Prashant   |  35000 | Nagpur    |
+|  5 | Shruti     |  40000 | Satara    |
+|  6 | Shweta     |  60000 | Agra      |
+|  7 | Chaitanya  |  55000 | Chinchwad |
+|  8 | Vishwajeet |  50000 | Satara    |
++----+------------+--------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> desc employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int         | NO   | PRI | NULL    |       |
+| name   | varchar(30) | YES  |     | NULL    |       |
+| salary | int         | YES  |     | NULL    |       |
+| city   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into employee (name,salary,city) values('Karan',45000,'Mumbai');
+ERROR 1364 (HY000): Field 'id' doesn't have a default value
+mysql> insert into employee values('Null''Karan',45000,'Mumbai');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employee values('''Karan',45000,'Mumbai');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into employee values('Null','Karan',45000,'Mumbai');
+ERROR 1366 (HY000): Incorrect integer value: 'Null' for column 'id' at row 1
+mysql> insert into employee values('','Karan',45000,'Mumbai');
+ERROR 1366 (HY000): Incorrect integer value: '' for column 'id' at row 1
+mysql> insert into employee values('1','Karan',45000,'Mumbai');
+ERROR 1062 (23000): Duplicate entry '1' for key 'employee.PRIMARY'
+mysql> insert into employee values('9','Karan',45000,'Mumbai');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee;
++----+------------+--------+-----------+
+| id | name       | salary | city      |
++----+------------+--------+-----------+
+|  1 | Atharva    |  20000 | Nashik    |
+|  2 | Aditi      |  25000 | Pune      |
+|  3 | Sanket     |  30000 | Banglore  |
+|  4 | Prashant   |  35000 | Nagpur    |
+|  5 | Shruti     |  40000 | Satara    |
+|  6 | Shweta     |  60000 | Agra      |
+|  7 | Chaitanya  |  55000 | Chinchwad |
+|  8 | Vishwajeet |  50000 | Satara    |
+|  9 | Karan      |  45000 | Mumbai    |
++----+------------+--------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> select * from employee where salary>45000;
++----+------------+--------+-----------+
+| id | name       | salary | city      |
++----+------------+--------+-----------+
+|  6 | Shweta     |  60000 | Agra      |
+|  7 | Chaitanya  |  55000 | Chinchwad |
+|  8 | Vishwajeet |  50000 | Satara    |
++----+------------+--------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where salary>45000 asc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'asc' at line 1
+mysql> select * from employee order by id desc where salary>45000 asc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where salary>45000 asc' at line 1
+mysql> select * from employee order by id desc where salary>45000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where salary>45000' at line 1
+mysql> select * from employee where salary>45000 order by id desc;
++----+------------+--------+-----------+
+| id | name       | salary | city      |
++----+------------+--------+-----------+
+|  8 | Vishwajeet |  50000 | Satara    |
+|  7 | Chaitanya  |  55000 | Chinchwad |
+|  6 | Shweta     |  60000 | Agra      |
++----+------------+--------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee where salary>45000 order by salary ;
++----+------------+--------+-----------+
+| id | name       | salary | city      |
++----+------------+--------+-----------+
+|  8 | Vishwajeet |  50000 | Satara    |
+|  7 | Chaitanya  |  55000 | Chinchwad |
+|  6 | Shweta     |  60000 | Agra      |
++----+------------+--------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select name from employee where salary=40000;
++--------+
+| name   |
++--------+
+| Shruti |
++--------+
+1 row in set (0.00 sec)
+
+mysql>
