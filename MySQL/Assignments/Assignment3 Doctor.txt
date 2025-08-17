@@ -37,3 +37,76 @@ mysql> select * from doctor;
 | 30 | Gaurav    | Neuro      | Delhi     | 100000 |       15 |
 +----+-----------+------------+-----------+--------+----------+
 30 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.1. Display details of those whose city is 'pune'
+
+mysql> select * from doctor where city='pune';
++----+--------+------------+------+--------+----------+
+| no | name   | speciality | city | income | patients |
++----+--------+------------+------+--------+----------+
+|  1 | Sachin | Neuro      | Pune | 450000 |       95 |
+|  2 | Meera  | Ortho      | Pune | 450000 |      100 |
+|  3 | Sneha  | Child      | Pune | 200000 |       20 |
+|  4 | Vikram | Heart      | Pune | 600000 |       75 |
+|  5 | Anita  | Skin       | Pune | 300000 |       55 |
+|  6 | Amit   | Heart      | Pune | 350000 |       95 |
+| 27 | Tarun  | Heart      | Pune | 500000 |      120 |
++----+--------+------------+------+--------+----------+
+7 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.2. Display details of those whose income is maximum
+
+mysql> select * from doctor where income in (select max(income) from doctor);
++----+--------+------------+--------+--------+----------+
+| no | name   | speciality | city   | income | patients |
++----+--------+------------+--------+--------+----------+
+|  4 | Vikram | Heart      | Pune   | 600000 |       75 |
+|  9 | Amit   | Heart      | Mumbai | 600000 |      120 |
+| 25 | Simran | Neuro      | Delhi  | 600000 |      130 |
++----+--------+------------+--------+--------+----------+
+3 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.3. Display details of those whose income is minimum
+
+mysql> select * from doctor where income in (select min(income) from doctor);
++----+-------+------------+---------+--------+----------+
+| no | name  | speciality | city    | income | patients |
++----+-------+------------+---------+--------+----------+
+| 17 | Karan | Skin       | Chennai |  50000 |       10 |
++----+-------+------------+---------+--------+----------+
+1 row in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.4. Display names of those whose income is in between 200000 to 400000
+
+mysql> select name,income from doctor where income between 200000 and 400000;
++--------+--------+
+| name   | income |
++--------+--------+
+| Sneha  | 200000 |
+| Anita  | 300000 |
+| Amit   | 350000 |
+| Priya  | 200000 |
+| Rajesh | 250000 |
+| Divya  | 380000 |
+| Seema  | 300000 |
+| Ravi   | 250000 |
+| Shweta | 280000 |
+| Neha   | 300000 |
+| Sohail | 380000 |
+| Maya   | 320000 |
+| Farhan | 220000 |
+| Rohit  | 280000 |
+| Anjali | 370000 |
+| Nisha  | 200000 |
+| Anita  | 300000 |
+| Deepak | 200000 |
++--------+--------+
+18 rows in set (0.00 sec)
