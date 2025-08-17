@@ -1,0 +1,481 @@
+Assignment-2 Data Table
+
+mysql> select * from movie;
++----+-----------------------------+------+--------------------+------------+
+| no | name                        | year | actor              | incomeinCr |
++----+-----------------------------+------+--------------------+------------+
+|  1 | Pathan                      | 2023 | Shah Rukh Khan     |  105000000 |
+|  2 | RRR                         | 2022 | N. T. Rama Rao Jr. |  120000000 |
+|  3 | Pushpa: The Rise            | 2021 | Allu Arjun         |   36500000 |
+|  4 | Gadar 2                     | 2023 | Sunny Deol         |   69000000 |
+|  5 | Three Idiots                | 2009 | Amir Khan          |   46000000 |
+|  6 | Baahubali 2: The Conclusion | 2017 | Prabhas            |  181000000 |
+|  7 | Jawan                       | 2023 | Shah Rukh Khan     |  116000000 |
+|  8 | Dangal                      | 2016 | Amir Khan          |  202400000 |
+|  9 | KGF:Chapter 2               | 2022 | Yash               |  125000000 |
+| 10 | Drishyam 2                  | 2022 | Ajay Devgan        |   34500000 |
+| 11 | Ek tha Tiger                | 2016 | Salman Khan        |   32000000 |
+| 12 | Lagaan                      | 2001 | Aamir Khan         |   55000000 |
+| 13 | Swades                      | 2004 | Shah Rukh Khan     |    5000000 |
+| 14 | My Name is Khan             | 2010 | Shah Rukh Khan     |    8000000 |
+| 15 | Tubelight                   | 2017 | Salman Khan        |     499999 |
+| 16 | Hum Tum                     | 2004 | Saif Ali Khan      |    7000000 |
+| 17 | Zindagi Na Milegi Dobara    | 2011 | Hritik Roshan      |    6300001 |
+| 18 | Krishh 3                    | 2013 | Hritik Roshan      |    9300000 |
+| 19 | Welcome                     | 2007 | Akshay Kumar       |   12000000 |
+| 20 | Veer                        | 2010 | Salman Khan        |    7500000 |
+| 21 | Race 2                      | 2013 | Saif Ali Khan      |    8500000 |
+| 22 | Maine Pyar Kiya             | 1989 | Salman Khan        |   50000000 |
+| 23 | Border                      | 1997 | Sunny Deol         |   65000000 |
+| 24 | Om Shanti Om                | 2007 | Shahrukh           |    6000000 |
+| 25 | Chak De! India              | 2007 | Shah Rukh Khan     |    9000000 |
+| 26 | Tiger Zinda Hai             | 2017 | Salman Khan        |  100000000 |
+| 27 | Phantom                     | 2015 | Saif Ali Khan      |     600000 |
+| 28 | Superman Returns            | 2006 | Brandon Routh      |   50000000 |
+| 29 | Batman Begins               | 2005 | Christian Bale     |  100000000 |
+| 30 | PK                          | 2014 | Aamir Khan         |  110000000 |
++----+-----------------------------+------+--------------------+------------+
+30 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.1. Display name of those movies which release after 2010
+
+mysql> select name,year from movie where year>2010;
++-----------------------------+------+
+| name                        | year |
++-----------------------------+------+
+| Pathan                      | 2023 |
+| RRR                         | 2022 |
+| Pushpa: The Rise            | 2021 |
+| Gadar 2                     | 2023 |
+| Baahubali 2: The Conclusion | 2017 |
+| Jawan                       | 2023 |
+| Dangal                      | 2016 |
+| KGF:Chapter 2               | 2022 |
+| Drishyam 2                  | 2022 |
+| Ek tha Tiger                | 2016 |
+| Tubelight                   | 2017 |
+| Zindagi Na Milegi Dobara    | 2011 |
+| Krishh 3                    | 2013 |
+| Race 2                      | 2013 |
+| Tiger Zinda Hai             | 2017 |
+| Phantom                     | 2015 |
+| PK                          | 2014 |
++-----------------------------+------+
+17 rows in set (0.00 sec)
+
+mysql> select name,year from movie where year>2010 order by year;			Arrange ascending according to Year.
++-----------------------------+------+
+| name                        | year |
++-----------------------------+------+
+| Zindagi Na Milegi Dobara    | 2011 |
+| Krishh 3                    | 2013 |
+| Race 2                      | 2013 |
+| PK                          | 2014 |
+| Phantom                     | 2015 |
+| Dangal                      | 2016 |
+| Ek tha Tiger                | 2016 |
+| Baahubali 2: The Conclusion | 2017 |
+| Tubelight                   | 2017 |
+| Tiger Zinda Hai             | 2017 |
+| Pushpa: The Rise            | 2021 |
+| RRR                         | 2022 |
+| KGF:Chapter 2               | 2022 |
+| Drishyam 2                  | 2022 |
+| Pathan                      | 2023 |
+| Gadar 2                     | 2023 |
+| Jawan                       | 2023 |
++-----------------------------+------+
+17 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.2. Find out details of those whose actor is ‘yash'
+
+mysql> select * from movie where actor='Yash';
++----+---------------+------+-------+------------+
+| no | name          | year | actor | incomeinCr |
++----+---------------+------+-------+------------+
+|  9 | KGF:Chapter 2 | 2022 | Yash  |  125000000 |
++----+---------------+------+-------+------------+
+1 row in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.3. Display names of movies which are release in 2011.
+
+mysql> select name from movie where year=2011;
++--------------------------+
+| name                     |
++--------------------------+
+| Zindagi Na Milegi Dobara |
++--------------------------+
+1 row in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.4. Display details of those whose actor name ends with ‘h’.
+
+mysql> select * from movie where actor like "%h";
++----+------------------+------+---------------+------------+
+| no | name             | year | actor         | incomeinCr |
++----+------------------+------+---------------+------------+
+|  9 | KGF:Chapter 2    | 2022 | Yash          |  125000000 |
+| 24 | Om Shanti Om     | 2007 | Shahrukh      |    6000000 |
+| 28 | Superman Returns | 2006 | Brandon Routh |   50000000 |
++----+------------------+------+---------------+------------+
+3 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.5. Find out details of ‘shahrukh’. 
+
+mysql> select * from movie where actor= 'Shahrukh';
++----+--------------+------+----------+------------+
+| no | name         | year | actor    | incomeinCr |
++----+--------------+------+----------+------------+
+| 24 | Om Shanti Om | 2007 | Shahrukh |    6000000 |
++----+--------------+------+----------+------------+
+1 row in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.6. Display details of those whose income >6300000.
+
+mysql> select * from movie where incomeinCr > 6300000;
++----+-----------------------------+------+--------------------+------------+
+| no | name                        | year | actor              | incomeinCr |
++----+-----------------------------+------+--------------------+------------+
+|  1 | Pathan                      | 2023 | Shah Rukh Khan     |  105000000 |
+|  2 | RRR                         | 2022 | N. T. Rama Rao Jr. |  120000000 |
+|  3 | Pushpa: The Rise            | 2021 | Allu Arjun         |   36500000 |
+|  4 | Gadar 2                     | 2023 | Sunny Deol         |   69000000 |
+|  5 | Three Idiots                | 2009 | Amir Khan          |   46000000 |
+|  6 | Baahubali 2: The Conclusion | 2017 | Prabhas            |  181000000 |
+|  7 | Jawan                       | 2023 | Shah Rukh Khan     |  116000000 |
+|  8 | Dangal                      | 2016 | Amir Khan          |  202400000 |
+|  9 | KGF:Chapter 2               | 2022 | Yash               |  125000000 |
+| 10 | Drishyam 2                  | 2022 | Ajay Devgan        |   34500000 |
+| 11 | Ek tha Tiger                | 2016 | Salman Khan        |   32000000 |
+| 12 | Lagaan                      | 2001 | Aamir Khan         |   55000000 |
+| 14 | My Name is Khan             | 2010 | Shah Rukh Khan     |    8000000 |
+| 16 | Hum Tum                     | 2004 | Saif Ali Khan      |    7000000 |
+| 17 | Zindagi Na Milegi Dobara    | 2011 | Hritik Roshan      |    6300001 |
+| 18 | Krishh 3                    | 2013 | Hritik Roshan      |    9300000 |
+| 19 | Welcome                     | 2007 | Akshay Kumar       |   12000000 |
+| 20 | Veer                        | 2010 | Salman Khan        |    7500000 |
+| 21 | Race 2                      | 2013 | Saif Ali Khan      |    8500000 |
+| 22 | Maine Pyar Kiya             | 1989 | Salman Khan        |   50000000 |
+| 23 | Border                      | 1997 | Sunny Deol         |   65000000 |
+| 25 | Chak De! India              | 2007 | Shah Rukh Khan     |    9000000 |
+| 26 | Tiger Zinda Hai             | 2017 | Salman Khan        |  100000000 |
+| 28 | Superman Returns            | 2006 | Brandon Routh      |   50000000 |
+| 29 | Batman Begins               | 2005 | Christian Bale     |  100000000 |
+| 30 | PK                          | 2014 | Aamir Khan         |  110000000 |
++----+-----------------------------+------+--------------------+------------+
+26 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. 7. Display those actor whose income >500000
+
+mysql> select actor,incomeinCr from movie where incomeinCr > 500000 order by incomeinCr;
++--------------------+------------+
+| actor              | incomeinCr |
++--------------------+------------+
+| Saif Ali Khan      |     600000 |
+| Shah Rukh Khan     |    5000000 |
+| Shahrukh           |    6000000 |
+| Hritik Roshan      |    6300001 |
+| Saif Ali Khan      |    7000000 |
+| Salman Khan        |    7500000 |
+| Shah Rukh Khan     |    8000000 |
+| Saif Ali Khan      |    8500000 |
+| Shah Rukh Khan     |    9000000 |
+| Hritik Roshan      |    9300000 |
+| Akshay Kumar       |   12000000 |
+| Salman Khan        |   32000000 |
+| Ajay Devgan        |   34500000 |
+| Allu Arjun         |   36500000 |
+| Amir Khan          |   46000000 |
+| Salman Khan        |   50000000 |
+| Brandon Routh      |   50000000 |
+| Aamir Khan         |   55000000 |
+| Sunny Deol         |   65000000 |
+| Sunny Deol         |   69000000 |
+| Salman Khan        |  100000000 |
+| Christian Bale     |  100000000 |
+| Shah Rukh Khan     |  105000000 |
+| Aamir Khan         |  110000000 |
+| Shah Rukh Khan     |  116000000 |
+| N. T. Rama Rao Jr. |  120000000 |
+| Yash               |  125000000 |
+| Prabhas            |  181000000 |
+| Amir Khan          |  202400000 |
++--------------------+------------+
+29 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.8. Find out details of those whose id’s >4
+
+mysql> select * from movie where no>4;
++----+-----------------------------+------+----------------+------------+
+| no | name                        | year | actor          | incomeinCr |
++----+-----------------------------+------+----------------+------------+
+|  5 | Three Idiots                | 2009 | Amir Khan      |   46000000 |
+|  6 | Baahubali 2: The Conclusion | 2017 | Prabhas        |  181000000 |
+|  7 | Jawan                       | 2023 | Shah Rukh Khan |  116000000 |
+|  8 | Dangal                      | 2016 | Amir Khan      |  202400000 |
+|  9 | KGF:Chapter 2               | 2022 | Yash           |  125000000 |
+| 10 | Drishyam 2                  | 2022 | Ajay Devgan    |   34500000 |
+| 11 | Ek tha Tiger                | 2016 | Salman Khan    |   32000000 |
+| 12 | Lagaan                      | 2001 | Aamir Khan     |   55000000 |
+| 13 | Swades                      | 2004 | Shah Rukh Khan |    5000000 |
+| 14 | My Name is Khan             | 2010 | Shah Rukh Khan |    8000000 |
+| 15 | Tubelight                   | 2017 | Salman Khan    |     499999 |
+| 16 | Hum Tum                     | 2004 | Saif Ali Khan  |    7000000 |
+| 17 | Zindagi Na Milegi Dobara    | 2011 | Hritik Roshan  |    6300001 |
+| 18 | Krishh 3                    | 2013 | Hritik Roshan  |    9300000 |
+| 19 | Welcome                     | 2007 | Akshay Kumar   |   12000000 |
+| 20 | Veer                        | 2010 | Salman Khan    |    7500000 |
+| 21 | Race 2                      | 2013 | Saif Ali Khan  |    8500000 |
+| 22 | Maine Pyar Kiya             | 1989 | Salman Khan    |   50000000 |
+| 23 | Border                      | 1997 | Sunny Deol     |   65000000 |
+| 24 | Om Shanti Om                | 2007 | Shahrukh       |    6000000 |
+| 25 | Chak De! India              | 2007 | Shah Rukh Khan |    9000000 |
+| 26 | Tiger Zinda Hai             | 2017 | Salman Khan    |  100000000 |
+| 27 | Phantom                     | 2015 | Saif Ali Khan  |     600000 |
+| 28 | Superman Returns            | 2006 | Brandon Routh  |   50000000 |
+| 29 | Batman Begins               | 2005 | Christian Bale |  100000000 |
+| 30 | PK                          | 2014 | Aamir Khan     |  110000000 |
++----+-----------------------------+------+----------------+------------+
+26 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.9.  Display name of those whose year is 2010,2013,2022.
+
+mysql> select name,year from movie where year=2010 or year=2013 or year=2022 order by year;
++-----------------+------+
+| name            | year |
++-----------------+------+
+| My Name is Khan | 2010 |
+| Veer            | 2010 |
+| Krishh 3        | 2013 |
+| Race 2          | 2013 |
+| RRR             | 2022 |
+| KGF:Chapter 2   | 2022 |
+| Drishyam 2      | 2022 |
++-----------------+------+
+7 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.10. Display details of those movies whose actors third last letter is ‘m’
+
+mysql> select * from movie where actor like '%m__';
++----+---------+------+--------------+------------+
+| no | name    | year | actor        | incomeinCr |
++----+---------+------+--------------+------------+
+| 19 | Welcome | 2007 | Akshay Kumar |   12000000 |
++----+---------+------+--------------+------------+
+1 row in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.11. Find out details of ‘yash’,’amir’,’salmaan’.		TRICKY
+
+WRONG 
+
+mysql> select * from movie where actor='yash' or actor='amir' or actor='salman';
++----+---------------+------+-------+------------+
+| no | name          | year | actor | incomeinCr |
++----+---------------+------+-------+------------+
+|  9 | KGF:Chapter 2 | 2022 | Yash  |  125000000 |
++----+---------------+------+-------+------------+
+1 row in set (0.00 sec)
+
+Correct 
+
+mysql> select * from movie where actor like '%yash%' or actor like '%amir%' or actor like '%salman%';
++----+-----------------+------+-------------+------------+
+| no | name            | year | actor       | incomeinCr |
++----+-----------------+------+-------------+------------+
+|  5 | Three Idiots    | 2009 | Amir Khan   |   46000000 |
+|  8 | Dangal          | 2016 | Amir Khan   |  202400000 |
+|  9 | KGF:Chapter 2   | 2022 | Yash        |  125000000 |
+| 11 | Ek tha Tiger    | 2016 | Salman Khan |   32000000 |
+| 12 | Lagaan          | 2001 | Aamir Khan  |   55000000 |
+| 15 | Tubelight       | 2017 | Salman Khan |     499999 |
+| 20 | Veer            | 2010 | Salman Khan |    7500000 |
+| 22 | Maine Pyar Kiya | 1989 | Salman Khan |   50000000 |
+| 26 | Tiger Zinda Hai | 2017 | Salman Khan |  100000000 |
+| 30 | PK              | 2014 | Aamir Khan  |  110000000 |
++----+-----------------+------+-------------+------------+
+10 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.12. Find out details of those whose name contains string ‘khan’ 
+
+mysql> select * from movie where actor like '%khan%';
++----+-----------------+------+----------------+------------+
+| no | name            | year | actor          | incomeinCr |
++----+-----------------+------+----------------+------------+
+|  1 | Pathan          | 2023 | Shah Rukh Khan |  105000000 |
+|  5 | Three Idiots    | 2009 | Amir Khan      |   46000000 |
+|  7 | Jawan           | 2023 | Shah Rukh Khan |  116000000 |
+|  8 | Dangal          | 2016 | Amir Khan      |  202400000 |
+| 11 | Ek tha Tiger    | 2016 | Salman Khan    |   32000000 |
+| 12 | Lagaan          | 2001 | Aamir Khan     |   55000000 |
+| 13 | Swades          | 2004 | Shah Rukh Khan |    5000000 |
+| 14 | My Name is Khan | 2010 | Shah Rukh Khan |    8000000 |
+| 15 | Tubelight       | 2017 | Salman Khan    |     499999 |
+| 16 | Hum Tum         | 2004 | Saif Ali Khan  |    7000000 |
+| 20 | Veer            | 2010 | Salman Khan    |    7500000 |
+| 21 | Race 2          | 2013 | Saif Ali Khan  |    8500000 |
+| 22 | Maine Pyar Kiya | 1989 | Salman Khan    |   50000000 |
+| 25 | Chak De! India  | 2007 | Shah Rukh Khan |    9000000 |
+| 26 | Tiger Zinda Hai | 2017 | Salman Khan    |  100000000 |
+| 27 | Phantom         | 2015 | Saif Ali Khan  |     600000 |
+| 30 | PK              | 2014 | Aamir Khan     |  110000000 |
++----+-----------------+------+----------------+------------+
+17 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.13. Find out details of those whose release year is in between 2000 to 2010.
+
+mysql> select * from movie where year between 2000 and 2010 order by year;
++----+------------------+------+----------------+------------+
+| no | name             | year | actor          | incomeinCr |
++----+------------------+------+----------------+------------+
+| 12 | Lagaan           | 2001 | Aamir Khan     |   55000000 |
+| 13 | Swades           | 2004 | Shah Rukh Khan |    5000000 |
+| 16 | Hum Tum          | 2004 | Saif Ali Khan  |    7000000 |
+| 29 | Batman Begins    | 2005 | Christian Bale |  100000000 |
+| 28 | Superman Returns | 2006 | Brandon Routh  |   50000000 |
+| 19 | Welcome          | 2007 | Akshay Kumar   |   12000000 |
+| 24 | Om Shanti Om     | 2007 | Shahrukh       |    6000000 |
+| 25 | Chak De! India   | 2007 | Shah Rukh Khan |    9000000 |
+|  5 | Three Idiots     | 2009 | Amir Khan      |   46000000 |
+| 14 | My Name is Khan  | 2010 | Shah Rukh Khan |    8000000 |
+| 20 | Veer             | 2010 | Salman Khan    |    7500000 |
++----+------------------+------+----------------+------------+
+11 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.14. Find out details of those movies which are not release in 2010 to 2020. 
+
+mysql> select * from movie where year not between 2000 and 2010 order by year;
++----+-----------------------------+------+--------------------+------------+
+| no | name                        | year | actor              | incomeinCr |
++----+-----------------------------+------+--------------------+------------+
+| 22 | Maine Pyar Kiya             | 1989 | Salman Khan        |   50000000 |
+| 23 | Border                      | 1997 | Sunny Deol         |   65000000 |
+| 17 | Zindagi Na Milegi Dobara    | 2011 | Hritik Roshan      |    6300001 |
+| 18 | Krishh 3                    | 2013 | Hritik Roshan      |    9300000 |
+| 21 | Race 2                      | 2013 | Saif Ali Khan      |    8500000 |
+| 30 | PK                          | 2014 | Aamir Khan         |  110000000 |
+| 27 | Phantom                     | 2015 | Saif Ali Khan      |     600000 |
+|  8 | Dangal                      | 2016 | Amir Khan          |  202400000 |
+| 11 | Ek tha Tiger                | 2016 | Salman Khan        |   32000000 |
+|  6 | Baahubali 2: The Conclusion | 2017 | Prabhas            |  181000000 |
+| 15 | Tubelight                   | 2017 | Salman Khan        |     499999 |
+| 26 | Tiger Zinda Hai             | 2017 | Salman Khan        |  100000000 |
+|  3 | Pushpa: The Rise            | 2021 | Allu Arjun         |   36500000 |
+|  2 | RRR                         | 2022 | N. T. Rama Rao Jr. |  120000000 |
+|  9 | KGF:Chapter 2               | 2022 | Yash               |  125000000 |
+| 10 | Drishyam 2                  | 2022 | Ajay Devgan        |   34500000 |
+|  1 | Pathan                      | 2023 | Shah Rukh Khan     |  105000000 |
+|  4 | Gadar 2                     | 2023 | Sunny Deol         |   69000000 |
+|  7 | Jawan                       | 2023 | Shah Rukh Khan     |  116000000 |
++----+-----------------------------+------+--------------------+------------+
+19 rows in set (0.00 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.15. Display Data in movies ascending as well as descending order. 
+
+ASCENDING
+
+mysql> select * from movie order by no asc;
++----+-----------------------------+------+--------------------+------------+
+| no | name                        | year | actor              | incomeinCr |
++----+-----------------------------+------+--------------------+------------+
+|  1 | Pathan                      | 2023 | Shah Rukh Khan     |  105000000 |
+|  2 | RRR                         | 2022 | N. T. Rama Rao Jr. |  120000000 |
+|  3 | Pushpa: The Rise            | 2021 | Allu Arjun         |   36500000 |
+|  4 | Gadar 2                     | 2023 | Sunny Deol         |   69000000 |
+|  5 | Three Idiots                | 2009 | Amir Khan          |   46000000 |
+|  6 | Baahubali 2: The Conclusion | 2017 | Prabhas            |  181000000 |
+|  7 | Jawan                       | 2023 | Shah Rukh Khan     |  116000000 |
+|  8 | Dangal                      | 2016 | Amir Khan          |  202400000 |
+|  9 | KGF:Chapter 2               | 2022 | Yash               |  125000000 |
+| 10 | Drishyam 2                  | 2022 | Ajay Devgan        |   34500000 |
+| 11 | Ek tha Tiger                | 2016 | Salman Khan        |   32000000 |
+| 12 | Lagaan                      | 2001 | Aamir Khan         |   55000000 |
+| 13 | Swades                      | 2004 | Shah Rukh Khan     |    5000000 |
+| 14 | My Name is Khan             | 2010 | Shah Rukh Khan     |    8000000 |
+| 15 | Tubelight                   | 2017 | Salman Khan        |     499999 |
+| 16 | Hum Tum                     | 2004 | Saif Ali Khan      |    7000000 |
+| 17 | Zindagi Na Milegi Dobara    | 2011 | Hritik Roshan      |    6300001 |
+| 18 | Krishh 3                    | 2013 | Hritik Roshan      |    9300000 |
+| 19 | Welcome                     | 2007 | Akshay Kumar       |   12000000 |
+| 20 | Veer                        | 2010 | Salman Khan        |    7500000 |
+| 21 | Race 2                      | 2013 | Saif Ali Khan      |    8500000 |
+| 22 | Maine Pyar Kiya             | 1989 | Salman Khan        |   50000000 |
+| 23 | Border                      | 1997 | Sunny Deol         |   65000000 |
+| 24 | Om Shanti Om                | 2007 | Shahrukh           |    6000000 |
+| 25 | Chak De! India              | 2007 | Shah Rukh Khan     |    9000000 |
+| 26 | Tiger Zinda Hai             | 2017 | Salman Khan        |  100000000 |
+| 27 | Phantom                     | 2015 | Saif Ali Khan      |     600000 |
+| 28 | Superman Returns            | 2006 | Brandon Routh      |   50000000 |
+| 29 | Batman Begins               | 2005 | Christian Bale     |  100000000 |
+| 30 | PK                          | 2014 | Aamir Khan         |  110000000 |
++----+-----------------------------+------+--------------------+------------+
+30 rows in set (0.00 sec)
+
+DESCENDING
+
+mysql> select * from movie order by no desc;
++----+-----------------------------+------+--------------------+------------+
+| no | name                        | year | actor              | incomeinCr |
++----+-----------------------------+------+--------------------+------------+
+| 30 | PK                          | 2014 | Aamir Khan         |  110000000 |
+| 29 | Batman Begins               | 2005 | Christian Bale     |  100000000 |
+| 28 | Superman Returns            | 2006 | Brandon Routh      |   50000000 |
+| 27 | Phantom                     | 2015 | Saif Ali Khan      |     600000 |
+| 26 | Tiger Zinda Hai             | 2017 | Salman Khan        |  100000000 |
+| 25 | Chak De! India              | 2007 | Shah Rukh Khan     |    9000000 |
+| 24 | Om Shanti Om                | 2007 | Shahrukh           |    6000000 |
+| 23 | Border                      | 1997 | Sunny Deol         |   65000000 |
+| 22 | Maine Pyar Kiya             | 1989 | Salman Khan        |   50000000 |
+| 21 | Race 2                      | 2013 | Saif Ali Khan      |    8500000 |
+| 20 | Veer                        | 2010 | Salman Khan        |    7500000 |
+| 19 | Welcome                     | 2007 | Akshay Kumar       |   12000000 |
+| 18 | Krishh 3                    | 2013 | Hritik Roshan      |    9300000 |
+| 17 | Zindagi Na Milegi Dobara    | 2011 | Hritik Roshan      |    6300001 |
+| 16 | Hum Tum                     | 2004 | Saif Ali Khan      |    7000000 |
+| 15 | Tubelight                   | 2017 | Salman Khan        |     499999 |
+| 14 | My Name is Khan             | 2010 | Shah Rukh Khan     |    8000000 |
+| 13 | Swades                      | 2004 | Shah Rukh Khan     |    5000000 |
+| 12 | Lagaan                      | 2001 | Aamir Khan         |   55000000 |
+| 11 | Ek tha Tiger                | 2016 | Salman Khan        |   32000000 |
+| 10 | Drishyam 2                  | 2022 | Ajay Devgan        |   34500000 |
+|  9 | KGF:Chapter 2               | 2022 | Yash               |  125000000 |
+|  8 | Dangal                      | 2016 | Amir Khan          |  202400000 |
+|  7 | Jawan                       | 2023 | Shah Rukh Khan     |  116000000 |
+|  6 | Baahubali 2: The Conclusion | 2017 | Prabhas            |  181000000 |
+|  5 | Three Idiots                | 2009 | Amir Khan          |   46000000 |
+|  4 | Gadar 2                     | 2023 | Sunny Deol         |   69000000 |
+|  3 | Pushpa: The Rise            | 2021 | Allu Arjun         |   36500000 |
+|  2 | RRR                         | 2022 | N. T. Rama Rao Jr. |  120000000 |
+|  1 | Pathan                      | 2023 | Shah Rukh Khan     |  105000000 |
++----+-----------------------------+------+--------------------+------------+
+30 rows in set (0.00 sec)

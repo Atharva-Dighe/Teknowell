@@ -87,8 +87,12 @@ mysql> select * from employee where eid=1;
 +-----+---------+--------+--------+
 1 row in set (0.00 sec)
 
-mysql> select * from employee where name='Aditi';
-ERROR 1054 (42S22): Unknown column 'name' in 'where clause'
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.1 Display details of those whose name is 'Aditi'
+
 mysql> select * from employee where ename='Aditi';
 +-----+-------+--------+------+
 | eid | ename | salary | city |
@@ -282,6 +286,11 @@ mysql> select * from employee where salary>45000 order by id desc;
 +----+------------+--------+-----------+
 3 rows in set (0.00 sec)
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q.2. Display details of those whose salary > 45000 
+
 mysql> select * from employee where salary>45000 order by salary ;
 +----+------------+--------+-----------+
 | id | name       | salary | city      |
@@ -292,6 +301,9 @@ mysql> select * from employee where salary>45000 order by salary ;
 +----+------------+--------+-----------+
 3 rows in set (0.00 sec)
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.3.  Display name of those employee whose salary is 40000
 mysql> select name from employee where salary=40000;
 +--------+
 | name   |
@@ -300,4 +312,252 @@ mysql> select name from employee where salary=40000;
 +--------+
 1 row in set (0.00 sec)
 
-mysql>
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.4. Display name of those whose city is 'pune'
+
+ mysql> select NAME from employee where city='PUNE';
++-------+
+| NAME  |
++-------+
+| Aditi |
++-------+
+1 row in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.5. Display details of those whose city is 'pune' and 'nashik'
+
+mysql> select * from employee where city='pune' or city='Nashik';
++----+---------+--------+--------+
+| id | name    | salary | city   |
++----+---------+--------+--------+
+|  1 | Atharva |  20000 | Nashik |
+|  2 | Aditi   |  25000 | Pune   |
++----+---------+--------+--------+
+2 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.6. display details of those employee which are not belong to'pune'.
+
+mysql> select * from employee where city!='PUNE' ;
++----+------------+--------+-----------+
+| id | name       | salary | city      |
++----+------------+--------+-----------+
+|  1 | Atharva    |  20000 | Nashik    |
+|  3 | Sanket     |  30000 | Banglore  |
+|  4 | Prashant   |  35000 | Nagpur    |
+|  5 | Shruti     |  40000 | Satara    |
+|  6 | Shweta     |  60000 | Agra      |
+|  7 | Chaitanya  |  55000 | Chinchwad |
+|  8 | Vishwajeet |  50000 | Satara    |
+|  9 | Karan      |  45000 | Mumbai    |
++----+------------+--------+-----------+
+8 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.7. Display details of those whose city name starts with 'p'
+
+mysql> select * from employee where city like 'p%';
++----+-------+--------+------+
+| id | name  | salary | city |
++----+-------+--------+------+
+|  2 | Aditi |  25000 | Pune |
++----+-------+--------+------+
+1 row in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.8. Display details of those whose name ends with 'a'
+
+mysql> select * from employee where name like '%a';
++----+-----------+--------+-----------+
+| id | name      | salary | city      |
++----+-----------+--------+-----------+
+|  1 | Atharva   |  20000 | Nashik    |
+|  6 | Shweta    |  60000 | Agra      |
+|  7 | Chaitanya |  55000 | Chinchwad |
++----+-----------+--------+-----------+
+3 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.9. Display details of those whose names second letter is 'i'
+
+mysql> select * from employee where name like '_i%';
++----+------------+--------+--------+
+| id | name       | salary | city   |
++----+------------+--------+--------+
+|  8 | Vishwajeet |  50000 | Satara |
++----+------------+--------+--------+
+1 row in set (0.00 sec)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.10. Display details of those whose second last letter is 'a' 
+
+mysql> select * from employee where name like '%a_' or city like '%a_';
++----+-----------+--------+-----------+
+| id | name      | salary | city      |
++----+-----------+--------+-----------+
+|  7 | Chaitanya |  55000 | Chinchwad |
+|  9 | Karan     |  45000 | Mumbai    |
++----+-----------+--------+-----------+
+2 rows in set, 9 warnings (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.11. Display details of those which contains 'sh'.
+
+
+mysql> select * from employee where name like '%sh%' or city like '%sh%';
++----+------------+--------+--------+
+| id | name       | salary | city   |
++----+------------+--------+--------+
+|  1 | Atharva    |  20000 | Nashik |
+|  4 | Prashant   |  35000 | Nagpur |
+|  5 | Shruti     |  40000 | Satara |
+|  6 | Shweta     |  60000 | Agra   |
+|  8 | Vishwajeet |  50000 | Satara |
++----+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.12. Display details of those whose salary is between 20000 and 50000.
+
+mysql> select * from employee where salary between 20000 and 50000;
++----+------------+--------+----------+
+| id | name       | salary | city     |
++----+------------+--------+----------+
+|  1 | Atharva    |  20000 | Nashik   |
+|  2 | Aditi      |  25000 | Pune     |
+|  3 | Sanket     |  30000 | Banglore |
+|  4 | Prashant   |  35000 | Nagpur   |
+|  5 | Shruti     |  40000 | Satara   |
+|  8 | Vishwajeet |  50000 | Satara   |
+|  9 | Karan      |  45000 | Mumbai   |
++----+------------+--------+----------+
+7 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.13. Find out details of those whose salary less than 50000 
+
+mysql> select * from employee where salary < 50000;
++----+----------+--------+----------+
+| id | name     | salary | city     |
++----+----------+--------+----------+
+|  1 | Atharva  |  20000 | Nashik   |
+|  2 | Aditi    |  25000 | Pune     |
+|  3 | Sanket   |  30000 | Banglore |
+|  4 | Prashant |  35000 | Nagpur   |
+|  5 | Shruti   |  40000 | Satara   |
+|  9 | Karan    |  45000 | Mumbai   |
++----+----------+--------+----------+
+6 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.14. Display city of 'sanket' and 'chaitanya' 			"IN" used
+
+mysql> select city from employee where name in ("Sanket" ,"Chaitanya");
++-----------+
+| city      |
++-----------+
+| Banglore  |
+| Chinchwad |
++-----------+
+2 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.15. Display details of those whose city is 'pune' and salary>30000.
+
+
+mysql> select * from employee where city='Pune' and salary>30000;
+Empty set (0.00 sec)
+
+mysql> select * from employee where city='Pune' and salary>20000;
++----+-------+--------+------+
+| id | name  | salary | city |
++----+-------+--------+------+
+|  2 | Aditi |  25000 | Pune |
++----+-------+--------+------+
+1 row in set (0.00 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q.16. Display details of those employees whose name starts with ‘a’,’s’ and ‘j’
+
+mysql> select * from employee where name like 'a%' or name like 's%' or name like 'j%';
++----+---------+--------+----------+
+| id | name    | salary | city     |
++----+---------+--------+----------+
+|  1 | Atharva |  20000 | Nashik   |
+|  2 | Aditi   |  25000 | Pune     |
+|  3 | Sanket  |  30000 | Banglore |
+|  5 | Shruti  |  40000 | Satara   |
+|  6 | Shweta  |  60000 | Agra     |
++----+---------+--------+----------+
+5 rows in set (0.00 sec)
+
+Using REFEXP -
+
+1. Starting Search 
+mysql> select * from employee where name regexp '^[asj]';
++----+---------+--------+----------+
+| id | name    | salary | city     |
++----+---------+--------+----------+
+|  1 | Atharva |  20000 | Nashik   |
+|  2 | Aditi   |  25000 | Pune     |
+|  3 | Sanket  |  30000 | Banglore |
+|  5 | Shruti  |  40000 | Satara   |
+|  6 | Shweta  |  60000 | Agra     |
++----+---------+--------+----------+
+5 rows in set (0.03 sec)
+
+2. Ending Search 
+mysql> select * from employee where name regexp '[asj]$';
++----+-----------+--------+-----------+
+| id | name      | salary | city      |
++----+-----------+--------+-----------+
+|  1 | Atharva   |  20000 | Nashik    |
+|  6 | Shweta    |  60000 | Agra      |
+|  7 | Chaitanya |  55000 | Chinchwad |
++----+-----------+--------+-----------+
+3 rows in set (0.00 sec)
+
+3. Both Starting OR Ending
+mysql> select * from employee where name regexp '^[asj]' or name regexp '[asj]$';
++----+-----------+--------+-----------+
+| id | name      | salary | city      |
++----+-----------+--------+-----------+
+|  1 | Atharva   |  20000 | Nashik    |
+|  2 | Aditi     |  25000 | Pune      |	
+|  3 | Sanket    |  30000 | Banglore  |
+|  5 | Shruti    |  40000 | Satara    |
+|  6 | Shweta    |  60000 | Agra      |
+|  7 | Chaitanya |  55000 | Chinchwad |
++----+-----------+--------+-----------+
+6 rows in set (0.00 sec)
+
+4. Both Starting AND Ending
+
+^ → start of the string
+[asj] → first letter can be a, s, or j
+.* → zero or more characters in between
+[asj]$ → last letter can be a, s, or j
+
+mysql> select * from employee where name regexp '^[asj].*[asj]$';
++----+---------+--------+--------+
+| id | name    | salary | city   |
++----+---------+--------+--------+
+|  1 | Atharva |  20000 | Nashik |
+|  6 | Shweta  |  60000 | Agra   |
++----+---------+--------+--------+
+2 rows in set (0.00 sec)
