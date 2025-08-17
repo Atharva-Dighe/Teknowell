@@ -2,41 +2,42 @@ Assignment 3 Doctor Data Table -
 
 
 mysql> select * from doctor;
-+----+-----------+------------+-----------+--------+----------+
-| no | name      | speciality | city      | income | patients |
-+----+-----------+------------+-----------+--------+----------+
-|  1 | Sachin    | Neuro      | Pune      | 450000 |       95 |
-|  2 | Meera     | Ortho      | Pune      | 450000 |      100 |
-|  3 | Sneha     | Child      | Pune      | 200000 |       20 |
-|  4 | Vikram    | Heart      | Pune      | 600000 |       75 |
-|  5 | Anita     | Skin       | Pune      | 300000 |       55 |
-|  6 | Amit      | Heart      | Pune      | 350000 |       95 |
-|  7 | Arjun     | Skin       | Mumbai    | 100000 |       15 |
-|  8 | Priya     | Ortho      | Mumbai    | 200000 |       65 |
-|  9 | Amit      | Heart      | Mumbai    | 600000 |      120 |
-| 10 | Rajesh    | Child      | Mumbai    | 250000 |       30 |
-| 11 | Divya     | Neuro      | Mumbai    | 380000 |       80 |
-| 12 | Seema     | Ortho      | Mumbai    | 300000 |       95 |
-| 13 | Ravi      | Heart      | Chennai   | 250000 |       70 |
-| 14 | Shweta    | Neuro      | Chennai   | 280000 |       90 |
-| 15 | Siddharth | Ortho      | Chennai   | 150000 |       25 |
-| 16 | Neha      | Child      |           | 300000 |       40 |
-| 17 | Karan     | Skin       | Chennai   |  50000 |       10 |
-| 18 | Sohail    | Neuro      | Bangalore | 380000 |       92 |
-| 19 | Maya      | Heart      | Bangalore | 320000 |      100 |
-| 20 | Dev       | Skin       | Bangalore | 410000 |       65 |
-| 21 | Farhan    | Ortho      | Bangalore | 220000 |       15 |
-| 22 | Rohit     | Child      | Delhi     | 280000 |       35 |
-| 23 | Anjali    | Skin       | Delhi     | 370000 |       60 |
-| 24 | Kabir     | Heart      | Delhi     | 450000 |      110 |
-| 25 | Simran    | Neuro      | Delhi     | 600000 |      130 |
-| 26 | Nisha     | Ortho      |           | 200000 |       50 |
-| 27 | Tarun     | Heart      | Pune      | 500000 |      120 |
-| 28 | Anita     | Skin       | Mumbai    | 300000 |       85 |
-| 29 | Deepak    | Child      | Chennai   | 200000 |      105 |
-| 30 | Gaurav    | Neuro      | Delhi     | 100000 |       15 |
-+----+-----------+------------+-----------+--------+----------+
++----+-----------+------------+-----------+--------+
+| no | name      | speciality | city      | income |
++----+-----------+------------+-----------+--------+
+|  1 | Sachin    | Neuro      | Pune      | 450000 |
+|  2 | Meera     | Ortho      | Pune      | 450000 |
+|  3 | Sneha     | Child      | Pune      | 200000 |
+|  4 | Vikram    | Heart      | Pune      | 600000 |
+|  5 | Anita     | Skin       | Pune      | 300000 |
+|  6 | Amit      | Heart      | Pune      | 350000 |
+|  7 | Arjun     | Skin       | Mumbai    | 100000 |
+|  8 | Priya     | Ortho      | Mumbai    | 200000 |
+|  9 | Amit      | Heart      | Mumbai    | 600000 |
+| 10 | Rajesh    | Child      | Mumbai    | 250000 |
+| 11 | Divya     | Neuro      | Mumbai    | 380000 |
+| 12 | Seema     | Ortho      | Mumbai    | 300000 |
+| 13 | Ravi      | Heart      | Chennai   | 250000 |
+| 14 | Shweta    | Neuro      | Chennai   | 280000 |
+| 15 | Siddharth | Ortho      | Chennai   | 150000 |
+| 16 | Neha      | Child      |           | 300000 |
+| 17 | Karan     | Skin       | Chennai   |  50000 |
+| 18 | Sohail    | Neuro      | Bangalore | 380000 |
+| 19 | Maya      | Heart      | Bangalore | 320000 |
+| 20 | Dev       | Skin       | Bangalore | 410000 |
+| 21 | Farhan    | Ortho      | Bangalore | 220000 |
+| 22 | Rohit     | Child      | Delhi     | 280000 |
+| 23 | Anjali    | Skin       | Delhi     | 370000 |
+| 24 | Kabir     | Heart      | Delhi     | 450000 |
+| 25 | Simran    | Neuro      | Delhi     | 600000 |
+| 26 | Nisha     | Ortho      |           | 200000 |
+| 27 | Tarun     | Heart      | Pune      | 500000 |
+| 28 | Anita     | Skin       | Mumbai    | 300000 |
+| 29 | Deepak    | Child      | Chennai   | 200000 |
+| 30 | Gaurav    | Neuro      | Delhi     | 100000 |
++----+-----------+------------+-----------+--------+
 30 rows in set (0.00 sec)
+
 
 ---------------------------------------------------------------------------
 
@@ -110,3 +111,56 @@ mysql> select name,income from doctor where income between 200000 and 400000;
 | Deepak | 200000 |
 +--------+--------+
 18 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.5. Display names and city of those doctors whose speciality is 'neuro' and 'heart'. 
+Arrange in ascending order according to their speciality.
+
+mysql> select name, city,speciality from doctor where speciality ='heart' or speciality='neuro' order by speciality asc;
++--------+-----------+------------+
+| name   | city      | speciality |
++--------+-----------+------------+
+| Vikram | Pune      | Heart      |
+| Amit   | Pune      | Heart      |
+| Amit   | Mumbai    | Heart      |
+| Ravi   | Chennai   | Heart      |
+| Maya   | Bangalore | Heart      |
+| Kabir  | Delhi     | Heart      |
+| Tarun  | Pune      | Heart      |
+| Sachin | Pune      | Neuro      |
+| Divya  | Mumbai    | Neuro      |
+| Shweta | Chennai   | Neuro      |
+| Sohail | Bangalore | Neuro      |
+| Simran | Delhi     | Neuro      |
+| Gaurav | Delhi     | Neuro      |
++--------+-----------+------------+
+13 rows in set (0.05 sec)
+
+---------------------------------------------------------------------------
+
+Q.6. Display average income for all employee.
+
+mysql> select sum(income) from doctor;
++-------------+
+| sum(income) |
++-------------+
+|     9540000 |
++-------------+
+1 row in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.7. Count total doctors which are belong to 'mumbai'
+
+mysql> select count(city) from doctor where city='mumbai';
++-------------+
+| count(city) |
++-------------+
+|           7 |
++-------------+
+1 row in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.8. 
