@@ -223,3 +223,120 @@ mysql> select * from doctor where name='sanjay';
 +----+--------+------------+------+--------+----------+
 1 row in set (0.00 sec)
 
+---------------------------------------------------------------------------
+
+Q.12. Delete primary key from given table
+
+mysql> desc doctor;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| no         | int         | NO   | PRI | NULL    |       |
+| name       | varchar(30) | YES  |     | NULL    |       |
+| speciality | varchar(30) | YES  |     | NULL    |       |
+| city       | varchar(20) | YES  |     | NULL    |       |
+| income     | int         | YES  |     | NULL    |       |
+| patients   | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+
+mysql> alter table doctor drop primary key;
+Query OK, 30 rows affected (0.06 sec)
+Records: 30  Duplicates: 0  Warnings: 0
+
+mysql> desc doctor;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| no         | int         | NO   |     | NULL    |       |
+| name       | varchar(30) | YES  |     | NULL    |       |
+| speciality | varchar(30) | YES  |     | NULL    |       |
+| city       | varchar(20) | YES  |     | NULL    |       |
+| income     | int         | YES  |     | NULL    |       |
+| patients   | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.13. If city is not inserted by user side then consider it as a 'delhi'
+
+mysql> update doctor set city='Delhi' where city='';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+---------------------------------------------------------------------------
+
+Q.14. If income <=0 then generate error
+
+mysql> alter table doctor modify income int check(income>0);
+Query OK, 30 rows affected (0.10 sec)
+Records: 30  Duplicates: 0  Warnings: 0
+
+mysql> update doctor set income=-10 where no=1;
+ERROR 3819 (HY000): Check constraint 'doctor_chk_1' is violated.
+
+mysql> update doctor set income=0 where no=1;
+ERROR 3819 (HY000): Check constraint 'doctor_chk_1' is violated.
+
+mysql> update doctor set income=450000 where no=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+---------------------------------------------------------------------------
+
+Q.15. Increase income of those doctors by 50000 whose no_of_patients>60
+
+mysql> select * from doctor where patients>60;
++----+--------+------------+-----------+--------+----------+
+| no | name   | speciality | city      | income | patients |
++----+--------+------------+-----------+--------+----------+
+|  1 | sanjay | Neuro      | Pune      | 450000 |       95 |
+|  2 | Meera  | Ortho      | Pune      | 450000 |      100 |
+|  4 | Vikram | Heart      | Pune      | 600000 |       75 |
+|  6 | Amit   | Heart      | Pune      | 350000 |       95 |
+|  8 | Priya  | Ortho      | Mumbai    | 200000 |       65 |
+|  9 | Amit   | Heart      | Mumbai    | 600000 |      120 |
+| 11 | Divya  | Neuro      | Mumbai    | 380000 |       80 |
+| 12 | Seema  | Ortho      | Mumbai    | 300000 |       95 |
+| 13 | Ravi   | Heart      | Chennai   | 250000 |       70 |
+| 14 | Shweta | Neuro      | Chennai   | 280000 |       90 |
+| 18 | Sohail | Neuro      | Bangalore | 380000 |       92 |
+| 19 | Maya   | Heart      | Bangalore | 320000 |      100 |
+| 20 | Dev    | Skin       | Bangalore | 410000 |       65 |
+| 24 | Kabir  | Heart      | Delhi     | 450000 |      110 |
+| 25 | Simran | Neuro      | Delhi     | 600000 |      130 |
+| 27 | Tarun  | Heart      | Pune      | 500000 |      120 |
+| 28 | Anita  | Skin       | Mumbai    | 300000 |       85 |
+| 29 | Deepak | Child      | Chennai   | 200000 |      105 |
++----+--------+------------+-----------+--------+----------+
+18 rows in set (0.00 sec)
+
+mysql> update doctor set income=income+50000 where patients>60;
+Query OK, 18 rows affected (0.01 sec)
+Rows matched: 18  Changed: 18  Warnings: 0
+
+mysql> select * from doctor where patients>60;
++----+--------+------------+-----------+--------+----------+
+| no | name   | speciality | city      | income | patients |
++----+--------+------------+-----------+--------+----------+
+|  1 | sanjay | Neuro      | Pune      | 500000 |       95 |
+|  2 | Meera  | Ortho      | Pune      | 500000 |      100 |
+|  4 | Vikram | Heart      | Pune      | 650000 |       75 |
+|  6 | Amit   | Heart      | Pune      | 400000 |       95 |
+|  8 | Priya  | Ortho      | Mumbai    | 250000 |       65 |
+|  9 | Amit   | Heart      | Mumbai    | 650000 |      120 |
+| 11 | Divya  | Neuro      | Mumbai    | 430000 |       80 |
+| 12 | Seema  | Ortho      | Mumbai    | 350000 |       95 |
+| 13 | Ravi   | Heart      | Chennai   | 300000 |       70 |
+| 14 | Shweta | Neuro      | Chennai   | 330000 |       90 |
+| 18 | Sohail | Neuro      | Bangalore | 430000 |       92 |
+| 19 | Maya   | Heart      | Bangalore | 370000 |      100 |
+| 20 | Dev    | Skin       | Bangalore | 460000 |       65 |
+| 24 | Kabir  | Heart      | Delhi     | 500000 |      110 |
+| 25 | Simran | Neuro      | Delhi     | 650000 |      130 |
+| 27 | Tarun  | Heart      | Pune      | 550000 |      120 |
+| 28 | Anita  | Skin       | Mumbai    | 350000 |       85 |
+| 29 | Deepak | Child      | Chennai   | 250000 |      105 |
++----+--------+------------+-----------+--------+----------+
+18 rows in set (0.00 sec)
