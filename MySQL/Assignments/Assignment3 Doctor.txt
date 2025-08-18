@@ -163,4 +163,63 @@ mysql> select count(city) from doctor where city='mumbai';
 
 ---------------------------------------------------------------------------
 
-Q.8. 
+Q.8. Count city wise doctors 
+
+mysql> select city,count(city) from doctor group by(city);
++-----------+-------------+
+| city      | count(city) |
++-----------+-------------+
+| Pune      |           7 |
+| Mumbai    |           7 |
+| Chennai   |           5 |
+|           |           2 |
+| Bangalore |           4 |
+| Delhi     |           5 |
++-----------+-------------+
+6 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.9. Delete details of those whose salary>50000
+
+mysql> select * from doctor;
++----+-------+------------+---------+--------+
+| no | name  | speciality | city    | income |
++----+-------+------------+---------+--------+
+| 17 | Karan | Skin       | Chennai |  50000 |
++----+-------+------------+-------)
+--+--------+
+1 row in set (0.00 sec)
+
+---------------------------------------------------------------------------
+
+Q.10. Add attribute no_of_patients to table
+
+mysql> alter table doctor add column patients int;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+---------------------------------------------------------------------------
+
+Q.11. Change name of 'sachin' to 'sanjay' 
+
+mysql> select * from doctor where name='sachin';
++----+--------+------------+------+--------+----------+
+| no | name   | speciality | city | income | patients |
++----+--------+------------+------+--------+----------+
+|  1 | Sachin | Neuro      | Pune | 450000 |       95 |
++----+--------+------------+------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> update doctor set name='sanjay' where name='sachin';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from doctor where name='sanjay';
++----+--------+------------+------+--------+----------+
+| no | name   | speciality | city | income | patients |
++----+--------+------------+------+--------+----------+
+|  1 | sanjay | Neuro      | Pune | 450000 |       95 |
++----+--------+------------+------+--------+----------+
+1 row in set (0.00 sec)
+

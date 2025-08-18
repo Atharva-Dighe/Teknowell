@@ -35,7 +35,7 @@ system cls - Used to clear screen.
 
 
 ERRORS -
-Coloumn count doesn't match.
+Column count doesn't match.
 
 
 select id from student;
