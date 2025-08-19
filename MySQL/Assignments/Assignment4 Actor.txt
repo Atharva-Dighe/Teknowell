@@ -161,3 +161,5 @@ mysql> select name from actor where movie='pathan';
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.6.A. Display names and income of those actors whose income is greater. 
