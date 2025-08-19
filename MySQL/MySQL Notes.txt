@@ -55,3 +55,36 @@ mysql> load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/DemoCsvFi
     -> (id,name,age);
 Query OK, 100 rows affected (0.02 sec)
 Records: 100  Deleted: 0  Skipped: 0  Warnings: 0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+VVIMP - Asked in Technical Rounds.
+
+Q.1. Find Out 2nd Highest Salary or 4th lowest Salary from the Employee Table-
+
+Dense_Rank() Function is used.
+
+The DENSE_RANK() function in SQL is a window function that assigns a rank to each row within a partition of a result set, with NO GAPS in the ranking values. It is part of the OVER clause and requires an ORDER BY clause within the OVER clause to define the ranking order. 
+
+select *,dense_rank() over(order by income desc)as Rnk from doctor
+
+Builds the Rank Table.
+
+To find the nth highest rank, use -
+
+select * from (select *,dense_rank() over(order by income desc)as Rnk from doctor)as Ranked where Rnk=2;
+
+“Every derived table must have its own alias.”
+
+Whenever you put a subquery in the FROM clause, MySQL treats it like a temporary table (a derived table).
+MySQL requires you to give that temporary table a name so the outer query can refer to it.
+
+
+select * from(select * , Dense_Rank() over (order by income desc) as Rnk from doctor) as Ranked where Rnk=2;
+
+
+---------------------------------------------------------------------------
+Q. Finding Occurances > 1		
+
+Count(*)
+
+select * from doctor where name in (select name from doctor group by name having count(*)>1);

@@ -363,7 +363,7 @@ mysql> select * from doctor where patients>90;
 +----+--------+------------+-----------+--------+----------+
 11 rows in set (0.00 sec)
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Q.17. Delete details of those whose income <50000 
 
@@ -373,7 +373,7 @@ Query OK, 0 rows affected (0.00 sec)
 mysql> delete from doctor where income<=50000;
 Query OK, 1 row affected (0.01 sec)
 
----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Q.18. Select unique records from doctor table.
 
@@ -413,6 +413,178 @@ Q.18. Select unique records from doctor table.
 +----+-----------+------------+-----------+--------+----------+
 29 rows in set (0.00 sec)
 
----------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Q.19. Count doctor wise total income.
+
+Wrong(Self)-
+mysql> select name,income from doctor where income in (select sum(income) from doctor group by name);
+
+Correct(GPT)-
+
+mysql> select name,sum(income) as total from doctor group by name;
++-----------+---------+
+| name      | total   |
++-----------+---------+
+| sanjay    |  500000 |
+| Meera     |  500000 |
+| Sneha     |  200000 |
+| Vikram    |  650000 |
+| Anita     |  650000 |
+| Amit      | 1050000 |
+| Arjun     |  100000 |
+| Priya     |  250000 |
+| Rajesh    |  250000 |
+| Divya     |  430000 |
+| Seema     |  350000 |
+| Ravi      |  300000 |
+| Shweta    |  330000 |
+| Siddharth |  150000 |
+| Neha      |  300000 |
+| Sohail    |  430000 |
+| Maya      |  370000 |
+| Dev       |  460000 |
+| Farhan    |  220000 |
+| Rohit     |  280000 |
+| Anjali    |  370000 |
+| Kabir     |  500000 |
+| Simran    |  650000 |
+| Nisha     |  200000 |
+| Tarun     |  550000 |
+| Deepak    |  250000 |
+| Gaurav    |  100000 |
++-----------+---------+
+27 rows in set (0.00 sec)
+
+Also other way GPT-
+ 
+SELECT name FROM doctor d
+WHERE (
+   SELECT SUM(income)
+   FROM doctor d2
+   WHERE d2.name = d.name
+) > 50000;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.20. Display records according doctors city name.
+
+mysql> select * from doctor order by city asc;
++----+-----------+------------+-----------+--------+----------+
+| no | name      | speciality | city      | income | patients |
++----+-----------+------------+-----------+--------+----------+
+| 18 | Sohail    | Neuro      | Bangalore | 430000 |       92 |
+| 19 | Maya      | Heart      | Bangalore | 370000 |      100 |
+| 20 | Dev       | Skin       | Bangalore | 460000 |       65 |
+| 21 | Farhan    | Ortho      | Bangalore | 220000 |       15 |
+| 13 | Ravi      | Heart      | Chennai   | 300000 |       70 |
+| 14 | Shweta    | Neuro      | Chennai   | 330000 |       90 |
+| 15 | Siddharth | Ortho      | Chennai   | 150000 |       25 |
+| 29 | Deepak    | Child      | Chennai   | 250000 |      105 |
+| 16 | Neha      | Child      | Delhi     | 300000 |       40 |
+| 22 | Rohit     | Child      | Delhi     | 280000 |       35 |
+| 23 | Anjali    | Skin       | Delhi     | 370000 |       60 |
+| 24 | Kabir     | Heart      | Delhi     | 500000 |      110 |
+| 25 | Simran    | Neuro      | Delhi     | 650000 |      130 |
+| 26 | Nisha     | Ortho      | Delhi     | 200000 |       50 |
+| 30 | Gaurav    | Neuro      | Delhi     | 100000 |       15 |
+|  7 | Arjun     | Skin       | Mumbai    | 100000 |       15 |
+|  8 | Priya     | Ortho      | Mumbai    | 250000 |       65 |
+|  9 | Amit      | Heart      | Mumbai    | 650000 |      120 |
+| 10 | Rajesh    | Child      | Mumbai    | 250000 |       30 |
+| 11 | Divya     | Neuro      | Mumbai    | 430000 |       80 |
+| 12 | Seema     | Ortho      | Mumbai    | 350000 |       95 |
+| 28 | Anita     | Skin       | Mumbai    | 350000 |       85 |
+|  1 | sanjay    | Neuro      | Pune      | 500000 |       95 |
+|  2 | Meera     | Ortho      | Pune      | 500000 |      100 |
+|  3 | Sneha     | Child      | Pune      | 200000 |       20 |
+|  4 | Vikram    | Heart      | Pune      | 650000 |       75 |
+|  5 | Anita     | Skin       | Pune      | 300000 |       55 |
+|  6 | Amit      | Heart      | Pune      | 400000 |       95 |
+| 27 | Tarun     | Heart      | Pune      | 550000 |      120 |
++----+-----------+------------+-----------+--------+----------+
+29 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.21.  Select details of those whose income is second highest in table
+
+mysql> select * from doctor where income in(select max(income) from doctor where income<(select max(income) from doctor));
++----+-------+------------+------+--------+----------+
+| no | name  | speciality | city | income | patients |
++----+-------+------------+------+--------+----------+
+| 27 | Tarun | Heart      | Pune | 550000 |      120 |
++----+-------+------------+------+--------+----------+
+1 row in set (0.01 sec)
+
+
+First Highest -
+
+mysql> select * from doctor where income in(select max(income) from doctor);
++----+--------+------------+--------+--------+----------+
+| no | name   | speciality | city   | income | patients |
++----+--------+------------+--------+--------+----------+
+|  4 | Vikram | Heart      | Pune   | 650000 |       75 |
+|  9 | Amit   | Heart      | Mumbai | 650000 |      120 |
+| 25 | Simran | Neuro      | Delhi  | 650000 |      130 |
++----+--------+------------+--------+--------+----------+
+
+LIMIT/OFFSET - Not right.
+
+Skip the 1st row (highest), then pick the next row → second highest.
+
+In this case, second row is also highest(65,000)
+Query fails
+
+mysql> select * from doctor order by income desc limit 1 offset 1;
++----+--------+------------+------+--------+----------+
+| no | name   | speciality | city | income | patients |
++----+--------+------------+------+--------+----------+
+|  4 | Vikram | Heart      | Pune | 650000 |       75 |
++----+--------+------------+------+--------+----------+
+1 row in set (0.00 sec)
+
+After many testing manually, This requires overheads. Absolutely wrong.
+mysql> select * from doctor order by income desc limit 1 offset 3;
++----+-------+------------+------+--------+----------+
+| no | name  | speciality | city | income | patients |
++----+-------+------------+------+--------+----------+
+| 27 | Tarun | Heart      | Pune | 550000 |      120 |
++----+-------+------------+------+--------+----------+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.22. Display details of those doctors whose occurance >1 times in table.
+
+ mysql> select * from doctor where name in (select name from doctor group by name having count(*)>1);
++----+-------+------------+--------+--------+----------+
+| no | name  | speciality | city   | income | patients |
++----+-------+------------+--------+--------+----------+
+|  5 | Anita | Skin       | Pune   | 300000 |       55 |
+|  6 | Amit  | Heart      | Pune   | 400000 |       95 |
+|  9 | Amit  | Heart      | Mumbai | 650000 |      120 |
+| 28 | Anita | Skin       | Mumbai | 350000 |       85 |
++----+-------+------------+--------+--------+----------+
+4 rows in set (0.01 sec)
+
+
+Arranged according to Names
+
+mysql> select * from doctor where name in (select name from doctor group by name having count(*)>1) order by name;
++----+-------+------------+--------+--------+----------+
+| no | name  | speciality | city   | income | patients |
++----+-------+------------+--------+--------+----------+
+|  6 | Amit  | Heart      | Pune   | 400000 |       95 |
+|  9 | Amit  | Heart      | Mumbai | 650000 |      120 |
+|  5 | Anita | Skin       | Pune   | 300000 |       55 |
+| 28 | Anita | Skin       | Mumbai | 350000 |       85 |
++----+-------+------------+--------+--------+----------+
+4 rows in set (0.00 sec)
+
+
+COUNT(*)
+
+Inside each group, SQL can apply an aggregate function.
+
+COUNT(*) counts how many rows are there in that group.
+---------------------------------------------------------------------------
