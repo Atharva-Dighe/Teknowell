@@ -1,0 +1,163 @@
+Assignment 4 Actor Table -
+
+mysql> select * from actor;
++----+------------------+-----------------+--------+---------+
+| id | name             | movie           | income | relYear |
++----+------------------+-----------------+--------+---------+
+|  1 | Salman Khan      | Dabang          | 120000 |    2010 |
+|  2 | Sonakshi Sinha   | Dabang          |  80000 |    2010 |
+|  3 | Arbaaz Khan      | Dabang          |  60000 |    2010 |
+|  4 | Sanjay Dutt      | KGF             | 150000 |    2022 |
+|  5 | Yash             | KGF             | 200000 |    2022 |
+|  6 | Raveena Tandon   | KGF             | 100000 |    2022 |
+|  7 | Prakash Raj      | KGF             |  70000 |    2022 |
+|  8 | Shahrukh Khan    | Pathan          | 250000 |    2023 |
+|  9 | Deepika Padukone | Pathan          | 180000 |    2023 |
+| 10 | John Abraham     | Pathan          | 160000 |    2023 |
+| 11 | Prabhas          | Bahubali        | 220000 |    2015 |
+| 12 | Anushka Shetty   | Bahubali        | 130000 |    2015 |
+| 13 | Rana Daggubati   | Bahubali        | 140000 |    2015 |
+| 14 | Ramya Krishna    | Bahubali        | 110000 |    2015 |
+| 15 | Aamir Khan       | PK              | 240000 |    2014 |
+| 16 | Anushka Sharma   | PK              | 150000 |    2014 |
+| 17 | Saurabh Shukla   | PK              |  90000 |    2014 |
+| 18 | Amitabh Bachchan | Sholay          | 300000 |    1975 |
+| 19 | Dharmendra       | Sholay          | 200000 |    1975 |
+| 20 | Hema Malini      | Sholay          | 150000 |    1975 |
+| 21 | Salman Khan      | Sultan          | 230000 |    2016 |
+| 22 | Anushka Sharma   | Sultan          | 180000 |    2016 |
+| 23 | Randeep Hooda    | Sultan          | 100000 |    2016 |
+| 24 | Katrina Kaif     | Tiger Zinda Hai | 190000 |    2017 |
+| 25 | Salman Khan      | Tiger Zinda Hai | 260000 |    2017 |
+| 26 | Paresh Rawal     | Hera Pheri      | 120000 |    2000 |
+| 27 | Akshay Kumar     | Hera Pheri      | 210000 |    2000 |
+| 28 | Suniel Shetty    | Hera Pheri      | 160000 |    2000 |
+| 29 | Kareena Kapoor   | 3 Idiots        | 170000 |    2009 |
+| 30 | Aamir Khan       | 3 Idiots        | 250000 |    2009 |
++----+------------------+-----------------+--------+---------+
+30 rows in set (0.00 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.1. Display details of those actor whose movie is 'Dabang' 
+
+mysql> select * from actor where movie='dabang';
++----+----------------+--------+--------+---------+
+| id | name           | movie  | income | relYear |
++----+----------------+--------+--------+---------+
+|  1 | Salman Khan    | Dabang | 120000 |    2010 |
+|  2 | Sonakshi Sinha | Dabang |  80000 |    2010 |
+|  3 | Arbaaz Khan    | Dabang |  60000 |    2010 |
++----+----------------+--------+--------+---------+
+3 rows in set (0.00 sec)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.2. Display total actors which are worked in 'KGF' 
+
+mysql> select count(name)as total_actors from actor where movie='KGF';
++--------------+
+| total_actors |
++--------------+
+|            4 |
++--------------+
+1 row in set (0.00 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.3. Display release year wise movies 
+
+mysql> select movie,relYear from actor order by relYear asc;
++-----------------+---------+
+| movie           | relYear |
++-----------------+---------+
+| Sholay          |    1975 |
+| Sholay          |    1975 |
+| Sholay          |    1975 |
+| Hera Pheri      |    2000 |
+| Hera Pheri      |    2000 |
+| Hera Pheri      |    2000 |
+| 3 Idiots        |    2009 |
+| 3 Idiots        |    2009 |
+| Dabang          |    2010 |
+| Dabang          |    2010 |
+| Dabang          |    2010 |
+| PK              |    2014 |
+| PK              |    2014 |
+| PK              |    2014 |
+| Bahubali        |    2015 |
+| Bahubali        |    2015 |
+| Bahubali        |    2015 |
+| Bahubali        |    2015 |
+| Sultan          |    2016 |
+| Sultan          |    2016 |
+| Sultan          |    2016 |
+| Tiger Zinda Hai |    2017 |
+| Tiger Zinda Hai |    2017 |
+| KGF             |    2022 |
+| KGF             |    2022 |
+| KGF             |    2022 |
+| KGF             |    2022 |
+| Pathan          |    2023 |
+| Pathan          |    2023 |
+| Pathan          |    2023 |
++-----------------+---------+
+30 rows in set (0.00 sec)
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.4. Find out details of those movies which are released after 2003
+
+mysql> select * from actor where relYear>2003;
++----+------------------+-----------------+--------+---------+
+| id | name             | movie           | income | relYear |
++----+------------------+-----------------+--------+---------+
+|  1 | Salman Khan      | Dabang          | 120000 |    2010 |
+|  2 | Sonakshi Sinha   | Dabang          |  80000 |    2010 |
+|  3 | Arbaaz Khan      | Dabang          |  60000 |    2010 |
+|  4 | Sanjay Dutt      | KGF             | 150000 |    2022 |
+|  5 | Yash             | KGF             | 200000 |    2022 |
+|  6 | Raveena Tandon   | KGF             | 100000 |    2022 |
+|  7 | Prakash Raj      | KGF             |  70000 |    2022 |
+|  8 | Shahrukh Khan    | Pathan          | 250000 |    2023 |
+|  9 | Deepika Padukone | Pathan          | 180000 |    2023 |
+| 10 | John Abraham     | Pathan          | 160000 |    2023 |
+| 11 | Prabhas          | Bahubali        | 220000 |    2015 |
+| 12 | Anushka Shetty   | Bahubali        | 130000 |    2015 |
+| 13 | Rana Daggubati   | Bahubali        | 140000 |    2015 |
+| 14 | Ramya Krishna    | Bahubali        | 110000 |    2015 |
+| 15 | Aamir Khan       | PK              | 240000 |    2014 |
+| 16 | Anushka Sharma   | PK              | 150000 |    2014 |
+| 17 | Saurabh Shukla   | PK              |  90000 |    2014 |
+| 21 | Salman Khan      | Sultan          | 230000 |    2016 |
+| 22 | Anushka Sharma   | Sultan          | 180000 |    2016 |
+| 23 | Randeep Hooda    | Sultan          | 100000 |    2016 |
+| 24 | Katrina Kaif     | Tiger Zinda Hai | 190000 |    2017 |
+| 25 | Salman Khan      | Tiger Zinda Hai | 260000 |    2017 |
+| 29 | Kareena Kapoor   | 3 Idiots        | 170000 |    2009 |
+| 30 | Aamir Khan       | 3 Idiots        | 250000 |    2009 |
++----+------------------+-----------------+--------+---------+
+24 rows in set (0.00 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.5. Display names of those actors which worked in 'pathan'.
+
+mysql> select name from actor where movie='pathan';
++------------------+
+| name             |
++------------------+
+| Shahrukh Khan    |
+| Deepika Padukone |
+| John Abraham     |
++------------------+
+3 rows in set (0.00 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
