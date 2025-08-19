@@ -82,9 +82,35 @@ MySQL requires you to give that temporary table a name so the outer query can re
 select * from(select * , Dense_Rank() over (order by income desc) as Rnk from doctor) as Ranked where Rnk=2;
 
 
----------------------------------------------------------------------------
+
+VVVIMP
+
+
+select max(marks) from student where marks<(select max(marks) from student);
+
+Always query gets executed from right to left(
+
+---------------------------------------------------------------------------	
 Q. Finding Occurances > 1		
 
 Count(*)
 
 select * from doctor where name in (select name from doctor group by name having count(*)>1);
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CONSTRAINTS
+
+1. Primary key
+2. auto_increment
+3. default
+4. not null
+5. null
+6. check
+7. Foreign key
+
+-------------------------------
+
+
