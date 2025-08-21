@@ -537,3 +537,24 @@ mysql> select movie,group_concat(name) from actor group by movie;
 | Tiger Zinda Hai | Katrina Kaif,Salman Khan                            |
 +-----------------+-----------------------------------------------------+
 11 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.21. Display release year wise movies.
+
+mysql> select relYear,group_concat(movie) from actor group by relYear;
++---------+--------------------------------------------+
+| relYear | group_concat(movie)                        |
++---------+--------------------------------------------+
+|    1975 | Sholay,Sholay,Sholay                       |
+|    2000 | Hera Pheri,Hera Pheri,Hera Pheri           |
+|    2009 | 3 Idiots,3 Idiots                          |
+|    2010 | Dabang,Dabang,Dabang                       |
+|    2014 | PK,PK,PK                                   |
+|    2015 | Bahubali,Bahubali,Bahubali,Bahubali,Swades |
+|    2016 | Sultan,Sultan,Sultan                       |
+|    2017 | Tiger Zinda Hai,Tiger Zinda Hai            |
+|    2022 | KGF,KGF,KGF,KGF                            |
+|    2023 | Pathan,Pathan,Pathan                       |
++---------+--------------------------------------------+
+10 rows in set (0.00 sec)
