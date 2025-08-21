@@ -117,4 +117,28 @@ CONSTRAINTS
 
 1 Table - 1 Primary Key
 
+1 Table - Multiple Columns Combinly we can make Primary Key
+
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+RDBMS
+
+1. One to One - Both table's primary key must be SAME. As like JOINS in MySQL
+
+2. One to Many- 	One tables primary key transferred to many tables 
+3. Many to One- 
+4. Many to Many
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Clauses in MySQL
+
+1. WHERE
+2. ORDER BY
+3. GROUP BY
+4. HAVING
+
 
