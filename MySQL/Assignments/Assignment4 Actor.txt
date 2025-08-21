@@ -165,3 +165,375 @@ mysql> select name from actor where movie='pathan';
 Q.6.A. Display names and income of those actors whose income is greater. 
 
 
+mysql> select name,sum(income) from actor group by name having sum(income)>=all(select sum(income) from actor group by name);
++-------------+-------------+
+| name        | sum(income) |
++-------------+-------------+
+| Salman Khan |      610000 |
++-------------+-------------+
+1 row in set (0.01 sec)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Q. 6. B. Display names and income of those actors whose income is less.
+
+mysql> select name,sum(income) from actor group by name having sum(income)<=all(select sum(income) from actor group by name);
++-------------+-------------+
+| name        | sum(income) |
++-------------+-------------+
+| Arbaaz Khan |       60000 |
++-------------+-------------+
+1 row in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.7. Display details of those actor whose name starts with 's'
+
+ mysql> select * from actor where name like's%';
++----+----------------+-----------------+--------+---------+
+| id | name           | movie           | income | relYear |
++----+----------------+-----------------+--------+---------+
+|  1 | Salman Khan    | Dabang          | 120000 |    2010 |
+|  2 | Sonakshi Sinha | Dabang          |  80000 |    2010 |
+|  4 | Sanjay Dutt    | KGF             | 150000 |    2022 |
+|  8 | Shahrukh Khan  | Pathan          | 250000 |    2023 |
+| 17 | Saurabh Shukla | PK              |  90000 |    2014 |
+| 21 | Salman Khan    | Sultan          | 230000 |    2016 |
+| 25 | Salman Khan    | Tiger Zinda Hai | 260000 |    2017 |
+| 28 | Suniel Shetty  | Hera Pheri      | 160000 |    2000 |
++----+----------------+-----------------+--------+---------+
+8 rows in set (0.07 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.8.  Find out names of shahrukh movies. 
+
+mysql> select movie from actor where name like'%Shahrukh%';
++--------+
+| movie  |
++--------+
+| Pathan |
+| Swades |
++--------+
+2 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.9. Count total actors which are worked in 'bahubali'
+
+mysql> select count(name)as total_actors from actor where movie='Bahubali';
++--------------+
+| total_actors |
++--------------+
+|            4 |
++--------------+
+1 row in set (0.00 sec)
+
+
+Also if I wanted the names of actors too,
+
+mysql> select count(name)as total_actors,group_concat(distinct name)as a_name from actor where movie='Bahubali';
++--------------+-----------------------------------------------------+
+| total_actors | a_name                                              |
++--------------+-----------------------------------------------------+
+|            4 | Anushka Shetty,Prabhas,Ramya Krishna,Rana Daggubati |
++--------------+-----------------------------------------------------+
+1 row in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.10. Find out details of those actors whose name contains 'khan'.
+
+mysql> select * from actor where name like'%khan%';
++----+---------------+-----------------+--------+---------+
+| id | name          | movie           | income | relYear |
++----+---------------+-----------------+--------+---------+
+|  1 | Salman Khan   | Dabang          | 120000 |    2010 |
+|  3 | Arbaaz Khan   | Dabang          |  60000 |    2010 |
+|  8 | Shahrukh Khan | Pathan          | 250000 |    2023 |
+| 15 | Aamir Khan    | PK              | 240000 |    2014 |
+| 21 | Salman Khan   | Sultan          | 230000 |    2016 |
+| 25 | Salman Khan   | Tiger Zinda Hai | 260000 |    2017 |
+| 30 | Aamir Khan    | 3 Idiots        | 250000 |    2009 |
+| 31 | Shahrukh Khan | Swades          | 400000 |    2015 |
++----+---------------+-----------------+--------+---------+
+8 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.11. Display details of those whose income is between 900000,120000. 
+
+mysql> select * from actor where income between 900000 and 120000;
+Empty set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.12. Display total income of all the actors.
+
+mysql> select sum(income)as total_income from actor;
++--------------+
+| total_income |
++--------------+
+|      5370000 |
++--------------+
+1 row in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.13. Display actor wise income. 
+
+
+mysql> select name,sum(income) from actor group by name;
++------------------+-------------+
+| name             | sum(income) |
++------------------+-------------+
+| Salman Khan      |      610000 |
+| Sonakshi Sinha   |       80000 |
+| Arbaaz Khan      |       60000 |
+| Sanjay Dutt      |      150000 |
+| Yash             |      200000 |
+| Raveena Tandon   |      100000 |
+| Prakash Raj      |       70000 |
+| Shahrukh Khan    |      650000 |
+| Deepika Padukone |      180000 |
+| John Abraham     |      160000 |
+| Prabhas          |      220000 |
+| Anushka Shetty   |      130000 |
+| Rana Daggubati   |      140000 |
+| Ramya Krishna    |      110000 |
+| Aamir Khan       |      490000 |
+| Anushka Sharma   |      330000 |
+| Saurabh Shukla   |       90000 |
+| Amitabh Bachchan |      300000 |
+| Dharmendra       |      200000 |
+| Hema Malini      |      150000 |
+| Randeep Hooda    |      100000 |
+| Katrina Kaif     |      190000 |
+| Paresh Rawal     |      120000 |
+| Akshay Kumar     |      210000 |
+| Suniel Shetty    |      160000 |
+| Kareena Kapoor   |      170000 |
++------------------+-------------+
+26 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.1. Display details of first 3 actors.
+
+mysql> select * from actor limit 3;
++----+----------------+--------+--------+---------+
+| id | name           | movie  | income | relYear |
++----+----------------+--------+--------+---------+
+|  1 | Salman Khan    | Dabang | 120000 |    2010 |
+|  2 | Sonakshi Sinha | Dabang |  80000 |    2010 |
+|  3 | Arbaaz Khan    | Dabang |  60000 |    2010 |
++----+----------------+--------+--------+---------+
+3 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+ 
+15 Display data in rel_year sequence.
+
+mysql> select * from actor order by relYear;
++----+------------------+-----------------+--------+---------+
+| id | name             | movie           | income | relYear |
++----+------------------+-----------------+--------+---------+
+| 18 | Amitabh Bachchan | Sholay          | 300000 |    1975 |
+| 19 | Dharmendra       | Sholay          | 200000 |    1975 |
+| 20 | Hema Malini      | Sholay          | 150000 |    1975 |
+| 26 | Paresh Rawal     | Hera Pheri      | 120000 |    2000 |
+| 27 | Akshay Kumar     | Hera Pheri      | 210000 |    2000 |
+| 28 | Suniel Shetty    | Hera Pheri      | 160000 |    2000 |
+| 29 | Kareena Kapoor   | 3 Idiots        | 170000 |    2009 |
+| 30 | Aamir Khan       | 3 Idiots        | 250000 |    2009 |
+|  1 | Salman Khan      | Dabang          | 120000 |    2010 |
+|  2 | Sonakshi Sinha   | Dabang          |  80000 |    2010 |
+|  3 | Arbaaz Khan      | Dabang          |  60000 |    2010 |
+| 15 | Aamir Khan       | PK              | 240000 |    2014 |
+| 16 | Anushka Sharma   | PK              | 150000 |    2014 |
+| 17 | Saurabh Shukla   | PK              |  90000 |    2014 |
+| 11 | Prabhas          | Bahubali        | 220000 |    2015 |
+| 12 | Anushka Shetty   | Bahubali        | 130000 |    2015 |
+| 13 | Rana Daggubati   | Bahubali        | 140000 |    2015 |
+| 14 | Ramya Krishna    | Bahubali        | 110000 |    2015 |
+| 31 | Shahrukh Khan    | Swades          | 400000 |    2015 |
+| 21 | Salman Khan      | Sultan          | 230000 |    2016 |
+| 22 | Anushka Sharma   | Sultan          | 180000 |    2016 |
+| 23 | Randeep Hooda    | Sultan          | 100000 |    2016 |
+| 24 | Katrina Kaif     | Tiger Zinda Hai | 190000 |    2017 |
+| 25 | Salman Khan      | Tiger Zinda Hai | 260000 |    2017 |
+|  4 | Sanjay Dutt      | KGF             | 150000 |    2022 |
+|  5 | Yash             | KGF             | 200000 |    2022 |
+|  6 | Raveena Tandon   | KGF             | 100000 |    2022 |
+|  7 | Prakash Raj      | KGF             |  70000 |    2022 |
+|  8 | Shahrukh Khan    | Pathan          | 250000 |    2023 |
+|  9 | Deepika Padukone | Pathan          | 180000 |    2023 |
+| 10 | John Abraham     | Pathan          | 160000 |    2023 |
++----+------------------+-----------------+--------+---------+
+31 rows in set (0.00 sec
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.16. Find out those actors whose get max charge.
+
+mysql> select * from actor where income in(select max(income) from actor);
++----+---------------+--------+--------+---------+
+| id | name          | movie  | income | relYear |
++----+---------------+--------+--------+---------+
+| 31 | Shahrukh Khan | Swades | 400000 |    2015 |
++----+---------------+--------+--------+---------+
+1 row in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.17. Display names of those movies in which more than three actors work
+
+mysql> (select movie,count(name) from actor group by movie having count(name)>3);
++----------+-------------+
+| movie    | count(name) |
++----------+-------------+
+| KGF      |           4 |
+| Bahubali |           4 |
++----------+-------------+
+2 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.18. Display average income of 'salmaan' and 'amir'. 
+
+Correct - 
+
+mysql> select avg(income) from actor where name like'%salman%' or name like'%amir%';
++-------------+
+| avg(income) |
++-------------+
+| 220000.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+Wrong- Other values that matches amir or salman salary also sneak in for avg calculation. Hence it messes up. 
+Hence, always write the aggregate fun query inside itself where cond matches.
+
+mysql> select avg(income) from actor where income in(select income from actor where name like'%salman%' or name like'%amir%');
++-------------+
+| avg(income) |
++-------------+
+| 210000.0000 |
++-------------+
+1 row in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.19. Display details of all except 'shahrukh'.
+
+mysql> select * from actor where name not like'%shahrukh%';
++----+------------------+-----------------+--------+---------+
+| id | name             | movie           | income | relYear |
++----+------------------+-----------------+--------+---------+
+|  1 | Salman Khan      | Dabang          | 120000 |    2010 |
+|  2 | Sonakshi Sinha   | Dabang          |  80000 |    2010 |
+|  3 | Arbaaz Khan      | Dabang          |  60000 |    2010 |
+|  4 | Sanjay Dutt      | KGF             | 150000 |    2022 |
+|  5 | Yash             | KGF             | 200000 |    2022 |
+|  6 | Raveena Tandon   | KGF             | 100000 |    2022 |
+|  7 | Prakash Raj      | KGF             |  70000 |    2022 |
+|  9 | Deepika Padukone | Pathan          | 180000 |    2023 |
+| 10 | John Abraham     | Pathan          | 160000 |    2023 |
+| 11 | Prabhas          | Bahubali        | 220000 |    2015 |
+| 12 | Anushka Shetty   | Bahubali        | 130000 |    2015 |
+| 13 | Rana Daggubati   | Bahubali        | 140000 |    2015 |
+| 14 | Ramya Krishna    | Bahubali        | 110000 |    2015 |
+| 15 | Aamir Khan       | PK              | 240000 |    2014 |
+| 16 | Anushka Sharma   | PK              | 150000 |    2014 |
+| 17 | Saurabh Shukla   | PK              |  90000 |    2014 |
+| 18 | Amitabh Bachchan | Sholay          | 300000 |    1975 |
+| 19 | Dharmendra       | Sholay          | 200000 |    1975 |
+| 20 | Hema Malini      | Sholay          | 150000 |    1975 |
+| 21 | Salman Khan      | Sultan          | 230000 |    2016 |
+| 22 | Anushka Sharma   | Sultan          | 180000 |    2016 |
+| 23 | Randeep Hooda    | Sultan          | 100000 |    2016 |
+| 24 | Katrina Kaif     | Tiger Zinda Hai | 190000 |    2017 |
+| 25 | Salman Khan      | Tiger Zinda Hai | 260000 |    2017 |
+| 26 | Paresh Rawal     | Hera Pheri      | 120000 |    2000 |
+| 27 | Akshay Kumar     | Hera Pheri      | 210000 |    2000 |
+| 28 | Suniel Shetty    | Hera Pheri      | 160000 |    2000 |
+| 29 | Kareena Kapoor   | 3 Idiots        | 170000 |    2009 |
+| 30 | Aamir Khan       | 3 Idiots        | 250000 |    2009 |
++----+------------------+-----------------+--------+---------+
+29 rows in set (0.00 sec)
+
+
+Where name like Shahrukh querry - 
+
+mysql> select * from actor where name like'%shahrukh%';
++----+---------------+--------+--------+---------+
+| id | name          | movie  | income | relYear |
++----+---------------+--------+--------+---------+
+|  8 | Shahrukh Khan | Pathan | 250000 |    2023 |
+| 31 | Shahrukh Khan | Swades | 400000 |    2015 |
++----+---------------+--------+--------+---------+
+2 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.20. Display movie wise actors.
+
+Wrong
+
+mysql> select name,movie from actor where movie in(select movie from actor group by movie);
++------------------+-----------------+
+| name             | movie           |
++------------------+-----------------+
+| Salman Khan      | Dabang          |
+| Sonakshi Sinha   | Dabang          |
+| Arbaaz Khan      | Dabang          |
+| Sanjay Dutt      | KGF             |
+| Yash             | KGF             |
+| Raveena Tandon   | KGF             |
+| Prakash Raj      | KGF             |
+| Shahrukh Khan    | Pathan          |
+| Deepika Padukone | Pathan          |
+| John Abraham     | Pathan          |
+| Prabhas          | Bahubali        |
+| Anushka Shetty   | Bahubali        |
+| Rana Daggubati   | Bahubali        |
+| Ramya Krishna    | Bahubali        |
+| Aamir Khan       | PK              |
+| Anushka Sharma   | PK              |
+| Saurabh Shukla   | PK              |
+| Amitabh Bachchan | Sholay          |
+| Dharmendra       | Sholay          |
+| Hema Malini      | Sholay          |
+| Salman Khan      | Sultan          |
+| Anushka Sharma   | Sultan          |
+| Randeep Hooda    | Sultan          |
+| Katrina Kaif     | Tiger Zinda Hai |
+| Salman Khan      | Tiger Zinda Hai |
+| Paresh Rawal     | Hera Pheri      |
+| Akshay Kumar     | Hera Pheri      |
+| Suniel Shetty    | Hera Pheri      |
+| Kareena Kapoor   | 3 Idiots        |
+| Aamir Khan       | 3 Idiots        |
+| Shahrukh Khan    | Swades          |
++------------------+-----------------+
+31 rows in set (0.00 sec)
+
+Right-
+
+mysql> select movie,group_concat(name) from actor group by movie;
++-----------------+-----------------------------------------------------+
+| movie           | group_concat(name)                                  |
++-----------------+-----------------------------------------------------+
+| 3 Idiots        | Kareena Kapoor,Aamir Khan                           |
+| Bahubali        | Prabhas,Anushka Shetty,Rana Daggubati,Ramya Krishna |
+| Dabang          | Salman Khan,Sonakshi Sinha,Arbaaz Khan              |
+| Hera Pheri      | Paresh Rawal,Akshay Kumar,Suniel Shetty             |
+| KGF             | Sanjay Dutt,Yash,Raveena Tandon,Prakash Raj         |
+| Pathan          | Shahrukh Khan,Deepika Padukone,John Abraham         |
+| PK              | Aamir Khan,Anushka Sharma,Saurabh Shukla            |
+| Sholay          | Amitabh Bachchan,Dharmendra,Hema Malini             |
+| Sultan          | Salman Khan,Anushka Sharma,Randeep Hooda            |
+| Swades          | Shahrukh Khan                                       |
+| Tiger Zinda Hai | Katrina Kaif,Salman Khan                            |
++-----------------+-----------------------------------------------------+
+11 rows in set (0.00 sec)
