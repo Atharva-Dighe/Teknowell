@@ -1,15 +1,9 @@
-import React from "react";
-
-function User()
+function User({children})
 {
-    
     return(
         <div>
-            <h1>User Component</h1>
-            <h3>Name: {name}</h3>
-            <h3>Age:{age}</h3>
-            <h3>Email: {email}</h3>
+            <h1>{children}</h1>
         </div>
     )
 }
-export default User
+export default User;
