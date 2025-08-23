@@ -1,0 +1,307 @@
+TABLE -
+
+mysql> select * from productMock;
++----+--------+------+------+------------+
+| id | name   | qty  | cost | pdate      |
++----+--------+------+------+------------+
+|  1 | Wheat  |    5 |   60 | 2025-08-24 |
+|  2 | Coffee |    2 |   10 | 2025-08-23 |
+|  3 | Rice   |   10 |   50 | 2025-08-20 |
+|  4 | Jawar  |    8 |   40 | 2025-08-21 |
+|  5 | Sugar  |   10 |   55 | 2025-08-24 |
+|  6 | Tea    |    7 |   20 | 2025-08-22 |
+|  7 | Pohe   |    9 |   30 | 2025-08-28 |
++----+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+=================================================================
+
+
+Q.1. Find details of product which purchased after 24th Aug 2025 -
+
+select * from productMock where date(pdate)>'2025-08-24';
++----+------+------+------+------------+
+| id | name | qty  | cost | pdate      |
++----+------+------+------+------------+
+|  7 | Pohe |    9 |   30 | 2025-08-28 |
++----+------+------+------+------------+
+1 row in set (0.00 sec)
+
+============================================================
+
+Q.2. Find name of product which purchase more than 5 times.
+
+select name, count(name) from productMock group by name having count(name)>5;
+Empty set (0.00 sec)
+
+==============================================================
+
+Q.3. Find out details of those products whose amount is highest
+ 
+select name, sum(qty*cost)as totalAmount from productMock group by name having sum(qty*cost)>=all(select sum(qty*cost) from productMock group by name);
++-------+-------------+
+| name  | totalAmount |
++-------+-------------+
+| Sugar |         550 |
++-------+-------------+
+1 row in set (0.00 sec)
+
+=============================================================
+
+Q.4. Find product whose purchase is less.
+
+select name,sum(qty) from productMock group by name having sum(qty)<=all(select sum(qty) from productMock group by name);
++--------+----------+
+| name   | sum(qty) |
++--------+----------+
+| Coffee |        2 |
++--------+----------+
+1 row in set (0.00 sec)
+
+==============================================================
+
+Q.5. Find product whose sell is highest.
+
+select name,sum(qty) from productMock group by name having sum(qty)>=all(select sum(qty) from productMock group by name);
++-------+----------+
+| name  | sum(qty) |
++-------+----------+
+| Rice  |       10 |
+| Sugar |       10 |
++-------+----------+
+2 rows in set (0.00 sec)
+
+============================================================
+
+Q.6. Find product whose sell is lowest.
+
+select name,sum(qty) from productMock group by name having sum(qty)<=all(select sum(qty) from productMock group by name);
++--------+----------+
+| name   | sum(qty) |
++--------+----------+
+| Coffee |        2 |
++--------+----------+
+1 row in set (0.00 sec)
+
+============================================================
+
+Q.7. Find out details of product whose stock is high.
+
+select * from productMock where name in(select name from productMock group by name having sum(qty) >= all(select sum(qty) from productMock group by name));
++----+-------+------+------+------------+
+| id | name  | qty  | cost | pdate      |
++----+-------+------+------+------------+
+|  3 | Rice  |   10 |   50 | 2025-08-20 |
+|  5 | Sugar |   10 |   55 | 2025-08-24 |
++----+-------+------+------+------------+
+2 rows in set (0.00 sec)
+
+===========================================================
+
+Q.8. Display details of 'Coffee'
+
+select * from productMock where name='Coffee';
++----+--------+------+------+------------+
+| id | name   | qty  | cost | pdate      |
++----+--------+------+------+------------+
+|  2 | Coffee |    2 |   10 | 2025-08-23 |
++----+--------+------+------+------------+
+1 row in set (0.00 sec)
+
+=====================================================
+
+Q.9. Display information of 'Wheat', 'Rice', 'Jawar'
+
+select * from productMock where name='Wheat' or name='Rice' or name='Jawar';
++----+-------+------+------+------------+
+| id | name  | qty  | cost | pdate      |
++----+-------+------+------+------------+
+|  1 | Wheat |    5 |   60 | 2025-08-24 |
+|  3 | Rice  |   10 |   50 | 2025-08-20 |
+|  4 | Jawar |    8 |   40 | 2025-08-21 |
++----+-------+------+------+------------+
+3 rows in set (0.00 sec)
+
+===================================================
+
+Q.10. Give summary of all products wrt price descending order.
+
+select * from productMock order by cost desc ;
++----+--------+------+------+------------+
+| id | name   | qty  | cost | pdate      |
++----+--------+------+------+------------+
+|  1 | Wheat  |    5 |   60 | 2025-08-24 |
+|  5 | Sugar  |   10 |   55 | 2025-08-24 |
+|  3 | Rice   |   10 |   50 | 2025-08-20 |
+|  4 | Jawar  |    8 |   40 | 2025-08-21 |
+|  7 | Pohe   |    9 |   30 | 2025-08-28 |
+|  6 | Tea    |    7 |   20 | 2025-08-22 |
+|  2 | Coffee |    2 |   10 | 2025-08-23 |
++----+--------+------+------+------------+
+7 rows in set (0.00 sec)
+
+===========================================================
+
+Q.11. Gives names of product whose last letter is 'a'
+
+select name from productMock where name like '%a';
++------+
+| name |
++------+
+| Tea  |
++------+
+1 row in set (0.00 sec)
+
+=======================================================
+
+Q.12. Find details of products whose third last letter is 'e'
+
+select * from productMock where name like'%e__';
++----+-------+------+------+------------+
+| id | name  | qty  | cost | pdate      |
++----+-------+------+------+------------+
+|  1 | Wheat |    5 |   60 | 2025-08-24 |
++----+-------+------+------+------------+
+1 row in set (0.00 sec)
+
+================================================================
+
+Q.13. Find details of product whose name starts with 'W','S','T','P'
+
+select * from productMock where name like'W%' or name like 'S%' or name like 'T%' or name like 'P%';
++----+-------+------+------+------------+
+| id | name  | qty  | cost | pdate      |
++----+-------+------+------+------------+
+|  1 | Wheat |    5 |   60 | 2025-08-24 |
+|  5 | Sugar |   10 |   55 | 2025-08-24 |
+|  6 | Tea   |    7 |   20 | 2025-08-22 |
+|  7 | Pohe  |    9 |   30 | 2025-08-28 |
++----+-------+------+------+------------+
+4 rows in set (0.00 sec)
+
+================================================================
+
+Q.14. Find out total of all products wrt date
+
+select group_concat(name)as Name,pdate, sum(cost*qty)as total from productMock group by pdate;
++-------------+------------+-------+
+| Name        | pdate      | total |
++-------------+------------+-------+
+| Rice        | 2025-08-20 |   500 |
+| Jawar       | 2025-08-21 |   320 |
+| Tea         | 2025-08-22 |   140 |
+| Coffee      | 2025-08-23 |    20 |
+| Wheat,Sugar | 2025-08-24 |   850 |
+| Pohe        | 2025-08-28 |   270 |
++-------------+------------+-------+
+6 rows in set (0.00 sec)
+
+=======================================================================
+
+
+Q.15. select * from productMock where date(pdate)>=all(select * from productMock where date(pdate));
+
+update productMock set pdate='2025-08-28' where name='Sugar';
+
+select * from productMock where date(pdate)>=all(select pdate from productMock);
++----+-------+------+------+------------+
+| id | name  | qty  | cost | pdate      |
++----+-------+------+------+------------+
+|  5 | Sugar |   10 |   55 | 2025-08-28 |
+|  7 | Pohe  |    9 |   30 | 2025-08-28 |
++----+-------+------+------+------------+
+2 rows in set (0.00 sec)
+
+=========================================================================
+
+Q.16. Find products sold on 'Sunday'
+
+select * from productMock where dayname(pdate)='sunday';
++----+-------+------+------+------------+
+| id | name  | qty  | cost | pdate      |
++----+-------+------+------+------------+
+|  1 | Wheat |    5 |   60 | 2025-08-24 |
++----+-------+------+------+------------+
+1 row in set (0.06 sec)
+
+========================================================================
+
+Q.17. Find details of product who sell between 5000-10000
+
+select * from productMock where (cost*qty) between 5000 and 10000;
+
+========================================================================
+
+Q.18. Add column customer to existing table and find customer wise products.
+
+alter table productMock add column customer varchar(30);
+
+ update productMock set customer=case
+    -> when id=1 then 'Pranab'
+    -> when id=2 then 'Sam'
+    -> when id=3 then 'Sunny'
+    -> when id=4 then 'Raj'
+    -> when id=5 then 'Naman'
+    -> end
+    -> where id in(1,2,3,4,5);
+Query OK, 5 rows affected (0.07 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+
+select * from productMock where name in(select name from productMock group by customer);
++----+--------+------+------+------------+----------+
+| id | name   | qty  | cost | pdate      | customer |
++----+--------+------+------+------------+----------+
+|  1 | Wheat  |    5 |   60 | 2025-08-24 | Pranab   |
+|  2 | Coffee |    2 |   10 | 2025-08-23 | Sam      |
+|  3 | Rice   |   10 |   50 | 2025-08-20 | Sunny    |
+|  4 | Jawar  |    8 |   40 | 2025-08-21 | Raj      |
+|  5 | Sugar  |   10 |   55 | 2025-08-28 | Naman    |
+|  6 | Tea    |    7 |   20 | 2025-08-22 | NULL     |
+|  7 | Pohe   |    9 |   30 | 2025-08-28 | NULL     |
++----+--------+------+------+------------+----------+
+7 rows in set (0.00 sec)
+
+============================================================================
+
+Q.19. Display details whose customer is 'Pranab'
+
+select * from productMock where customer='Pranab';
++----+-------+------+------+------------+----------+
+| id | name  | qty  | cost | pdate      | customer |
++----+-------+------+------+------------+----------+
+|  1 | Wheat |    5 |   60 | 2025-08-24 | Pranab   |
++----+-------+------+------+------------+----------+
+1 row in set (0.00 sec)
+
+================================================================================================
+
+Q.20. Find products purchased by 'Sam','Sunny','raj,'Naman'
+
+select name,customer from productMock where customer='Sam' or customer='Sunny' or customer='Raj' or customer='Naman';
++--------+----------+
+| name   | customer |
++--------+----------+
+| Coffee | Sam      |
+| Rice   | Sunny    |
+| Jawar  | Raj      |
+| Sugar  | Naman    |
++--------+----------+
+4 rows in set (0.00 sec)
+
+=====================================================================================
+
+Q.21. Find names of product who are not purchased by 'ravi'
+
+ select name,customer from productMock where customer!='Ravi';
++--------+----------+
+| name   | customer |
++--------+----------+
+| Wheat  | Pranab   |
+| Coffee | Sam        |
+| Rice   | Sunny    |
+| Jawar  | Raj      |
+| Sugar  | Naman    |
++--------+----------+
+5 rows in set (0.00 sec)
+
