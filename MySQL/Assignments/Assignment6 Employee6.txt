@@ -600,4 +600,123 @@ mysql> select * from employeeA6;
 
 Q.15. How to update multiple columns
 
+Update multiple records at once -
 
+update employeeA6 set
+    -> id=case
+    -> when id=1 then 101
+    -> when id=2 then 102
+    -> end
+    -> where id in(1,2);
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from employeeA6 where id=101 or id=102;
++-----+---------+---------------------+--------+------------+---------+
+| id  | name    | address             | salary | joinDate   | company |
++-----+---------+---------------------+--------+------------+---------+
+| 101 | surekha | 123 Main St, Pune   |  20000 | 2021-02-15 | Tata    |
+| 102 | sahil   | 456 Oak Ave, Mumbai |  30000 | 2019-11-01 | Bajaj   |
++-----+---------+---------------------+--------+------------+---------+
+2 rows in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+Q.16. Display even number records
+
+ select * from employeeA6 where (id%2)=0;
++-----+-----------------+---------------------------+--------+------------+-----------+------------+--------+
+| id  | name            | address                   | salary | joinDate   | company   | Graduation | Coders |
++-----+-----------------+---------------------------+--------+------------+-----------+------------+--------+
+|   4 | naman           | 789 Pine Rd, Delhi        |   9922 | 2022-05-05 | Samsung   | BSc(Cs)    | Yes    |
+|   6 | Adam Sinha      | 202 Park Lane, Miami      |  12122 | 2022-01-09 | Wipro     | BSc(Cs)    | Yes    |
+|   8 | Alan Roy        | 404 Hill Top, Atlanta     | 104522 | 2017-07-07 | Tata      | BSc(Cs)    | Yes    |
+|  10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 126522 | 2018-09-23 | Tata      | BSc(Cs)    | Yes    |
+|  12 | Anita Sinha     | 808 Desert Rd, Vegas      |  13772 | 2022-03-30 | Samsung   | BSc(Cs)    | Yes    |
+|  14 | Amanda Lee      | 111 Forest Ln, Portland   |  85822 | 2019-02-28 | Wipro     | BSc(Cs)    | Yes    |
+|  16 | Aryan Sharma    | 333 Sunrise Dr, Orlando   | 101222 | 2021-10-10 | Accenture | BSc(Cs)    | Yes    |
+|  18 | Arjun Kumar     | 555 Star Ave, Nashville   |  82522 | 2017-06-09 | Tata      | BSc(Cs)    | Yes    |
+|  20 | Advik Joshi     | 777 Sun Ct, Raleigh       |  23122 | 2020-02-19 | Bajaj     | BSc(Cs)    | Yes    |
+|  22 | Ahaan Malhotra  | 999 Windy St, Columbus    |  14322 | 2021-04-02 | Wipro     | BSc(Cs)    | Yes    |
+|  24 | Aman Chopra     | 1111 Rain Blvd, Milwaukee |  14322 | 2021-05-27 | HCL       | BSc(Cs)    | Yes    |
+|  26 | Brian Mehta     | 1313 Ice Way, Louisville  |  16522 | 2022-02-12 | Infosys   | BSc(Cs)    | Yes    |
+|  28 | Blake Anderson  | 1515 Water Ct, Tucson     | 132022 | 2018-12-25 | Tata      | BSc(Cs)    | Yes    |
+|  30 | Benjamin Martin | 1717 Sky Dr, Sacramento   | 129822 | 2018-03-12 | Tata      | BSc(Cs)    | Yes    |
+| 102 | sahil           | 456 Oak Ave, Mumbai       |  33022 | 2019-11-01 | Bajaj     | BSc(Cs)    | Yes    |
++-----+-----------------+---------------------------+--------+------------+-----------+------------+--------+
+15 rows in set (0.00 sec)
+
+
+---------------------------------------------------------------------------------------------------------------			
+
+Q.17. Display odd number records 
+
+ select * from employeeA6 where (id%2)!=0;
++-----+---------------+--------------------------+--------+------------+--------------+------------+--------+
+| id  | name          | address                  | salary | joinDate   | company      | Graduation | Coders |
++-----+---------------+--------------------------+--------+------------+--------------+------------+--------+
+|   3 | manish        | 456 Oak Ave, Mumbai      |  77022 | 2020-08-20 | Tata         | BSc(Cs)    | Yes    |
+|   5 | Atharva Dighe | 101 Ashirwad, Pune       |  23122 | 2026-03-03 | Persistant   | BSc(Cs)    | Yes    |
+|   7 | Amy Mehta     | 303 River Side, Denver   |  14322 | 2021-12-12 | HCL          | BSc(Cs)    | Yes    |
+|   9 | Anna Meena    | 505 Lake View, Phoenix   | 115522 | 2019-04-18 | Tata         | BSc(Cs)    | Yes    |
+|  11 | Andrew Thomas | 707 Valley St, Houston   |  13222 | 2020-12-01 | Bajaj        | BSc(Cs)    | Yes    |
+|  13 | Aaron King    | 909 Ocean Ave, San Diego |  90222 | 2018-08-14 | HCL          | BSc(Cs)    | Yes    |
+|  15 | Aria Patel    | 222 Sunset Blvd, LA      |  96822 | 2020-06-06 | TechMahindra | BSc(Cs)    | Yes    |
+|  17 | Ava Singh     | 444 Rainbow St, Tampa    | 107822 | 2022-07-30 | Infosys      | BSc(Cs)    | Yes    |
+|  19 | Anaya Verma   | 666 Moon Way, Memphis    |  77022 | 2020-09-03 | Tata         | BSc(Cs)    | Yes    |
+|  21 | Anika Reddy   | 888 Cloud Rd, Detroit    |  12122 | 2022-08-08 | Samsung      | BSc(Cs)    | Yes    |
+|  23 | Aisha Gupta   | 1010 Storm Ave, KC       |  23122 | 2020-06-23 | Infosys      | BSc(Cs)    | Yes    |
+|  25 | Bella Sinha   | 1212 Snow Ln, Baltimore  |  15422 | 2021-09-17 | Accenture    | BSc(Cs)    | Yes    |
+|  27 | Barbara Gupta | 1414 Fire Rd, OKC        |  11022 | 2020-04-25 | Wipro        | BSc(Cs)    | Yes    |
+|  29 | Brooke Taylor | 1616 Earth St, Fresno    | 129822 | 2021-01-15 | Tata         | BSc(Cs)    | Yes    |
+|  31 | Atharva Dighe | 101 Ashirwad, Pune       | 110022 | 2026-03-03 | Persistant   | BSc(Cs)    | Yes    |
+| 101 | surekha       | 123 Main St, Pune        |  22022 | 2021-02-15 | Tata         | BSc(Cs)    | Yes    |
++-----+---------------+--------------------------+--------+------------+--------------+------------+--------+
+16 rows in set (0.00 sec)
+
+
+---------------------------------------------------------------------------------------------------------------
+
+Q.18. Fetch first record from the table 
+
+select * from employeeA6 limit 1;
++----+--------+---------------------+--------+------------+---------+------------+--------+
+| id | name   | address             | salary | joinDate   | company | Graduation | Coders |
++----+--------+---------------------+--------+------------+---------+------------+--------+
+|  3 | manish | 456 Oak Ave, Mumbai |  77022 | 2020-08-20 | Tata    | BSc(Cs)    | Yes    |
++----+--------+---------------------+--------+------------+---------+------------+--------+
+1 row in set (0.00 sec)
+
+
+---------------------------------------------------------------------------------------------------------------
+
+Q.19. Fetch first 2 records from employee
+
+select * from employeeA6 limit 2;
++----+--------+---------------------+--------+------------+---------+------------+--------+
+| id | name   | address             | salary | joinDate   | company | Graduation | Coders |
++----+--------+---------------------+--------+------------+---------+------------+--------+
+|  3 | manish | 456 Oak Ave, Mumbai |  77022 | 2020-08-20 | Tata    | BSc(Cs)    | Yes    |
+|  4 | naman  | 789 Pine Rd, Delhi  |   9922 | 2022-05-05 | Samsung | BSc(Cs)    | Yes    |
++----+--------+---------------------+--------+------------+---------+------------+--------+
+2 rows in set (0.00 sec)
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+Q.20. Fetch last record from employee table 
+
+ select * from employeeA6 limit 30,1;
++-----+-------+---------------------+--------+------------+---------+------------+--------+
+| id  | name  | address             | salary | joinDate   | company | Graduation | Coders |
++-----+-------+---------------------+--------+------------+---------+------------+--------+
+| 102 | sahil | 456 Oak Ave, Mumbai |  33022 | 2019-11-01 | Bajaj   | BSc(Cs)    | Yes    |
++-----+-------+---------------------+--------+------------+---------+------------+--------+
+1 row in set (0.00 sec)
+
+
+----------------------------------------------------------------------------------------------------------------
+
+Q.21. 
