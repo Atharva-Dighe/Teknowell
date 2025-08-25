@@ -1,0 +1,454 @@
+Assignment 6 - Employee
+
+mysql> select * from employeeA6;
++----+-----------------+---------------------------+--------+------------+--------------+
+| id | name            | address                   | salary | joinDate   | company      |
++----+-----------------+---------------------------+--------+------------+--------------+
+|  1 | surekha         | 123 Main St, Pune         |  20000 | 2021-02-15 | Tata         |
+|  2 | sahil           | 456 Oak Ave, Mumbai       |  30000 | 2019-11-01 | Bajaj        |
+|  3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         |
+|  4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      |
+|  5 | Alice Gupta     | 101 Tech Blvd, Austin     |  21000 | 2018-03-10 | Infosys      |
+|  6 | Adam Sinha      | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro        |
+|  7 | Amy Mehta       | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL          |
+|  8 | Alan Roy        | 404 Hill Top, Atlanta     |  95000 | 2017-07-07 | Tata         |
+|  9 | Anna Meena      | 505 Lake View, Phoenix    | 105000 | 2019-04-18 | Tata         |
+| 10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 115000 | 2018-09-23 | Tata         |
+| 11 | Andrew Thomas   | 707 Valley St, Houston    |  12000 | 2020-12-01 | Bajaj        |
+| 12 | Anita Sinha     | 808 Desert Rd, Vegas      |  12500 | 2022-03-30 | Samsung      |
+| 13 | Aaron King      | 909 Ocean Ave, San Diego  |  82000 | 2018-08-14 | HCL          |
+| 14 | Amanda Lee      | 111 Forest Ln, Portland   |  78000 | 2019-02-28 | Wipro        |
+| 15 | Aria Patel      | 222 Sunset Blvd, LA       |  88000 | 2020-06-06 | TechMahindra |
+| 16 | Aryan Sharma    | 333 Sunrise Dr, Orlando   |  92000 | 2021-10-10 | Accenture    |
+| 17 | Ava Singh       | 444 Rainbow St, Tampa     |  98000 | 2022-07-30 | Infosys      |
+| 18 | Arjun Kumar     | 555 Star Ave, Nashville   |  75000 | 2017-06-09 | Tata         |
+| 19 | Anaya Verma     | 666 Moon Way, Memphis     |  70000 | 2020-09-03 | Tata         |
+| 20 | Advik Joshi     | 777 Sun Ct, Raleigh       |  21000 | 2020-02-19 | Bajaj        |
+| 21 | Anika Reddy     | 888 Cloud Rd, Detroit     |  11000 | 2022-08-08 | Samsung      |
+| 22 | Ahaan Malhotra  | 999 Windy St, Columbus    |  13000 | 2021-04-02 | Wipro        |
+| 23 | Aisha Gupta     | 1010 Storm Ave, KC        |  21000 | 2020-06-23 | Infosys      |
+| 24 | Aman Chopra     | 1111 Rain Blvd, Milwaukee |  13000 | 2021-05-27 | HCL          |
+| 25 | Bella Sinha     | 1212 Snow Ln, Baltimore   |  14000 | 2021-09-17 | Accenture    |
+| 26 | Brian Mehta     | 1313 Ice Way, Louisville  |  15000 | 2022-02-12 | Infosys      |
+| 27 | Barbara Gupta   | 1414 Fire Rd, OKC         |  10000 | 2020-04-25 | Wipro        |
+| 28 | Blake Anderson  | 1515 Water Ct, Tucson     | 120000 | 2018-12-25 | Tata         |
+| 29 | Brooke Taylor   | 1616 Earth St, Fresno     | 118000 | 2021-01-15 | Tata         |
+| 30 | Benjamin Martin | 1717 Sky Dr, Sacramento   | 118000 | 2018-03-12 | Tata         |
+| 31 | Alice Gupta     | 101 Tech Blvd, Austin     | 100000 | 2003-03-03 | Persistent   |
++----+-----------------+---------------------------+--------+------------+--------------+
+31 rows in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+Q.1. Display name of those employee whose salary is maximum
+
+
+Before duplicate values -
+
+select name,sum(salary)as Max_Salary from employeeA6 group by name having sum(salary) >=all(select sum(salary) from employeeA6 group by name);
++----------------+------------+
+| name           | Max_Salary |
++----------------+------------+
+| Blake Anderson |     120000 |
++----------------+------------+
+1 row in set (0.08 sec)
+
+
+After Duplicate values- (just for checking whether query works for duplicate data)
+
+select name,sum(salary)as Max_Salary from employeeA6 group by name having sum(salary) >=all(select sum(salary) from employeeA6 group by name);
++-------------+------------+
+| name        | Max_Salary |
++-------------+------------+
+| Alice Gupta |     121000 |
++-------------+------------+
+1 row in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.2. Find second maximum salary of employee
+
+
+--------------------------------------------------------------------------------------------------------------
+
+Q.3. Retrieve all the information of employee whose name begins with ‘A’ 
+
+select * from employeeA6 where name like 'A%';
++----+----------------+---------------------------+--------+------------+--------------+
+| id | name           | address                   | salary | joinDate   | company      |
++----+----------------+---------------------------+--------+------------+--------------+
+|  5 | Alice Gupta    | 101 Tech Blvd, Austin     |  21000 | 2018-03-10 | Infosys      |
+|  6 | Adam Sinha     | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro        |
+|  7 | Amy Mehta      | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL          |
+|  8 | Alan Roy       | 404 Hill Top, Atlanta     |  95000 | 2017-07-07 | Tata         |
+|  9 | Anna Meena     | 505 Lake View, Phoenix    | 105000 | 2019-04-18 | Tata         |
+| 10 | Alex Gupta     | 606 Mountain Dr, Dallas   | 115000 | 2018-09-23 | Tata         |
+| 11 | Andrew Thomas  | 707 Valley St, Houston    |  12000 | 2020-12-01 | Bajaj        |
+| 12 | Anita Sinha    | 808 Desert Rd, Vegas      |  12500 | 2022-03-30 | Samsung      |
+| 13 | Aaron King     | 909 Ocean Ave, San Diego  |  82000 | 2018-08-14 | HCL          |
+| 14 | Amanda Lee     | 111 Forest Ln, Portland   |  78000 | 2019-02-28 | Wipro        |
+| 15 | Aria Patel     | 222 Sunset Blvd, LA       |  88000 | 2020-06-06 | TechMahindra |
+| 16 | Aryan Sharma   | 333 Sunrise Dr, Orlando   |  92000 | 2021-10-10 | Accenture    |
+| 17 | Ava Singh      | 444 Rainbow St, Tampa     |  98000 | 2022-07-30 | Infosys      |
+| 18 | Arjun Kumar    | 555 Star Ave, Nashville   |  75000 | 2017-06-09 | Tata         |
+| 19 | Anaya Verma    | 666 Moon Way, Memphis     |  70000 | 2020-09-03 | Tata         |
+| 20 | Advik Joshi    | 777 Sun Ct, Raleigh       |  21000 | 2020-02-19 | Bajaj        |
+| 21 | Anika Reddy    | 888 Cloud Rd, Detroit     |  11000 | 2022-08-08 | Samsung      |
+| 22 | Ahaan Malhotra | 999 Windy St, Columbus    |  13000 | 2021-04-02 | Wipro        |
+| 23 | Aisha Gupta    | 1010 Storm Ave, KC        |  21000 | 2020-06-23 | Infosys      |
+| 24 | Aman Chopra    | 1111 Rain Blvd, Milwaukee |  13000 | 2021-05-27 | HCL          |
+| 31 | Alice Gupta    | 101 Tech Blvd, Austin     | 100000 | 2003-03-03 | Persistent   |
++----+----------------+---------------------------+--------+------------+--------------+
+21 rows in set (0.01 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.4. Select all the information of employee whose salary is 21000,11000 and 13000 
+
+
+select * from employeeA6 where salary=21000 or salary =11000 or salary =13000 order by salary;
++----+----------------+---------------------------+--------+------------+---------+
+| id | name           | address                   | salary | joinDate   | company |
++----+----------------+---------------------------+--------+------------+---------+
+|  6 | Adam Sinha     | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro   |
+| 21 | Anika Reddy    | 888 Cloud Rd, Detroit     |  11000 | 2022-08-08 | Samsung |
+|  7 | Amy Mehta      | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL     |
+| 22 | Ahaan Malhotra | 999 Windy St, Columbus    |  13000 | 2021-04-02 | Wipro   |
+| 24 | Aman Chopra    | 1111 Rain Blvd, Milwaukee |  13000 | 2021-05-27 | HCL     |
+|  5 | Alice Gupta    | 101 Tech Blvd, Austin     |  21000 | 2018-03-10 | Infosys |
+| 20 | Advik Joshi    | 777 Sun Ct, Raleigh       |  21000 | 2020-02-19 | Bajaj   |
+| 23 | Aisha Gupta    | 1010 Storm Ave, KC        |  21000 | 2020-06-23 | Infosys |
++----+----------------+---------------------------+--------+------------+---------+
+8 rows in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.5. Create new table with the help of existing table data and structure 
+
+
+create table employeeA6Duplicate as select * from employeeA6;
+Query OK, 31 rows affected (0.11 sec)
+Records: 31  Duplicates: 0  Warnings: 0
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.6. Find all employee records whose salary is between 10000 and 15000
+
+
+select * from employeeA6 where salary between 10000 and 15000 order by salary;
++----+----------------+---------------------------+--------+------------+-----------+
+| id | name           | address                   | salary | joinDate   | company   |
++----+----------------+---------------------------+--------+------------+-----------+
+| 27 | Barbara Gupta  | 1414 Fire Rd, OKC         |  10000 | 2020-04-25 | Wipro     |
+|  6 | Adam Sinha     | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro     |
+| 21 | Anika Reddy    | 888 Cloud Rd, Detroit     |  11000 | 2022-08-08 | Samsung   |
+| 11 | Andrew Thomas  | 707 Valley St, Houston    |  12000 | 2020-12-01 | Bajaj     |
+| 12 | Anita Sinha    | 808 Desert Rd, Vegas      |  12500 | 2022-03-30 | Samsung   |
+|  7 | Amy Mehta      | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL       |
+| 22 | Ahaan Malhotra | 999 Windy St, Columbus    |  13000 | 2021-04-02 | Wipro     |
+| 24 | Aman Chopra    | 1111 Rain Blvd, Milwaukee |  13000 | 2021-05-27 | HCL       |
+| 25 | Bella Sinha    | 1212 Snow Ln, Baltimore   |  14000 | 2021-09-17 | Accenture |
+| 26 | Brian Mehta    | 1313 Ice Way, Louisville  |  15000 | 2022-02-12 | Infosys   |
++----+----------------+---------------------------+--------+------------+-----------+
+10 rows in set (0.07 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+Q.7. Write a sql query to delete more than one records 
+
+Delete records from duplicate table -
+
+delete from employeeA6Duplicate where id>=20;
+Query OK, 12 rows affected (0.07 sec)
+
+Display it after deleting -
+
+select * from employeeA6Duplicate;
++----+---------------+--------------------------+--------+------------+--------------+
+| id | name          | address                  | salary | joinDate   | company      |
++----+---------------+--------------------------+--------+------------+--------------+
+|  1 | surekha       | 123 Main St, Pune        |  20000 | 2021-02-15 | Tata         |
+|  2 | sahil         | 456 Oak Ave, Mumbai      |  30000 | 2019-11-01 | Bajaj        |
+|  3 | manish        | 456 Oak Ave, Mumbai      |  70000 | 2020-08-20 | Tata         |
+|  4 | naman         | 789 Pine Rd, Delhi       |   9000 | 2022-05-05 | Samsung      |
+|  5 | Alice Gupta   | 101 Tech Blvd, Austin    |  21000 | 2018-03-10 | Infosys      |
+|  6 | Adam Sinha    | 202 Park Lane, Miami     |  11000 | 2022-01-09 | Wipro        |
+|  7 | Amy Mehta     | 303 River Side, Denver   |  13000 | 2021-12-12 | HCL          |
+|  8 | Alan Roy      | 404 Hill Top, Atlanta    |  95000 | 2017-07-07 | Tata         |
+|  9 | Anna Meena    | 505 Lake View, Phoenix   | 105000 | 2019-04-18 | Tata         |
+| 10 | Alex Gupta    | 606 Mountain Dr, Dallas  | 115000 | 2018-09-23 | Tata         |
+| 11 | Andrew Thomas | 707 Valley St, Houston   |  12000 | 2020-12-01 | Bajaj        |
+| 12 | Anita Sinha   | 808 Desert Rd, Vegas     |  12500 | 2022-03-30 | Samsung      |
+| 13 | Aaron King    | 909 Ocean Ave, San Diego |  82000 | 2018-08-14 | HCL          |
+| 14 | Amanda Lee    | 111 Forest Ln, Portland  |  78000 | 2019-02-28 | Wipro        |
+| 15 | Aria Patel    | 222 Sunset Blvd, LA      |  88000 | 2020-06-06 | TechMahindra |
+| 16 | Aryan Sharma  | 333 Sunrise Dr, Orlando  |  92000 | 2021-10-10 | Accenture    |
+| 17 | Ava Singh     | 444 Rainbow St, Tampa    |  98000 | 2022-07-30 | Infosys      |
+| 18 | Arjun Kumar   | 555 Star Ave, Nashville  |  75000 | 2017-06-09 | Tata         |
+| 19 | Anaya Verma   | 666 Moon Way, Memphis    |  70000 | 2020-09-03 | Tata         |
++----+---------------+--------------------------+--------+------------+--------------+
+19 rows in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.8.  Insert record on a table using different ways
+
+Single record insertion -
+
+insert into employeeA6Duplicate values(20,'Advik Joshi','777 Sun Ct, Raleigh',21000,'2020-02-19','Bajaj');
+Query OK, 1 row affected (0.07 sec)
+
+
+Multiple records insertion at one time itslef-
+
+insert into employeeA6Duplicate values
+(21,'Anika Reddy','888 Cloud Rd, Detroit',11000,'2022-08-08','Samsung'),
+(22,'Ahaan Malhotra','999 Windy St, Columbus',13000,'2021-04-02','Wipro'),
+(23,'Aisha Gupta','1010 Storm Ave, KC',21000,'2020-06-23','Infosys'),
+(24,'Aman Chopra','1111 Rain Blvd, Milwaukee',13000,'2021-05-27','HCL'),
+(25,'Bella Sinha','1212 Snow Ln, Baltimore',14000,'2021-09-17','Accenture');
+
+Query OK, 5 rows affected (0.07 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+--------------------------------------------------------------------------------------------------------------
+
+Q.9. Arrange records of the table either ascending or descending
+
+Ascending -
+
+select * from employeeA6 order by id;
++----+-----------------+---------------------------+--------+------------+--------------+
+| id | name            | address                   | salary | joinDate   | company      |
++----+-----------------+---------------------------+--------+------------+--------------+
+|  1 | surekha         | 123 Main St, Pune         |  20000 | 2021-02-15 | Tata         |
+|  2 | sahil           | 456 Oak Ave, Mumbai       |  30000 | 2019-11-01 | Bajaj        |
+|  3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         |
+|  4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      |
+|  5 | Alice Gupta     | 101 Tech Blvd, Austin     |  21000 | 2018-03-10 | Infosys      |
+|  6 | Adam Sinha      | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro        |
+|  7 | Amy Mehta       | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL          |
+|  8 | Alan Roy        | 404 Hill Top, Atlanta     |  95000 | 2017-07-07 | Tata         |
+|  9 | Anna Meena      | 505 Lake View, Phoenix    | 105000 | 2019-04-18 | Tata         |
+| 10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 115000 | 2018-09-23 | Tata         |
+| 11 | Andrew Thomas   | 707 Valley St, Houston    |  12000 | 2020-12-01 | Bajaj        |
+| 12 | Anita Sinha     | 808 Desert Rd, Vegas      |  12500 | 2022-03-30 | Samsung      |
+| 13 | Aaron King      | 909 Ocean Ave, San Diego  |  82000 | 2018-08-14 | HCL          |
+| 14 | Amanda Lee      | 111 Forest Ln, Portland   |  78000 | 2019-02-28 | Wipro        |
+| 15 | Aria Patel      | 222 Sunset Blvd, LA       |  88000 | 2020-06-06 | TechMahindra |
+| 16 | Aryan Sharma    | 333 Sunrise Dr, Orlando   |  92000 | 2021-10-10 | Accenture    |
+| 17 | Ava Singh       | 444 Rainbow St, Tampa     |  98000 | 2022-07-30 | Infosys      |
+| 18 | Arjun Kumar     | 555 Star Ave, Nashville   |  75000 | 2017-06-09 | Tata         |
+| 19 | Anaya Verma     | 666 Moon Way, Memphis     |  70000 | 2020-09-03 | Tata         |
+| 20 | Advik Joshi     | 777 Sun Ct, Raleigh       |  21000 | 2020-02-19 | Bajaj        |
+| 21 | Anika Reddy     | 888 Cloud Rd, Detroit     |  11000 | 2022-08-08 | Samsung      |
+| 22 | Ahaan Malhotra  | 999 Windy St, Columbus    |  13000 | 2021-04-02 | Wipro        |
+| 23 | Aisha Gupta     | 1010 Storm Ave, KC        |  21000 | 2020-06-23 | Infosys      |
+| 24 | Aman Chopra     | 1111 Rain Blvd, Milwaukee |  13000 | 2021-05-27 | HCL          |
+| 25 | Bella Sinha     | 1212 Snow Ln, Baltimore   |  14000 | 2021-09-17 | Accenture    |
+| 26 | Brian Mehta     | 1313 Ice Way, Louisville  |  15000 | 2022-02-12 | Infosys      |
+| 27 | Barbara Gupta   | 1414 Fire Rd, OKC         |  10000 | 2020-04-25 | Wipro        |
+| 28 | Blake Anderson  | 1515 Water Ct, Tucson     | 120000 | 2018-12-25 | Tata         |
+| 29 | Brooke Taylor   | 1616 Earth St, Fresno     | 118000 | 2021-01-15 | Tata         |
+| 30 | Benjamin Martin | 1717 Sky Dr, Sacramento   | 118000 | 2018-03-12 | Tata         |
+| 31 | Alice Gupta     | 101 Tech Blvd, Austin     | 100000 | 2003-03-03 | Persistent   |
++----+-----------------+---------------------------+--------+------------+--------------+
+31 rows in set (0.00 sec)
+
+
+Descinding -
+
+select * from employeeA6 order by id desc;
++----+-----------------+---------------------------+--------+------------+--------------+
+| id | name            | address                   | salary | joinDate   | company      |
++----+-----------------+---------------------------+--------+------------+--------------+
+| 31 | Alice Gupta     | 101 Tech Blvd, Austin     | 100000 | 2003-03-03 | Persistent   |
+| 30 | Benjamin Martin | 1717 Sky Dr, Sacramento   | 118000 | 2018-03-12 | Tata         |
+| 29 | Brooke Taylor   | 1616 Earth St, Fresno     | 118000 | 2021-01-15 | Tata         |
+| 28 | Blake Anderson  | 1515 Water Ct, Tucson     | 120000 | 2018-12-25 | Tata         |
+| 27 | Barbara Gupta   | 1414 Fire Rd, OKC         |  10000 | 2020-04-25 | Wipro        |
+| 26 | Brian Mehta     | 1313 Ice Way, Louisville  |  15000 | 2022-02-12 | Infosys      |
+| 25 | Bella Sinha     | 1212 Snow Ln, Baltimore   |  14000 | 2021-09-17 | Accenture    |
+| 24 | Aman Chopra     | 1111 Rain Blvd, Milwaukee |  13000 | 2021-05-27 | HCL          |
+| 23 | Aisha Gupta     | 1010 Storm Ave, KC        |  21000 | 2020-06-23 | Infosys      |
+| 22 | Ahaan Malhotra  | 999 Windy St, Columbus    |  13000 | 2021-04-02 | Wipro        |
+| 21 | Anika Reddy     | 888 Cloud Rd, Detroit     |  11000 | 2022-08-08 | Samsung      |
+| 20 | Advik Joshi     | 777 Sun Ct, Raleigh       |  21000 | 2020-02-19 | Bajaj        |
+| 19 | Anaya Verma     | 666 Moon Way, Memphis     |  70000 | 2020-09-03 | Tata         |
+| 18 | Arjun Kumar     | 555 Star Ave, Nashville   |  75000 | 2017-06-09 | Tata         |
+| 17 | Ava Singh       | 444 Rainbow St, Tampa     |  98000 | 2022-07-30 | Infosys      |
+| 16 | Aryan Sharma    | 333 Sunrise Dr, Orlando   |  92000 | 2021-10-10 | Accenture    |
+| 15 | Aria Patel      | 222 Sunset Blvd, LA       |  88000 | 2020-06-06 | TechMahindra |
+| 14 | Amanda Lee      | 111 Forest Ln, Portland   |  78000 | 2019-02-28 | Wipro        |
+| 13 | Aaron King      | 909 Ocean Ave, San Diego  |  82000 | 2018-08-14 | HCL          |
+| 12 | Anita Sinha     | 808 Desert Rd, Vegas      |  12500 | 2022-03-30 | Samsung      |
+| 11 | Andrew Thomas   | 707 Valley St, Houston    |  12000 | 2020-12-01 | Bajaj        |
+| 10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 115000 | 2018-09-23 | Tata         |
+|  9 | Anna Meena      | 505 Lake View, Phoenix    | 105000 | 2019-04-18 | Tata         |
+|  8 | Alan Roy        | 404 Hill Top, Atlanta     |  95000 | 2017-07-07 | Tata         |
+|  7 | Amy Mehta       | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL          |
+|  6 | Adam Sinha      | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro        |
+|  5 | Alice Gupta     | 101 Tech Blvd, Austin     |  21000 | 2018-03-10 | Infosys      |
+|  4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      |
+|  3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         |
+|  2 | sahil           | 456 Oak Ave, Mumbai       |  30000 | 2019-11-01 | Bajaj        |
+|  1 | surekha         | 123 Main St, Pune         |  20000 | 2021-02-15 | Tata         |
++----+-----------------+---------------------------+--------+------------+--------------+
+31 rows in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.10. Retrieve only unique records
+
+Gives records which are fully unique -
+
+select distinct * from employeeA6;		Here we get all table(31rows) bcoz Alice Gupta has same name, address but has diff salary,joinDate & Company
++----+-----------------+---------------------------+--------+------------+--------------+
+| id | name            | address                   | salary | joinDate   | company      |
++----+-----------------+---------------------------+--------+------------+--------------+
+|  1 | surekha         | 123 Main St, Pune         |  20000 | 2021-02-15 | Tata         |
+|  2 | sahil           | 456 Oak Ave, Mumbai       |  30000 | 2019-11-01 | Bajaj        |
+|  3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         |
+|  4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      |
+|  5 | Alice Gupta     | 101 Tech Blvd, Austin     |  21000 | 2018-03-10 | Infosys      |
+|  6 | Adam Sinha      | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro        |
+|  7 | Amy Mehta       | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL          |
+|  8 | Alan Roy        | 404 Hill Top, Atlanta     |  95000 | 2017-07-07 | Tata         |
+|  9 | Anna Meena      | 505 Lake View, Phoenix    | 105000 | 2019-04-18 | Tata         |
+| 10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 115000 | 2018-09-23 | Tata         |
+| 11 | Andrew Thomas   | 707 Valley St, Houston    |  12000 | 2020-12-01 | Bajaj        |
+| 12 | Anita Sinha     | 808 Desert Rd, Vegas      |  12500 | 2022-03-30 | Samsung      |
+| 13 | Aaron King      | 909 Ocean Ave, San Diego  |  82000 | 2018-08-14 | HCL          |
+| 14 | Amanda Lee      | 111 Forest Ln, Portland   |  78000 | 2019-02-28 | Wipro        |
+| 15 | Aria Patel      | 222 Sunset Blvd, LA       |  88000 | 2020-06-06 | TechMahindra |
+| 16 | Aryan Sharma    | 333 Sunrise Dr, Orlando   |  92000 | 2021-10-10 | Accenture    |
+| 17 | Ava Singh       | 444 Rainbow St, Tampa     |  98000 | 2022-07-30 | Infosys      |
+| 18 | Arjun Kumar     | 555 Star Ave, Nashville   |  75000 | 2017-06-09 | Tata         |
+| 19 | Anaya Verma     | 666 Moon Way, Memphis     |  70000 | 2020-09-03 | Tata         |
+| 20 | Advik Joshi     | 777 Sun Ct, Raleigh       |  21000 | 2020-02-19 | Bajaj        |
+| 21 | Anika Reddy     | 888 Cloud Rd, Detroit     |  11000 | 2022-08-08 | Samsung      |
+| 22 | Ahaan Malhotra  | 999 Windy St, Columbus    |  13000 | 2021-04-02 | Wipro        |
+| 23 | Aisha Gupta     | 1010 Storm Ave, KC        |  21000 | 2020-06-23 | Infosys      |
+| 24 | Aman Chopra     | 1111 Rain Blvd, Milwaukee |  13000 | 2021-05-27 | HCL          |
+| 25 | Bella Sinha     | 1212 Snow Ln, Baltimore   |  14000 | 2021-09-17 | Accenture    |
+| 26 | Brian Mehta     | 1313 Ice Way, Louisville  |  15000 | 2022-02-12 | Infosys      |
+| 27 | Barbara Gupta   | 1414 Fire Rd, OKC         |  10000 | 2020-04-25 | Wipro        |
+| 28 | Blake Anderson  | 1515 Water Ct, Tucson     | 120000 | 2018-12-25 | Tata         |
+| 29 | Brooke Taylor   | 1616 Earth St, Fresno     | 118000 | 2021-01-15 | Tata         |
+| 30 | Benjamin Martin | 1717 Sky Dr, Sacramento   | 118000 | 2018-03-12 | Tata         |
+| 31 | Alice Gupta     | 101 Tech Blvd, Austin     | 100000 | 2003-03-03 | Persistent   |
++----+-----------------+---------------------------+--------+------------+--------------+
+31 rows in set (0.00 sec)
+
+
+Unique by name
+
+select distinct name from employeeA6;		Here we get 30 rows as Alice Gupta gets ignored this time as we have applied UNIQUENESS (DISTINCT keyword) on Name column
++-----------------+
+| name            |
++-----------------+
+| surekha         |
+| sahil           |
+| manish          |
+| naman           |
+| Alice Gupta     |
+| Adam Sinha      |
+| Amy Mehta       |
+| Alan Roy        |
+| Anna Meena      |
+| Alex Gupta      |
+| Andrew Thomas   |
+| Anita Sinha     |
+| Aaron King      |
+| Amanda Lee      |
+| Aria Patel      |
+| Aryan Sharma    |
+| Ava Singh       |
+| Arjun Kumar     |
+| Anaya Verma     |
+| Advik Joshi     |
+| Anika Reddy     |
+| Ahaan Malhotra  |
+| Aisha Gupta     |
+| Aman Chopra     |
+| Bella Sinha     |
+| Brian Mehta     |
+| Barbara Gupta   |
+| Blake Anderson  |
+| Brooke Taylor   |
+| Benjamin Martin |
++-----------------+
+30 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.11. Update records of the table
+
+Updating Single colunmn value of single record -
+
+update employeeA6 set company='Persistant' where name='Alice Gupta';
+Query OK, 2 rows affected (0.06 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+---------------------------
+
+Updating multiple column values of single record -
+
+update employeeA6 set name='Atharva Dighe',address='101 Ashirwad, Pune',joinDate='2026-03-03' where company='Persistant';
+Query OK, 2 rows affected (0.07 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from employeeA6;
++----+-----------------+---------------------------+--------+------------+--------------+
+| id | name            | address                   | salary | joinDate   | company      |
++----+-----------------+---------------------------+--------+------------+--------------+
+|  1 | surekha         | 123 Main St, Pune         |  20000 | 2021-02-15 | Tata         |
+|  2 | sahil           | 456 Oak Ave, Mumbai       |  30000 | 2019-11-01 | Bajaj        |
+|  3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         |
+|  4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      |
+|  5 | Atharva Dighe   | 101 Ashirwad, Pune        |  21000 | 2026-03-03 | Persistant   |
+|  6 | Adam Sinha      | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro        |
+|  7 | Amy Mehta       | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL          |
+|  8 | Alan Roy        | 404 Hill Top, Atlanta     |  95000 | 2017-07-07 | Tata         |
+|  9 | Anna Meena      | 505 Lake View, Phoenix    | 105000 | 2019-04-18 | Tata         |
+| 10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 115000 | 2018-09-23 | Tata         |
+| 11 | Andrew Thomas   | 707 Valley St, Houston    |  12000 | 2020-12-01 | Bajaj        |
+| 12 | Anita Sinha     | 808 Desert Rd, Vegas      |  12500 | 2022-03-30 | Samsung      |
+| 13 | Aaron King      | 909 Ocean Ave, San Diego  |  82000 | 2018-08-14 | HCL          |
+| 14 | Amanda Lee      | 111 Forest Ln, Portland   |  78000 | 2019-02-28 | Wipro        |
+| 15 | Aria Patel      | 222 Sunset Blvd, LA       |  88000 | 2020-06-06 | TechMahindra |
+| 16 | Aryan Sharma    | 333 Sunrise Dr, Orlando   |  92000 | 2021-10-10 | Accenture    |
+| 17 | Ava Singh       | 444 Rainbow St, Tampa     |  98000 | 2022-07-30 | Infosys      |
+| 18 | Arjun Kumar     | 555 Star Ave, Nashville   |  75000 | 2017-06-09 | Tata         |
+| 19 | Anaya Verma     | 666 Moon Way, Memphis     |  70000 | 2020-09-03 | Tata         |
+| 20 | Advik Joshi     | 777 Sun Ct, Raleigh       |  21000 | 2020-02-19 | Bajaj        |
+| 21 | Anika Reddy     | 888 Cloud Rd, Detroit     |  11000 | 2022-08-08 | Samsung      |
+| 22 | Ahaan Malhotra  | 999 Windy St, Columbus    |  13000 | 2021-04-02 | Wipro        |
+| 23 | Aisha Gupta     | 1010 Storm Ave, KC        |  21000 | 2020-06-23 | Infosys      |
+| 24 | Aman Chopra     | 1111 Rain Blvd, Milwaukee |  13000 | 2021-05-27 | HCL          |
+| 25 | Bella Sinha     | 1212 Snow Ln, Baltimore   |  14000 | 2021-09-17 | Accenture    |
+| 26 | Brian Mehta     | 1313 Ice Way, Louisville  |  15000 | 2022-02-12 | Infosys      |
+| 27 | Barbara Gupta   | 1414 Fire Rd, OKC         |  10000 | 2020-04-25 | Wipro        |
+| 28 | Blake Anderson  | 1515 Water Ct, Tucson     | 120000 | 2018-12-25 | Tata         |
+| 29 | Brooke Taylor   | 1616 Earth St, Fresno     | 118000 | 2021-01-15 | Tata         |
+| 30 | Benjamin Martin | 1717 Sky Dr, Sacramento   | 118000 | 2018-03-12 | Tata         |
+| 31 | Atharva Dighe   | 101 Ashirwad, Pune        | 100000 | 2026-03-03 | Persistant   |
++----+-----------------+---------------------------+--------+------------+--------------+
+31 rows in set (0.00 sec)
+
+
