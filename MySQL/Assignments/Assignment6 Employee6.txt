@@ -451,4 +451,153 @@ mysql> select * from employeeA6;
 +----+-----------------+---------------------------+--------+------------+--------------+
 31 rows in set (0.00 sec)
 
+------------------------
+
+Update multiple records at once -
+
+update employeeA6 set
+    -> id=case
+    -> when id=1 then 101
+    -> when id=2 then 102
+    -> end
+    -> where id in(1,2);
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from employeeA6 where id=101 or id=102;
++-----+---------+---------------------+--------+------------+---------+
+| id  | name    | address             | salary | joinDate   | company |
++-----+---------+---------------------+--------+------------+---------+
+| 101 | surekha | 123 Main St, Pune   |  20000 | 2021-02-15 | Tata    |
+| 102 | sahil   | 456 Oak Ave, Mumbai |  30000 | 2019-11-01 | Bajaj   |
++-----+---------+---------------------+--------+------------+---------+
+2 rows in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.12. How to add new column in database
+
+
+Add column (Basic way) -
+
+alter table employeeA6 add column Coders varchar(10) default 'Yes';
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employeeA6;
++-----+-----------------+---------------------------+--------+------------+--------------+--------+
+| id  | name            | address                   | salary | joinDate   | company      | Coders |
++-----+-----------------+---------------------------+--------+------------+--------------+--------+
+|   3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         | Yes    |
+|   4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      | Yes    |
+|   5 | Atharva Dighe   | 101 Ashirwad, Pune        |  21000 | 2026-03-03 | Persistant   | Yes    |
+|   6 | Adam Sinha      | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro        | Yes    |
+|   7 | Amy Mehta       | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL          | Yes    |
+|   8 | Alan Roy        | 404 Hill Top, Atlanta     |  95000 | 2017-07-07 | Tata         | Yes    |
+|   9 | Anna Meena      | 505 Lake View, Phoenix    | 105000 | 2019-04-18 | Tata         | Yes    |
+|  10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 115000 | 2018-09-23 | Tata         | Yes    |
+
+
+--------------------
+
+Add column at starting place -
+
+alter table employeeA6 add Graduation varchar(20) default 'BSc(CS)' first;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employeeA6;
++------------+-----+-----------------+---------------------------+--------+------------+--------------+--------+
+| Graduation | id  | name            | address                   | salary | joinDate   | company      | Coders |
++------------+-----+-----------------+---------------------------+--------+------------+--------------+--------+
+| BSc(CS)    |   3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         | Yes    |
+| BSc(CS)    |   4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      | Yes    |
+| BSc(CS)    |   5 | Atharva Dighe   | 101 Ashirwad, Pune        |  21000 | 2026-03-03 | Persistant   | Yes    |
+
+-----------
+
+Delete existing column from table -
+
+alter table employeeA6 drop Graduation;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employeeA6;
++-----+-----------------+---------------------------+--------+------------+--------------+--------+
+| id  | name            | address                   | salary | joinDate   | company      | Coders |
++-----+-----------------+---------------------------+--------+------------+--------------+--------+
+|   3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         | Yes    |
+|   4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      | Yes    |
+|   5 | Atharva Dighe   | 101 Ashirwad, Pune        |  21000 | 2026-03-03 | Persistant   | Yes    |
+
+
+------------------------
+
+Add column at middle of table (after company) - 	Graduation col gets added in between
+
+alter table employeeA6 add column Graduation varchar(20) default 'BSc(Cs)' after company;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employeeA6;
++-----+-----------------+---------------------------+--------+------------+--------------+------------+--------+
+| id  | name            | address                   | salary | joinDate   | company      | Graduation | Coders |
++-----+-----------------+---------------------------+--------+------------+--------------+------------+--------+
+|   3 | manish          | 456 Oak Ave, Mumbai       |  70000 | 2020-08-20 | Tata         | BSc(Cs)    | Yes    |
+|   4 | naman           | 789 Pine Rd, Delhi        |   9000 | 2022-05-05 | Samsung      | BSc(Cs)    | Yes    |
+|   5 | Atharva Dighe   | 101 Ashirwad, Pune        |  21000 | 2026-03-03 | Persistant   | BSc(Cs)    | Yes    |
+|   6 | Adam Sinha      | 202 Park Lane, Miami      |  11000 | 2022-01-09 | Wipro        | BSc(Cs)    | Yes    |
+|   7 | Amy Mehta       | 303 River Side, Denver    |  13000 | 2021-12-12 | HCL          | BSc(Cs)    | Yes    |
+|   8 | Alan Roy        | 404 Hill Top, Atlanta     |  95000 | 2017-07-07 | Tata         | BSc(Cs)    | Yes    |
+|   9 | Anna Meena      | 505 Lake View, Phoenix    | 105000 | 2019-04-18 | Tata         | BSc(Cs)    | Yes    |
+|  10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 115000 | 2018-09-23 | Tata         | BSc(Cs)    | Yes    |
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+
+Q.13. How to count records of the table
+
+select count(id)as NoofENtriesCount from employeeA6;
++------------------+
+| NoofENtriesCount |
++------------------+
+|               31 |
++------------------+
+1 row in set (0.01 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.14. How to increase salary of employee by 10%
+
+
+update employeeA6 set salary=salary+(salary/10) where id>1;
+Query OK, 31 rows affected (0.01 sec)
+Rows matched: 31  Changed: 31  Warnings: 0
+
+mysql> select * from employeeA6;
++-----+-----------------+---------------------------+--------+------------+--------------+------------+--------+
+| id  | name            | address                   | salary | joinDate   | company      | Graduation | Coders |
++-----+-----------------+---------------------------+--------+------------+--------------+------------+--------+
+|   3 | manish          | 456 Oak Ave, Mumbai       |  77022 | 2020-08-20 | Tata         | BSc(Cs)    | Yes    |
+|   4 | naman           | 789 Pine Rd, Delhi        |   9922 | 2022-05-05 | Samsung      | BSc(Cs)    | Yes    |
+|   5 | Atharva Dighe   | 101 Ashirwad, Pune        |  23122 | 2026-03-03 | Persistant   | BSc(Cs)    | Yes    |
+|   6 | Adam Sinha      | 202 Park Lane, Miami      |  12122 | 2022-01-09 | Wipro        | BSc(Cs)    | Yes    |
+|   7 | Amy Mehta       | 303 River Side, Denver    |  14322 | 2021-12-12 | HCL          | BSc(Cs)    | Yes    |
+|   8 | Alan Roy        | 404 Hill Top, Atlanta     | 104522 | 2017-07-07 | Tata         | BSc(Cs)    | Yes    |
+|   9 | Anna Meena      | 505 Lake View, Phoenix    | 115522 | 2019-04-18 | Tata         | BSc(Cs)    | Yes    |
+|  10 | Alex Gupta      | 606 Mountain Dr, Dallas   | 126522 | 2018-09-23 | Tata         | BSc(Cs)    | Yes    |
+
+
+--------------------------------------------------------------------------------------------------------------
+
+
+Q.15. How to update multiple columns
+
 
