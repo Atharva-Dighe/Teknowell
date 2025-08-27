@@ -40,6 +40,52 @@
 
     </script>
 
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  async function payNow() {
+    // 1. Get total from your cart
+    const cartArray = JSON.parse(localStorage.getItem('arr'));
+    let totalPrice = cartArray.reduce((acc, item) => acc + item.TotalPrice, 0);
+
+    // 2. Create order from backend
+    const response = await fetch("http://localhost:5000/create-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: totalPrice })
+    });
+    const order = await response.json();
+
+    // 3. Open Razorpay checkout
+    var options = {
+      key: "rzp_test_R9YK7209hKJDcC", 
+      amount: order.amount,
+      currency: order.currency,
+      name: "My Food App",
+      description: "Order Payment",
+      order_id: order.id,
+      handler: async function (response) {
+        // 4. Verify payment
+        const verify = await fetch("http://localhost:5000/verify-payment", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(response)
+        });
+        const result = await verify.json();
+        if (result.success) {
+          alert("🎉 Payment Successful!");
+        } else {
+          alert("❌ Payment Verification Failed!");
+        }
+      },
+      theme: { color: "#3399cc" }
+    };
+    const rzp = new Razorpay(options);
+    rzp.open();
+  }
+</script>
+
+<button onclick="payNow()">Pay Now</button>
+
 </body>
 
 </html>

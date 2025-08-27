@@ -316,7 +316,7 @@ Q.10. Retrieve only unique records
 
 Gives records which are fully unique -
 
-select distinct * from employeeA6;		Here we get all table(31rows) bcoz Alice Gupta has same name, address but has diff salary,joinDate & Company
+select distinct * from employeeA6;	Here we get all table(31rows) bcoz Alice Gupta has same name, address but has diff salary,joinDate & Company
 +----+-----------------+---------------------------+--------+------------+--------------+
 | id | name            | address                   | salary | joinDate   | company      |
 +----+-----------------+---------------------------+--------+------------+--------------+
@@ -706,9 +706,24 @@ select * from employeeA6 limit 2;
 ----------------------------------------------------------------------------------------------------------------
 
 
-Q.20. Fetch last record from employee table 
+Q.20. Fetch last record from employee table
 
- select * from employeeA6 limit 30,1;
+2 ways to do so - 	
+1. Count => Offset		Most prefered as it can give ending records in ascending order itself
+2. Order by desc => Limit 1	It gives records in descending order.
+
+
+STEPS - 1. find Count of records in table. 
+	2. Apply Offset to (count-1)
+
+select count(id) from employeeA6;
++-----------+
+| count(id) |
++-----------+
+|        31 |
++-----------+
+
+select * from employeeA6 limit 30,1;
 +-----+-------+---------------------+--------+------------+---------+------------+--------+
 | id  | name  | address             | salary | joinDate   | company | Graduation | Coders |
 +-----+-------+---------------------+--------+------------+---------+------------+--------+
@@ -719,4 +734,124 @@ Q.20. Fetch last record from employee table
 
 ----------------------------------------------------------------------------------------------------------------
 
-Q.21. 
+Q.21. Display 5 records from employee table 
+
+select * from employeeA6 limit 5;
++----+---------------+---------------------+--------+------------+------------+------------+--------+
+| id | name          | address             | salary | joinDate   | company    | Graduation | Coders |
++----+---------------+---------------------+--------+------------+------------+------------+--------+
+|  1 | surekha       | 123 Main St, Pune   |  22022 | 2021-02-15 | Tata       | BSc(Cs)    | Yes    |
+|  2 | sahil         | 456 Oak Ave, Mumbai |  33022 | 2019-11-01 | Bajaj      | BSc(Cs)    | Yes    |
+|  3 | manish        | 456 Oak Ave, Mumbai |  77022 | 2020-08-20 | Tata       | BSc(Cs)    | Yes    |
+|  4 | naman         | 789 Pine Rd, Delhi  |   9922 | 2022-05-05 | Samsung    | BSc(Cs)    | Yes    |
+|  5 | Atharva Dighe | 101 Ashirwad, Pune  |  23122 | 2026-03-03 | Persistant | BSc(Cs)    | Yes    |
++----+---------------+---------------------+--------+------------+------------+------------+--------+
+5 rows in set (0.00 sec)
+
+
+----------------------------------------------------------------------------------------------------------------
+
+Q.22. Fetch first 50% records 
+
+
+----------------------------------------------------------------------------------------------------------------
+
+Q.23. Fetch last 5 records 
+
+First find out the count -
+
+select count(id)-5 from employeeA6;
++-------------+
+| count(id)-5 |
++-------------+
+|          26 |
++-------------+
+
+
+select * from employeeA6 limit 5 offset 26;
++----+-----------------+-------------------------+--------+------------+------------+------------+--------+
+| id | name            | address                 | salary | joinDate   | company    | Graduation | Coders |
++----+-----------------+-------------------------+--------+------------+------------+------------+--------+
+| 27 | Barbara Gupta   | 1414 Fire Rd, OKC       |  11022 | 2020-04-25 | Wipro      | BSc(Cs)    | Yes    |
+| 28 | Blake Anderson  | 1515 Water Ct, Tucson   | 132022 | 2018-12-25 | Tata       | BSc(Cs)    | Yes    |
+| 29 | Brooke Taylor   | 1616 Earth St, Fresno   | 129822 | 2021-01-15 | Tata       | BSc(Cs)    | Yes    |
+| 30 | Benjamin Martin | 1717 Sky Dr, Sacramento | 129822 | 2018-03-12 | Tata       | BSc(Cs)    | Yes    |
+| 31 | Atharva Dighe   | 101 Ashirwad, Pune      | 110022 | 2026-03-03 | Persistant | BSc(Cs)    | Yes    |
++----+-----------------+-------------------------+--------+------------+------------+------------+--------+
+5 rows in set (0.00 sec)
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+Q.24. Display details of those whose salary is maximum and whose 5th last 
+character is ‘a’. 
+
+
+select * from employeeA6 where salary in(select max(salary) from employeeA6 where name like '%a____');
++----+-----------------+-------------------------+--------+------------+---------+------------+--------+
+| id | name            | address                 | salary | joinDate   | company | Graduation | Coders |
++----+-----------------+-------------------------+--------+------------+---------+------------+--------+
+| 29 | Brooke Taylor   | 1616 Earth St, Fresno   | 129822 | 2021-01-15 | Tata    | BSc(Cs)    | Yes    |
+| 30 | Benjamin Martin | 1717 Sky Dr, Sacramento | 129822 | 2018-03-12 | Tata    | BSc(Cs)    | Yes    |
++----+-----------------+-------------------------+--------+------------+---------+------------+--------+
+2 rows in set (0.00 sec)
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+Q.25. Fetch details of employees whose lname ends with an alphabate ‘A’ and 
+contains five alphabates. 
+
+
+----------------------------------------------------------------------------------------------------------------
+
+Q.26. Display name of those company who spending maximum amount on their employees
+
+Fistly calculated& displayed the max total -
+
+select sum(salary)as totalSalary from employeeA6 group by company having sum(salary)>= all(select sum(salary) from employeeA6 group by company);
++-------------+
+| totalSalary |
++-------------+
+|      996820 |
++-------------+
+1 row in set (0.03 sec)
+
+Then the correct required answer of the question -
+
+select company,sum(salary)as totalSalary from employeeA6 group by company having sum(salary)>= all(select sum(salary) from employeeA6 group by company);
++---------+-------------+
+| company | totalSalary |
++---------+-------------+
+| Tata    |      996820 |
++---------+-------------+
+1 row in set (0.00 sec)
+
+Additionally, displayed all the details for the company -
+
+select * from employeeA6 where company in(select company from employeeA6 group by company having sum(salary)>= all(select sum(salary) from employeeA6 group by company));
++----+-----------------+-------------------------+--------+------------+---------+------------+--------+
+| id | name            | address                 | salary | joinDate   | company | Graduation | Coders |
++----+-----------------+-------------------------+--------+------------+---------+------------+--------+
+|  1 | surekha         | 123 Main St, Pune       |  22022 | 2021-02-15 | Tata    | BSc(Cs)    | Yes    |
+|  3 | manish          | 456 Oak Ave, Mumbai     |  77022 | 2020-08-20 | Tata    | BSc(Cs)    | Yes    |
+|  8 | Alan Roy        | 404 Hill Top, Atlanta   | 104522 | 2017-07-07 | Tata    | BSc(Cs)    | Yes    |
+|  9 | Anna Meena      | 505 Lake View, Phoenix  | 115522 | 2019-04-18 | Tata    | BSc(Cs)    | Yes    |
+| 10 | Alex Gupta      | 606 Mountain Dr, Dallas | 126522 | 2018-09-23 | Tata    | BSc(Cs)    | Yes    |
+| 18 | Arjun Kumar     | 555 Star Ave, Nashville |  82522 | 2017-06-09 | Tata    | BSc(Cs)    | Yes    |
+| 19 | Anaya Verma     | 666 Moon Way, Memphis   |  77022 | 2020-09-03 | Tata    | BSc(Cs)    | Yes    |
+| 28 | Blake Anderson  | 1515 Water Ct, Tucson   | 132022 | 2018-12-25 | Tata    | BSc(Cs)    | Yes    |
+| 29 | Brooke Taylor   | 1616 Earth St, Fresno   | 129822 | 2021-01-15 | Tata    | BSc(Cs)    | Yes    |
+| 30 | Benjamin Martin | 1717 Sky Dr, Sacramento | 129822 | 2018-03-12 | Tata    | BSc(Cs)    | Yes    |
++----+-----------------+-------------------------+--------+------------+---------+------------+--------+
+10 rows in set (0.07 sec)
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+
