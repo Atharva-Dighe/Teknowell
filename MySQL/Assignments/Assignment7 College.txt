@@ -1,0 +1,84 @@
+Assignment-7 	College - View
+
+
+mysql> select * from college;
++-----+-----------+--------+----------+--------+
+| cid | cname     | branch | std_name | fees   |
++-----+-----------+--------+----------+--------+
+|   1 | Fergusson | CE     | Atharva  |  89000 |
+|   2 | Pratibha  | EE     | Shruti   |  60000 |
+|   3 | SPPU      | ME     | Prashant |  60000 |
+|   4 | MIT       | CIE    | Shweta   | 130000 |
+|   5 | Fergusson | CE     | Prajakta |  89000 |
+|   6 | Pratibha  | EE     | Kartiki  |  60000 |
+|   7 | DY        | ME     | Mrunal   | 100000 |
+|   8 | AIIMS     | CE     | Soham    |  80000 |
+|   9 | PCCOE     | EE     | Yash     | 130000 |
+|  10 | COEP      | CIE    | Devesh   |  70000 |
+|  11 | CME       | ME     | Om       |  50000 |
+|  12 | JSPM      | EE     | Niranjan |  80000 |
+|  13 | VIT       | CIE    | Aayush   | 160000 |
++-----+-----------+--------+----------+--------+
+13 rows in set (0.00 sec)
+
+
+------------------------------------------------------------------------------------------
+
+Q. Create different views for different branches 
+Note: branches names as(CE,ME,EE,CIE). 
+Each branch view contains cid,cname,branch,fees only for that 
+particular branch.
+
+
+mysql> create view ce as select cid,cname,branch,fees from college where branch='CE';
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from ce;
++-----+-----------+--------+-------+
+| cid | cname     | branch | fees  |
++-----+-----------+--------+-------+
+|   1 | Fergusson | CE     | 89000 |
+|   5 | Fergusson | CE     | 89000 |
+|   8 | AIIMS     | CE     | 80000 |
++-----+-----------+--------+-------+
+3 rows in set (0.00 sec)
+
+mysql> create view ee as select cid,cname,branch,fees from college where branch='EE';
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from ee;
++-----+----------+--------+--------+
+| cid | cname    | branch | fees   |
++-----+----------+--------+--------+
+|   2 | Pratibha | EE     |  60000 |
+|   6 | Pratibha | EE     |  60000 |
+|   9 | PCCOE    | EE     | 130000 |
+|  12 | JSPM     | EE     |  80000 |
++-----+----------+--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> create view me as select cid,cname,branch,fees from college where branch='ME';
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> select * from me;
++-----+-------+--------+--------+
+| cid | cname | branch | fees   |
++-----+-------+--------+--------+
+|   3 | SPPU  | ME     |  60000 |
+|   7 | DY    | ME     | 100000 |
+|  11 | CME   | ME     |  50000 |
++-----+-------+--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> create view cie as select cid,cname,branch,fees from college where branch='CIE';
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> select * from cie;
++-----+-------+--------+--------+
+| cid | cname | branch | fees   |
++-----+-------+--------+--------+
+|   4 | MIT   | CIE    | 130000 |
+|  10 | COEP  | CIE    |  70000 |
+|  13 | VIT   | CIE    | 160000 |
++-----+-------+--------+--------+
+3 rows in set (0.00 sec)
