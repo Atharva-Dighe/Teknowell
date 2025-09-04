@@ -1,0 +1,230 @@
+mysql> use teknowell
+Database changed
+
+mysql> delimiter /
+
+
+-----------------------------------
+
+LOOPS in PlSQL -
+
+1. Simple Loop
+2. While Loop
+
+-------------------------------------
+
+1. SIMPLE LOOP - 
+
+Display Simple Loop normally (separate tables) -
+
+1. Declare procedure
+2. Call procedure
+
+mysql> create procedure SimpleLoop()
+    -> begin declare
+    -> i int;
+    -> set i=1;
+    -> loop1:loop
+    -> select i;
+    -> set i=i+1;
+    -> if i=6 then leave loop1;
+    -> end if;
+    -> end loop loop1;
+    -> end;
+    -> /
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> call SimpleLoop()
+    -> /
++------+
+| i    |
++------+
+|    1 |
++------+
+1 row in set (0.06 sec)
+
++------+
+| i    |
++------+
+|    2 |
++------+
+1 row in set (0.06 sec)
+
++------+
+| i    |
++------+
+|    3 |
++------+
+1 row in set (0.07 sec)
+
++------+
+| i    |
++------+
+|    4 |
++------+
+1 row in set (0.07 sec)
+
++------+
+| i    |
++------+
+|    5 |
++------+
+1 row in set (0.08 sec)
+
+
+------------------------------------
+
+Display Simple Loop in 1 Single Table -
+
+1. Create table
+2. Declare Procedure - Instead of Select, use Insert
+3. Call procedure
+4. Print table
+
+
+mysql> create table SimpleLoop1(x varchar(200))/
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> create procedure SimpleLoop1()
+    -> begin
+    -> declare
+    -> i int;
+    -> set i=1;
+    -> loop1:loop
+    -> insert into SimpleLoop1 values(i);
+    -> set i=i+1;
+    -> if i=6 then leave loop1;
+    -> end if;
+    -> end loop loop1;
+    -> end;
+    -> /
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> call SImpleLoop1/
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from simpleloop1/
++------+
+| x    |
++------+
+| 1    |
+| 2    |
+| 3    |
+| 4    |
+| 5    |
++------+
+5 rows in set (0.00 sec)
+
+
+
+---------------------------------------------------------------------------------
+
+2. WHILE LOOP -
+
+Display While Loop normally (separate tables) -
+
+mysql> create procedure whileloop()
+    -> begin
+    -> declare
+    -> i int;
+    -> set i=1;
+    -> while i<=5
+    -> do
+    -> select i;
+    -> set i=i+1;
+    -> end while;
+    -> end;
+    -> /
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call whileloop/
++------+
+| i    |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
++------+
+| i    |
++------+
+|    2 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| i    |
++------+
+|    3 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| i    |
++------+
+|    4 |
++------+
+1 row in set (0.01 sec)
+
++------+
+| i    |
++------+
+|    5 |
++------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+-----------------------------------------
+
+Display While Loop in 1 Single Table -
+
+1. Create table
+2. Declare Procedure - Instead of Select, use Insert
+3. Call procedure
+4. Print table
+
+
+1. Create Table
+
+mysql> create table whileloop1(x varchar(200))/
+Query OK, 0 rows affected (0.03 sec)
+
+2. Declare Procedure - Instead of Select, use Insert
+
+mysql> create procedure whileloop1()
+    -> begin
+    -> declare
+    -> i int;
+    -> set i=1;
+    -> while i<=5
+    -> do
+    -> insert into whileloop1 values(i);
+    -> set i=i+1;
+    -> end while;
+    -> end;
+    -> /
+Query OK, 0 rows affected (0.01 sec)
+
+
+3. Call procedure
+
+mysql> call whileloop1/
+Query OK, 1 row affected (0.03 sec)
+
+4. Print table
+
+mysql> select * from whileloop1/
++------+
+| x    |
++------+
+| 1    |
+| 2    |
+| 3    |
+| 4    |
+| 5    |
++------+
+5 rows in set (0.00 sec)
+
+
+----------------------------------------------------------------------------------------
