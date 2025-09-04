@@ -3,8 +3,134 @@ Database changed
 
 mysql> delimiter /
 
+-------------------------------------------------------------------------------------------------------------------------
+
+PROCEDURE -
+
+mysql> create procedure LearnProcedure()
+    -> select "Hii Atharva, procedures are Easy than functions"as Output;
+    -> /
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call LearnProcedure/
++-------------------------------------------------+
+| Output                                          |
++-------------------------------------------------+
+| Hii Atharva, procedures are Easy than functions |
++-------------------------------------------------+
+1 row in set (0.00 sec)
+
+--------------------------------------------
+
+mysql> create procedure DisplayStudent()
+    -> select * from Student;
+    -> /
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call DisplayStudent/
++------+----------+
+| id   | name     |
++------+----------+
+|    1 | Atharva  |
+|    2 | Sanket   |
+|    3 | Prashant |
+|    4 | Shruti   |
+|    5 | Aditi    |
++------+----------+
+5 rows in set (0.00 sec)
+
 
 -----------------------------------
+
+mysql> create procedure DisplayStudentParam(a int)
+    -> select * from student where id=a;
+    -> /
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call DisplaySTudentParam(5)/
+
++------+-------+
+| id   | name  |
++------+-------+
+|    5 | Aditi |
++------+-------+
+1 row in set (0.00 sec)
+-----------------------------------
+
+mysql> call DisplaySTudentParam(6)/
+Empty set (0.00 sec)
+
+
+mysql> create procedure DisplayStudentParamAdvance(a int)
+    -> if(select exists(select * from student where id=a))
+    -> then
+    -> select * from student where id=a;
+    -> else
+    -> select "Record not found";
+    -> end if;
+    -> /
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call DisplayStudentParamAdvance(5)/
++------+-------+
+| id   | name  |
++------+-------+
+|    5 | Aditi |
++------+-------+
+1 row in set (0.00 sec)
+
+
+mysql> call DisplayStudentParamAdvance(6)/
++------------------+
+| Record not found |
++------------------+
+| Record not found |
++------------------+
+1 row in set (0.00 sec)
+
+-----------------------------------
+
+mysql> create procedure Addition()
+    -> begin
+    -> declare
+    -> a,b,c int;
+    -> set a=100;
+    -> set b=200;
+    -> set c=a+b;
+    -> select c;
+    -> end;
+    -> /
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call Addition/
++------+
+| c    |
++------+
+|  300 |
++------+
+1 row in set (0.00 sec)
+
+-----------------------------------
+
+mysql> create procedure AdditionParam(a int, b int)
+    -> begin
+    -> declare
+    -> c int;
+    -> set c=a+b;
+    -> select c;
+    -> end;
+    -> /
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call AdditionParam(10,20)/
++------+
+| c    |
++------+
+|   30 |
++------+
+1 row in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------------
 
 LOOPS in PlSQL -
 
