@@ -1,0 +1,209 @@
+Assignemnt 8 - Employee - Department 1-1 Relation
+
+Q. create table employee having attributes (eid,name and salary). 
+   create table department having attributes (did,dname and city) 
+   both are related with one to one relationship. 
+
+
+Employee Table - 
+
+mysql> select * from employeea8;
++-----+----------------+--------+
+| eid | name           | salary |
++-----+----------------+--------+
+|   1 | Amit Sharma    |  60000 |
+|   2 | Neha Patil     |  45000 |
+|   3 | Rajesh Verma   |  52000 |
+|   4 | Sneha Kulkarni |  75000 |
+|   5 | Vikas Singh    |  30000 |
+|   6 | Priya Deshmukh |  80000 |
+|   7 | Karan Mehta    |  40000 |
+|   8 | Anjali Joshi   |  95000 |
+|   9 | Rohit Gupta    |  55000 |
+|  10 | Meena Iyer     |  65000 |
+|  11 | Deepak Nair    |  70000 |
+|  12 | Pooja Rane     |  32000 |
+|  13 | Sanjay More    |  47000 |
+|  14 | Ritika Shah    |  90000 |
+|  15 | Alok Tiwari    |  25000 |
+|  16 | Divya Gokhale  |  72000 |
+|  17 | Mohit Bansal   |  38000 |
+|  18 | Smita Chavan   |  58000 |
+|  19 | Harshad Pawar  |  81000 |
+|  20 | Krishna Nanda  |  54000 |
++-----+----------------+--------+
+20 rows in set (0.00 sec)
+
+
+Department Table -
+
+
+mysql> select * from departmenta8;
++-----+--------------------+-----------+
+| did | dname              | city      |
++-----+--------------------+-----------+
+|   1 | IT Department      | Pune      |
+|   2 | Accounts           | Mumbai    |
+|   3 | Admin              | Pune      |
+|   4 | Analytics          | Delhi     |
+|   5 | Architecture       | Pune      |
+|   6 | Human Resource     | Banglore  |
+|   7 | Legal              | Hyderabad |
+|   8 | Operations         | Chennai   |
+|   9 | Marketing          | Pune      |
+|  10 | Finance            | Kolkata   |
+|  11 | Resarch            | Delhi     |
+|  12 | AI Lab             | Pune      |
+|  13 | Cyber Security     | Banglore  |
+|  14 | Testing            | Chennai   |
+|  15 | Support            | Pune      |
+|  16 | Quality Assuarance | Hyderabad |
+|  17 | Sales              | Delhi     |
+|  18 | Audit              | Mumbai    |
+|  19 | Training           | Pune      |
+|  20 | Data Science       | Pune      |
++-----+--------------------+-----------+
+20 rows in set (0.00 sec)
+
+
+---------------------------------------------------------------------------
+
+Q.1. Display details of those employee who belong to 'pune'.
+
+
+mysql> select * from employeea8,departmenta8 where employeea8.eid=departmenta8.did and city='Pune';
++-----+---------------+--------+-----+---------------+------+
+| eid | name          | salary | did | dname         | city |
++-----+---------------+--------+-----+---------------+------+
+|   1 | Amit Sharma   |  60000 |   1 | IT Department | Pune |
+|   3 | Rajesh Verma  |  52000 |   3 | Admin         | Pune |
+|   5 | Vikas Singh   |  30000 |   5 | Architecture  | Pune |
+|   9 | Rohit Gupta   |  55000 |   9 | Marketing     | Pune |
+|  12 | Pooja Rane    |  32000 |  12 | AI Lab        | Pune |
+|  15 | Alok Tiwari   |  25000 |  15 | Support       | Pune |
+|  19 | Harshad Pawar |  81000 |  19 | Training      | Pune |
+|  20 | Krishna Nanda |  54000 |  20 | Data Science  | Pune |
++-----+---------------+--------+-----+---------------+------+
+8 rows in set (0.00 sec)
+
+
+
+---------------------------------------------------------------------------
+
+
+Q.2. Display names of those employees whose department name starts with 'A'
+
+
+mysql> select eid, name,dname from employeeA8,departmentA8 where employeeA8.eid=departmentA8.did and dname like 'A%';
++-----+----------------+--------------+
+| eid | name           | dname        |
++-----+----------------+--------------+
+|   2 | Neha Patil     | Accounts     |
+|   3 | Rajesh Verma   | Admin        |
+|   4 | Sneha Kulkarni | Analytics    |
+|   5 | Vikas Singh    | Architecture |
+|  12 | Pooja Rane     | AI Lab       |
+|  18 | Smita Chavan   | Audit        |
++-----+----------------+--------------+
+6 rows in set (0.00 sec)
+
+
+
+---------------------------------------------------------------------------
+
+
+Q.3. Display department wise employees
+
+
+mysql> select * from employeeA8,departmentA8 where employeeA8.eid=departmentA8.did order by dname;
++-----+----------------+--------+-----+--------------------+-----------+
+| eid | name           | salary | did | dname              | city      |
++-----+----------------+--------+-----+--------------------+-----------+
+|   2 | Neha Patil     |  45000 |   2 | Accounts           | Mumbai    |
+|   3 | Rajesh Verma   |  52000 |   3 | Admin              | Pune      |
+|  12 | Pooja Rane     |  32000 |  12 | AI Lab             | Pune      |
+|   4 | Sneha Kulkarni |  75000 |   4 | Analytics          | Delhi     |
+|   5 | Vikas Singh    |  30000 |   5 | Architecture       | Pune      |
+|  18 | Smita Chavan   |  58000 |  18 | Audit              | Mumbai    |
+|  13 | Sanjay More    |  47000 |  13 | Cyber Security     | Banglore  |
+|  20 | Krishna Nanda  |  54000 |  20 | Data Science       | Pune      |
+|  10 | Meena Iyer     |  65000 |  10 | Finance            | Kolkata   |
+|   6 | Priya Deshmukh |  80000 |   6 | Human Resource     | Banglore  |
+|   1 | Amit Sharma    |  60000 |   1 | IT Department      | Pune      |
+|   7 | Karan Mehta    |  40000 |   7 | Legal              | Hyderabad |
+|   9 | Rohit Gupta    |  55000 |   9 | Marketing          | Pune      |
+|   8 | Anjali Joshi   |  95000 |   8 | Operations         | Chennai   |
+|  16 | Divya Gokhale  |  72000 |  16 | Quality Assuarance | Hyderabad |
+|  11 | Deepak Nair    |  70000 |  11 | Resarch            | Delhi     |
+|  17 | Mohit Bansal   |  38000 |  17 | Sales              | Delhi     |
+|  15 | Alok Tiwari    |  25000 |  15 | Support            | Pune      |
+|  14 | Ritika Shah    |  90000 |  14 | Testing            | Chennai   |
+|  19 | Harshad Pawar  |  81000 |  19 | Training           | Pune      |
++-----+----------------+--------+-----+--------------------+-----------+
+20 rows in set (0.00 sec)
+
+
+
+---------------------------------------------------------------------------
+
+
+
+Q.4. Display names of those employee having salary >50000
+
+
+mysql> select * from employeeA8,departmentA8 where employeeA8.eid=departmentA8.did and salary>50000;
++-----+----------------+--------+-----+--------------------+-----------+
+| eid | name           | salary | did | dname              | city      |
++-----+----------------+--------+-----+--------------------+-----------+
+|   1 | Amit Sharma    |  60000 |   1 | IT Department      | Pune      |
+|   3 | Rajesh Verma   |  52000 |   3 | Admin              | Pune      |
+|   4 | Sneha Kulkarni |  75000 |   4 | Analytics          | Delhi     |
+|   6 | Priya Deshmukh |  80000 |   6 | Human Resource     | Banglore  |
+|   8 | Anjali Joshi   |  95000 |   8 | Operations         | Chennai   |
+|   9 | Rohit Gupta    |  55000 |   9 | Marketing          | Pune      |
+|  10 | Meena Iyer     |  65000 |  10 | Finance            | Kolkata   |
+|  11 | Deepak Nair    |  70000 |  11 | Resarch            | Delhi     |
+|  14 | Ritika Shah    |  90000 |  14 | Testing            | Chennai   |
+|  16 | Divya Gokhale  |  72000 |  16 | Quality Assuarance | Hyderabad |
+|  18 | Smita Chavan   |  58000 |  18 | Audit              | Mumbai    |
+|  19 | Harshad Pawar  |  81000 |  19 | Training           | Pune      |
+|  20 | Krishna Nanda  |  54000 |  20 | Data Science       | Pune      |
++-----+----------------+--------+-----+--------------------+-----------+
+13 rows in set (0.00 sec)
+
+
+
+---------------------------------------------------------------------------
+
+
+
+Q.5. Count total employees from 'IT department'
+
+
+mysql> select count(dname)as IT_Dept_Emp_Count from employeeA8,departmentA8 where employeeA8.eid=departmentA8.did group by dname having dname='IT Department';
++-------------------+
+| IT_Dept_Emp_Count |
++-------------------+
+|                 1 |
++-------------------+
+1 row in set (0.00 sec)
+
+
+---------------------------------------------------------------------------
+
+Q.6. Display records of first 5 employees.
+
+
+mysql> select * from employeeA8,departmentA8 where employeeA8.eid=departmentA8.did limit 5;
++-----+----------------+--------+-----+---------------+--------+
+| eid | name           | salary | did | dname         | city   |
++-----+----------------+--------+-----+---------------+--------+
+|   1 | Amit Sharma    |  60000 |   1 | IT Department | Pune   |
+|   2 | Neha Patil     |  45000 |   2 | Accounts      | Mumbai |
+|   3 | Rajesh Verma   |  52000 |   3 | Admin         | Pune   |
+|   4 | Sneha Kulkarni |  75000 |   4 | Analytics     | Delhi  |
+|   5 | Vikas Singh    |  30000 |   5 | Architecture  | Pune   |
++-----+----------------+--------+-----+---------------+--------+
+5 rows in set (0.00 sec)
+
+
