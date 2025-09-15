@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order System</title>
+    <link rel="stylesheet" href="./CSS/foodOrderSystem.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="./Images/logo.png" alt="Logo" class="logo">
+        <div class="navMenu">
+            <p><a href="./index.html">Home</a></p>
+            <p><a href="./Pages/Restaurant.html">Menu</a></p>
+            <p><a href="./Pages/Contact.html">Contact Us</a></p>
+            <div class="searchBar">
+                <form>
+                    <input type="text" id="search" placeholder="Search....">
+                </form>
+                <img src="./Images/searchIcon.png" class="searchIcon">
+            </div>
+            <div class="login">
+                <img onclick="login()" src="./Images/LoginImg.png" class="LoginImg">
+                <p onclick="login()">Login</p>
+            </div>
+            <div class="cart">
+                <img src="./Images/cart.png" alt="ca" class="cartImg">
+            </div>
+        </div>
+    </div>
+    <div class="homeBg">
+        <img src="./Images/HomeBackground.jpg" class="homeBg">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form>
+                <input type="text" placeholder="Username" required class="inp"/>
+                <input type="password" placeholder="Password" required class="inp"/>
+                <button type="submit" class="loginBtn">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="first"></div>
+        <div class="second"></div>
+        <div class="third">
+            <img src="./Images/footerDish.jpg" class="footerDish">
+            <div class="side">
+                <h1>Hello</h1>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

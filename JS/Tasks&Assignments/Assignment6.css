@@ -1,0 +1,51 @@
+#body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #r {
+            height: 35px;
+            width: 80px;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: large;
+            background-color: red;
+        }
+
+        #g {
+            height: 35px;
+            width: 80px;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: large;
+            background-color: greenyellow;
+        }
+
+        #b {
+            height: 35px;
+            width: 80px;
+            padding: 5px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: large;
+            background-color: blue;
+        }
+        .btns{
+            background-color: burlywood;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 30%;
+            flex-wrap: wrap;
+            border:2px solid black;
+            border-radius:8px;
+            gap:10px;
+            padding:40px 20px;
+        }
+        p{
+            text-align: center;
+            font-size: xx-large;
+        }
